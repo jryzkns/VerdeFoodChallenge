@@ -16,9 +16,10 @@ public class CO2e {
     // TODO: take in userinput.export(), write into userCurrentDiet
   }
 
-  private Double calculate(){
+  private void calculate(){
     // TODO: improvise Algorithm
-    // current idea: cycle through the user table
+    // current idea: cycle through userCurrentDiet for entries and dot with
+    // matching entries in foodTable
   }
 
   //default getter
