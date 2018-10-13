@@ -21,6 +21,7 @@ public class CO2e {
     // current idea: cycle through the user table
   }
 
+  //default getter
   public Double getUserCO2e(){
     return userCO2e;
   }
