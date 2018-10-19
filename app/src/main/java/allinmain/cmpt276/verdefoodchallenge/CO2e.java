@@ -59,6 +59,8 @@ public class CO2e {
 
     HashMap<String,Double> suggestion = new HashMap<>();
 
+    //does adding this new branch work?
+
     switch (policy){
       case "": // different suggestions depending on the policy
     }
