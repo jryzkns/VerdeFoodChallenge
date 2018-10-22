@@ -1,7 +1,14 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 
 public class CO2e {
 
@@ -14,6 +21,12 @@ public class CO2e {
   // number taken from:
   // https://en.wikipedia.org/wiki/Metro_Vancouver_Regional_District#Demographics
   private static final int metroVanPopln = 2463431;
+
+  private Random picker; // for helping with picking food choices randomly
+
+  private HashSet meats;
+  private HashSet altProtein;
+  private HashSet vegetables;
 
   CO2e(HashMap<String,Double> userData){
 
@@ -46,6 +59,13 @@ public class CO2e {
 
     //set to NaN so we have a sentinel value for catching errors/exceptions
     userCO2e = Double.NaN;
+
+    picker = new Random();
+    meats = new HashSet<>(Arrays.asList(  "LAMB", "BEEF", "PORK", "FARMED SALMON",
+                                          "TURKEY", "CHICKEN", "CANNED TUNA"));
+    altProtein = new HashSet<>(Arrays.asList( "NUTS","DRIED BEANS","LENTILS",
+                                              "TOFU","PEANUT BUTTER"));
+    vegetables = new HashSet<>(Arrays.asList("BROCCOLI","TOMATO"));
 
   }
 
@@ -90,10 +110,132 @@ public class CO2e {
 
     switch (policy.toUpperCase()){
       case "CARNIVORE":
+
+        // general idea is to just eat less of all the meats and have more chicken instead
+        // KFC for life
+
+        for(Map.Entry<String,Double> food_item : userCurrentDiet.entrySet()){
+          String item_name = food_item.getKey();
+          Double currentConsumeValue = food_item.getValue();
+
+            if ( item_name != "CHICKEN" && meats.contains(item_name) ){
+
+              if (!suggestion.containsKey(item_name)){
+                suggestion.put(item_name,-currentConsumeValue*0.3);
+              }
+
+              if (!suggestion.containsKey("CHICKEN")) {
+                suggestion.put("CHICKEN",currentConsumeValue*0.3);
+              } else {
+                suggestion.put("CHICKEN",suggestion.get("CHICKEN")+currentConsumeValue*0.3);
+              }
+
+            }
+
+        }
+
       case "LESSMEAT":
+
+        //if it's meat, let's switch some of it to beans and tofu
+
+        for(Map.Entry<String,Double> food_item : userCurrentDiet.entrySet()){
+          String item_name = food_item.getKey();
+          Double currentConsumeValue = food_item.getValue();
+
+          if (meats.contains(item_name)){
+
+            Iterator<String> altProts= altProtein.iterator();
+            for (int i = 0; i < picker.nextInt(altProtein.size()) - 1; i++){
+              altProts.next();
+            }
+
+            String chosenAltProt = altProts.next();
+
+            if (!suggestion.containsKey(item_name)) {
+              suggestion.put(item_name, -currentConsumeValue * 0.3);
+            }
+
+            if (!suggestion.containsKey(chosenAltProt)) {
+              suggestion.put(chosenAltProt,currentConsumeValue*0.3);
+            } else {
+              suggestion.put(chosenAltProt,suggestion.get(chosenAltProt)+currentConsumeValue*0.3);
+            }
+
+          }
+
+        }
+
       case "VEGETARIAN":
+
+        // LESSMEAT policy but more severe and encourages eggs
+
+        for(Map.Entry<String,Double> food_item : userCurrentDiet.entrySet()){
+          String item_name = food_item.getKey();
+          Double currentConsumeValue = food_item.getValue();
+
+          if (meats.contains(item_name)){
+
+            HashSet<String> altsWithEggs = altProtein;
+            altsWithEggs.add("EGGS");
+            Iterator<String> altProts= altsWithEggs.iterator();
+            for (int i = 0; i < picker.nextInt(altProtein.size()+1) - 1; i++){
+              altProts.next();
+            }
+
+            String chosenAltProt = altProts.next();
+
+            if (!suggestion.containsKey(item_name)) {
+              suggestion.put(item_name, -currentConsumeValue);
+            }
+
+            if (!suggestion.containsKey(chosenAltProt)) {
+              suggestion.put(chosenAltProt,currentConsumeValue*0.7);
+            } else {
+              suggestion.put(chosenAltProt,suggestion.get(chosenAltProt)+currentConsumeValue*0.3);
+            }
+
+          }
+
+        }
+
       case "VEGAN":
-      //other ideas
+
+        // policy "VEGETARIAN" but with no eggs
+
+        for(Map.Entry<String,Double> food_item : userCurrentDiet.entrySet()){
+          String item_name = food_item.getKey();
+          Double currentConsumeValue = food_item.getValue();
+
+          if (meats.contains(item_name)){
+
+            Iterator<String> altProts= altProtein.iterator();
+            for (int i = 0; i < picker.nextInt(altProtein.size()) - 1; i++){
+              altProts.next();
+            }
+
+            String chosenAltProt = altProts.next();
+
+            if (!suggestion.containsKey(item_name)) {
+              suggestion.put(item_name, -currentConsumeValue);
+            }
+
+            if (!suggestion.containsKey(chosenAltProt)) {
+              suggestion.put(chosenAltProt,currentConsumeValue);
+            } else {
+              suggestion.put(chosenAltProt,suggestion.get(chosenAltProt)+currentConsumeValue*0.3);
+            }
+
+          } else if (item_name == "EGGS"){
+
+            if (!suggestion.containsKey("EGGS")) {
+              suggestion.put("EEGS", -currentConsumeValue);
+            }
+
+          }
+
+        }
+
+      //other ideas?
     }
 
     return suggestion;
