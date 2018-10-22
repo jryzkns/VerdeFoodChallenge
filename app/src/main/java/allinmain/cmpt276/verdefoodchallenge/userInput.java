@@ -9,7 +9,7 @@ public class userInput {
   userInput(){
     //what would go here? hmmmmm
   }
-
+    //test
   public void getInputs(){
     /*
     TODO: write a function that would fill the userDietTable
