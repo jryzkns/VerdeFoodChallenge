@@ -38,4 +38,15 @@ public class CO2eTest {
     assertEquals(0.9,run.getUserCO2e(),0);
   }
 
+  @Test
+  public void suggestionAlgorithmWorksWithEmptyInputs(){
+
+    HashMap<String,Double> user_values = new HashMap<>();
+
+    CO2e runSuggestionWithEmptyInputs = new CO2e(user_values);
+
+    HashMap<String,Double> doesthiswork = runSuggestionWithEmptyInputs.makeDietChangeTable("VEGAN");
+
+  }
+
 }
