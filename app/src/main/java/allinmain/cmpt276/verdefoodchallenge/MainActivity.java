@@ -40,7 +40,7 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
             @Override
             public void onClick(View view) {
                 MainActivity.this.startActivity(new Intent(MainActivity.this,GreenFoodActivity.class));
-                MainActivity. this.finish();
+                MainActivity.this.finish();
             }
         });
     }

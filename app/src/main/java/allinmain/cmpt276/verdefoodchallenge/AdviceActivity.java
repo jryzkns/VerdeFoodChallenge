@@ -25,7 +25,7 @@ public class AdviceActivity extends Activity implements View.OnClickListener{
         calinfo=(TextView)this.findViewById(R.id.calinfo);
         back.setOnClickListener(this);
         recal.setOnClickListener(this);
-        calinfo.setText(dc.getDietInfo());
+        calinfo.setText(dc.getSuggestionInfo());
 
     }
 

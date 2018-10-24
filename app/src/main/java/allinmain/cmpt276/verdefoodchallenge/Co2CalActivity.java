@@ -23,7 +23,6 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
         back=(Button)this.findViewById(R.id.back);
         recal=(Button)this.findViewById(R.id.recal);
         calinfo=(TextView)this.findViewById(R.id.calinfo);
-
         back.setOnClickListener(this);
         recal.setOnClickListener(this);
         calinfo.setText(dc.getDietInfo());
