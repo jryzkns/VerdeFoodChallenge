@@ -55,7 +55,6 @@ public class FoodActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.set:
               Float kg=Float.parseFloat( ipt.getText().toString());
-              Log.d("running msg",Float.toString(kg));
               dc.addDietItem(foodid,kg);
                 break;
         }
