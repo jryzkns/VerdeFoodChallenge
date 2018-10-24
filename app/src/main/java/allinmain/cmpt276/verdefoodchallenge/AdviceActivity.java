@@ -12,7 +12,7 @@ public class AdviceActivity extends Activity implements View.OnClickListener{
     private Button back,recal;
     private TextView calinfo;
     private DataCenter dc=DataCenter.getInstance();
-    private String PolicType;
+    private String PolicyType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +27,10 @@ public class AdviceActivity extends Activity implements View.OnClickListener{
         calinfo=(TextView)this.findViewById(R.id.calinfo);
         back.setOnClickListener(this);
         recal.setOnClickListener(this);
-        calinfo.setText(dc.getSuggestionInfo());
-        calinfo.setText(dc.getDietInfo());
         Intent intent= this.getIntent();
-        PolicType=intent.getStringExtra("Strategy");
+        PolicyType=intent.getStringExtra("Strategy");
+
+        calinfo.setText(dc.getSuggestionInfo(PolicyType));
 
     }
 
