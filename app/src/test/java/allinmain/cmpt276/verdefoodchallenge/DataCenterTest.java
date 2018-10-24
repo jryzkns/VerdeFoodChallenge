@@ -38,7 +38,7 @@ public class DataCenterTest {
 
     @Test
     public void getDietItem() {
-        assertEquals(-1f,testing.getDietItem(0));
+        assertNotEquals(0f,testing.getDietItem(0));
     }
 
 
