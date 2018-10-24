@@ -144,20 +144,39 @@ public class DataCenter {
     }
 
 
-    public String getSuggestionInfo(){
+    public String getSuggestionInfo(String Policy){
 
-        suggestion = makeDietChangeTable("VEGAN");
+        suggestion = makeDietChangeTable(Policy);
         String result = "";
 
         if (suggestion.isEmpty()){
             result += "We currently don't have any suggestions for you right now, check back another time!";
         }else {
 
+            result += "You have chosen the ";
+            result += Policy;
+            result += " strategy\n";
             result += "Here is a suggestion, try making this change to your diet:\n\n";
 
             //potentially getting rid of this in the end product
             for (Entry<Integer, Float> item : suggestion.entrySet()) {
-                result += mFoodLst.get(item.getKey()).getName() + " :" + item.getValue() + " kg/wk\n";
+
+                if (item.getValue() > 0){
+                    result += "Have more ";
+                } else {
+                    result += "Have less ";
+                }
+
+                result += mFoodLst.get(item.getKey()).getName();
+
+                result += " by ";
+
+                result += Math.abs(item.getValue());
+
+                result += " kg/wk\n";
+
+
+
             }
 
             result += "\n\nWith this change in diet, you could be saving ";
