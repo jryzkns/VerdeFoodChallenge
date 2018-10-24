@@ -45,6 +45,7 @@ public class DataCenter {
         dietInfo=new  HashMap<>();
         suggestion=new HashMap<>();
 
+        //DO NOT SWAP THESE ROWS!
         mFoodLst.add(new Food("Beef",R.mipmap.beef,27f,""));
         mFoodLst.add(new Food("Lentils",R.mipmap.biandou,0.9f,""));
         mFoodLst.add(new Food("Cheese",R.mipmap.cheese,13.5f,""));
@@ -67,11 +68,9 @@ public class DataCenter {
         mFoodLst.add(new Food("Broccoli",R.mipmap.xilanhua,2f,""));
 
         picker = new Random();
-        meats = new HashSet<>(Arrays.asList(  "LAMB", "BEEF", "PORK", "FARMED SALMON",
-                "TURKEY", "CHICKEN", "CANNED TUNA"));
-        altProtein = new HashSet<>(Arrays.asList( "NUTS","DRIED BEANS","LENTILS",
-                "TOFU","PEANUT BUTTER"));
-        vegetables = new HashSet<>(Arrays.asList("BROCCOLI","TOMATO"));
+        meats = new HashSet<>(Arrays.asList(0,3,9,10,13,16));
+        altProtein = new HashSet<>(Arrays.asList(12,7,1,4,8));
+        vegetables = new HashSet<>(Arrays.asList(18,19));
 
     }
 
@@ -131,15 +130,15 @@ public class DataCenter {
     {
         String result="";
 
-//        potentially getting rid of this in the end product
+        //potentially getting rid of this in the end product
         for(Entry<Integer,Float> item:dietInfo.entrySet())
         {
-            result+=mFoodLst.get(item.getKey()).getName()+":"+item.getValue()+" kg/wk\n";
+            result+=mFoodLst.get(item.getKey()).getName()+" :"+item.getValue()+" kg/wk\n";
         }
 
-        result+="With your current diet, you will generate around ";
-        result+=(int)calDietCo2()*52;
-        result+="kg of CO2e in a year";
+        result+="With your current diet, you could be generating ";
+        result+=(calDietCo2()*52)/1000;
+        result+=" tonne of CO2e in a year, perhaps you can do better!";
 
         return result;
     }
@@ -147,20 +146,33 @@ public class DataCenter {
 
     public String getSuggestionInfo(){
 
-        String result="";
+        suggestion = makeDietChangeTable("VEGAN");
+        String result = "";
 
-//        potentially getting rid of this in the end product
-        for(Entry<Integer,Float> item:suggestion.entrySet())
-        {
-            result+=mFoodLst.get(item.getKey()).getName()+":"+item.getValue()+" kg/wk\n";
+        if (suggestion.isEmpty()){
+            result += "We currently don't have any suggestions for you right now, check back another time!";
+        }else {
+
+            result += "Here is a suggestion, try making this change to your diet:\n\n";
+
+            //potentially getting rid of this in the end product
+            for (Entry<Integer, Float> item : suggestion.entrySet()) {
+                result += mFoodLst.get(item.getKey()).getName() + " :" + item.getValue() + " kg/wk\n";
+            }
+
+            result += "\n\nWith this change in diet, you could be saving ";
+            result += -1 * ( calSuggestCo2() / 1000 * 52);
+            result += " tonnes of CO2e in a year, that's like ";
+            result += -1 * ( calSuggestCo2() / 1000 * 52 / 6);
+            result += " elephants!\n\n";
+
+            if(calculateMetroVanSavings() > 0) {
+
+                result += "The Metro Vancouver area can collectively save ";
+                result += -1 * (calculateMetroVanSavings() * 52 / 1000);
+                result += " tonne of CO2e in a year if everyone took this same change in diet!";
+            }
         }
-
-        result+="With a change in diet, you could be saving ";
-        result+=(int)calSuggestCo2()*52;
-        result+="kg of CO2e in a year\n\n";
-        result+="The Metro Vancouver area can collectively save ";
-        result+=(int)calculateMetroVanSavings();
-        result+="kg of CO2e in a year if everyone took this change in diet!";
         return result;
     }
 
@@ -174,132 +186,129 @@ public class DataCenter {
 
                 // general idea is to just eat less of all the meats and have more chicken instead
                 // KFC for life
-//
+
                 for(Map.Entry<Integer,Float> food_item : dietInfo.entrySet()){
 
                     Integer item_id = food_item.getKey();
                     Float currentConsumeValue = food_item.getValue();
 
-//                    current use: mFoodLst.get(item.getKey()).getCo2()
-//
-//                    if ( item_name != "CHICKEN" && meats.contains(item_name) ){
-//
-//                        if (!suggestion.containsKey(item_name)){
-//                            suggestion.put(item_name,-currentConsumeValue*0.3);
-//                        }
-//
-//                        if (!suggestion.containsKey("CHICKEN")) {
-//                            suggestion.put("CHICKEN",currentConsumeValue*0.3);
-//                        } else {
-//                            suggestion.put("CHICKEN",suggestion.get("CHICKEN")+currentConsumeValue*0.3);
-//                        }
-//
-//                    }
-//
+                    if (item_id != 3 && meats.contains(item_id)){
+                        if (!suggestion.containsKey(item_id)){
+                            suggestion.put(item_id, (float) (-currentConsumeValue*0.3));
+                        }
+
+                        if (!suggestion.containsKey(3)){
+                            suggestion.put(3, (float) (currentConsumeValue*0.3));
+                        } else {
+                            suggestion.put(3, (float) (suggestion.get(3)+currentConsumeValue*0.3));
+                        }
+                    }
                 }
 
             case "LESSMEAT":
 
                 //if it's meat, let's switch some of it to beans and tofu
-//
-//                for(Map.Entry<Integer,Float> food_item : dietInfo.entrySet()){
-//                    String item_name = food_item.getKey();
-//                    Double currentConsumeValue = food_item.getValue();
-//
-//                    if (meats.contains(item_name)){
-//
-//                        Iterator<String> altProts= altProtein.iterator();
-//                        for (int i = 0; i < picker.nextInt(altProtein.size()) - 1; i++){
-//                            altProts.next();
-//                        }
-//
-//                        String chosenAltProt = altProts.next();
-//
-//                        if (!suggestion.containsKey(item_name)) {
-//                            suggestion.put(item_name, -currentConsumeValue * 0.3);
-//                        }
-//
-//                        if (!suggestion.containsKey(chosenAltProt)) {
-//                            suggestion.put(chosenAltProt,currentConsumeValue*0.3);
-//                        } else {
-//                            suggestion.put(chosenAltProt,suggestion.get(chosenAltProt)+currentConsumeValue*0.3);
-//                        }
-//
-//                    }
-//
-//                }
+
+                for(Map.Entry<Integer,Float> food_item : dietInfo.entrySet()) {
+
+                    Integer item_id = food_item.getKey();
+                    Float currentConsumeValue = food_item.getValue();
+
+                    if (meats.contains(item_id)){
+                        Iterator<Integer> altProts = altProtein.iterator();
+
+                        for (int i = 0; i < picker.nextInt(altProtein.size()) - 1; i++){
+                            altProts.next();
+                        }
+
+                        int chosenAltProt = altProts.next();
+
+                        if (!suggestion.containsKey(item_id)){
+                            suggestion.put(item_id, (float) (-currentConsumeValue*0.3));
+                        }
+
+                        if (!suggestion.containsKey(chosenAltProt)) {
+                            suggestion.put(chosenAltProt, (float) (currentConsumeValue*0.3));
+                        } else {
+                            suggestion.put(chosenAltProt, (float) (suggestion.get(chosenAltProt)+currentConsumeValue*0.3));
+                        }
+
+                    }
+                }
 
             case "VEGETARIAN":
-//
-//                // LESSMEAT policy but more severe and encourages eggs
-//
-//                for(Map.Entry<Integer,Float> food_item : dietInfo.entrySet()){
-//                    String item_name = food_item.getKey();
-//                    Double currentConsumeValue = food_item.getValue();
-//
-//                    if (meats.contains(item_name)){
-//
-//                        HashSet<String> altsWithEggs = altProtein;
-//                        altsWithEggs.add("EGGS");
-//                        Iterator<String> altProts= altsWithEggs.iterator();
-//                        for (int i = 0; i < picker.nextInt(altProtein.size()+1) - 1; i++){
-//                            altProts.next();
-//                        }
-//
-//                        String chosenAltProt = altProts.next();
-//
-//                        if (!suggestion.containsKey(item_name)) {
-//                            suggestion.put(item_name, -currentConsumeValue);
-//                        }
-//
-//                        if (!suggestion.containsKey(chosenAltProt)) {
-//                            suggestion.put(chosenAltProt,currentConsumeValue*0.7);
-//                        } else {
-//                            suggestion.put(chosenAltProt,suggestion.get(chosenAltProt)+currentConsumeValue*0.3);
-//                        }
-//
-//                    }
-//
-//                }
+
+                // LESSMEAT policy but more severe and encourages eggs
+
+                for(Map.Entry<Integer,Float> food_item : dietInfo.entrySet()){
+                    Integer item_id = food_item.getKey();
+                    Float currentConsumeValue = food_item.getValue();
+
+                    if (meats.contains(item_id)){
+
+                        HashSet<Integer> altsWithEggs = altProtein;
+                        altsWithEggs.add(5);
+                        Iterator<Integer> altProts= altsWithEggs.iterator();
+                        for (int i = 0; i < picker.nextInt(altProtein.size()+1) - 1; i++){
+                            altProts.next();
+                        }
+
+                        Integer chosenAltProt = altProts.next();
+
+                        if (!suggestion.containsKey(item_id)) {
+                            suggestion.put(item_id, -currentConsumeValue);
+                        }
+
+                        if (!suggestion.containsKey(chosenAltProt)) {
+                            suggestion.put(chosenAltProt, (float) (currentConsumeValue*0.7));
+                        } else {
+                            suggestion.put(chosenAltProt, (float) (suggestion.get(chosenAltProt)+currentConsumeValue*0.3));
+                        }
+
+                    }
+
+                }
 
             case "VEGAN":
 
-//                // policy "VEGETARIAN" but with no eggs
-//
-//                for(Map.Entry<Integer,Float> food_item : dietInfo.entrySet()){
-//                    String item_name = food_item.getKey();
-//                    Double currentConsumeValue = food_item.getValue();
-//
-//                    if (meats.contains(item_name)){
-//
-//                        Iterator<String> altProts= altProtein.iterator();
-//                        for (int i = 0; i < picker.nextInt(altProtein.size()) - 1; i++){
-//                            altProts.next();
-//                        }
-//
-//                        String chosenAltProt = altProts.next();
-//
-//                        if (!suggestion.containsKey(item_name)) {
-//                            suggestion.put(item_name, -currentConsumeValue);
-//                        }
-//
-//                        if (!suggestion.containsKey(chosenAltProt)) {
-//                            suggestion.put(chosenAltProt,currentConsumeValue);
-//                        } else {
-//                            suggestion.put(chosenAltProt,suggestion.get(chosenAltProt)+currentConsumeValue*0.3);
-//                        }
-//
-//                    } else if (item_name == "EGGS"){
-//
-//                        if (!suggestion.containsKey("EGGS")) {
-//                            suggestion.put("EEGS", -currentConsumeValue);
-//                        }
-//
-//                    }
-//
-//                }
+                // policy "VEGETARIAN" but with no eggs
 
-                //other ideas?
+                for(Map.Entry<Integer,Float> food_item : dietInfo.entrySet()){
+                    Integer item_id = food_item.getKey();
+                    Float currentConsumeValue = food_item.getValue();
+
+                    if (meats.contains(item_id)){
+
+                        HashSet<Integer> altsWithEggs = altProtein;
+                        altsWithEggs.add(5);
+                        Iterator<Integer> altProts= altsWithEggs.iterator();
+                        for (int i = 0; i < picker.nextInt(altProtein.size()+1) - 1; i++){
+                            altProts.next();
+                        }
+
+                        Integer chosenAltProt = altProts.next();
+
+                        if (!suggestion.containsKey(item_id)) {
+                            suggestion.put(item_id, -currentConsumeValue);
+                        }
+
+                        if (!suggestion.containsKey(chosenAltProt)) {
+                            suggestion.put(chosenAltProt, (float) (currentConsumeValue*0.7));
+                        } else {
+                            suggestion.put(chosenAltProt, (float) (suggestion.get(chosenAltProt)+currentConsumeValue*0.3));
+                        }
+
+                    } else if (item_id == 5){
+
+                        if (!suggestion.containsKey(5)) {
+                            suggestion.put(5, -currentConsumeValue);
+                        }
+
+                    }
+
+                }
+
+            //other ideas?
         }
 
         return suggestion;
