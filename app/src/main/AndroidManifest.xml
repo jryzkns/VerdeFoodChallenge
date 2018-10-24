@@ -9,28 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.NoTitleBar">
-
-
-        <activity android:name=".MainActivity"
-
-            >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GreenFoodActivity"
+        <activity
+            android:name=".GreenFoodActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".FoodActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Co2CalActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".AdviceActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".ActivityAboutUs"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FoodActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Co2CalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdviceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityAboutUs"
+            android:screenOrientation="portrait" />
+        <activity android:name=".InputActivity" />
+        <activity android:name=".SuggestionType"></activity>
     </application>
 
 </manifest>

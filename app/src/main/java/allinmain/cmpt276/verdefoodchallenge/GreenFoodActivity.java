@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
 
 public class GreenFoodActivity extends Activity implements View.OnClickListener {
     private Button reset,suggest,result,about;
@@ -40,7 +41,7 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
         foodgrdv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id)
             {
-                Intent intent=new Intent(GreenFoodActivity.this,FoodActivity.class);
+                Intent intent=new Intent(GreenFoodActivity.this,InputActivity.class);
                 intent.putExtra("foodid",position);
                 GreenFoodActivity.this.startActivity(intent);
             }
@@ -54,9 +55,10 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
         {
             case R.id.reset:
                 dc.resetDiet();
+                Toast.makeText(getApplicationContext(), "all data has been cleared", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.suggest:
-                intent =new Intent(GreenFoodActivity.this,AdviceActivity.class);
+                intent =new Intent(GreenFoodActivity.this,SuggestionType.class);
                 GreenFoodActivity.this.startActivity(intent);
                 break;
             case R.id.result:
