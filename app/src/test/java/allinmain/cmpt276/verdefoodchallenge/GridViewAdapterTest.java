@@ -24,6 +24,8 @@ public class GridViewAdapterTest {
     public void getItem() {
         //number will return number of variable in return
         //assert several item <-- need check with teammate
+        for (int i = 0 ; i < testing.getCount(); i ++)
+            assertEquals(DC_testing.getFood(i),testing.getItem(i));
     }
 
     @Test
@@ -35,8 +37,4 @@ public class GridViewAdapterTest {
         }
     }
 
-    @Test
-    public void getView() {
-        //Will return the Icons
-    }
 }

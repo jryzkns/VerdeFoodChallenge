@@ -38,6 +38,8 @@ public class DataCenterTest {
 
     @Test
     public void getDietItem() {
+        //Since we didn't assume the adding Diet Item
+        //The default is non-0f answer.
         assertNotEquals(0f,testing.getDietItem(0));
     }
 

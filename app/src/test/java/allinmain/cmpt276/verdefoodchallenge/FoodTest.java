@@ -5,14 +5,18 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class FoodTest {
-    private String name="Jim";
+    /*
+    Set a Testing Food object
+    check each getting function return correctly
+    */
+    private String name="Test";
     private int resid=1;
     private float co2=3f;
     private String info="k";
     Food testing=new Food( name, resid, co2, info);
     @Test
     public void getName() {
-        assertEquals("Jim",testing.getName());
+        assertEquals("Test",testing.getName());
     }
 
     @Test
