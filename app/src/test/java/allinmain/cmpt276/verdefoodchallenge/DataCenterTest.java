@@ -2,11 +2,15 @@ package allinmain.cmpt276.verdefoodchallenge;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import static org.junit.Assert.*;
 
 public class DataCenterTest {
     private static DataCenter testing=DataCenter.getInstance();;
-
+    private ArrayList<Food> mFoodLst;
+    private HashMap<Integer,Float> dietInfo;
 
     @Test
     public void getInstance() {
@@ -33,19 +37,10 @@ public class DataCenterTest {
     }
 
     @Test
-    public void addDietItem() {
-       // int size = testing.getFoodsSize();
-        //testing.addDietItem();
-    }
-
-    @Test
     public void getDietItem() {
-        //assertNotNull(testing.getDietInfo());
+        assertEquals(-1f,testing.getDietItem(0));
     }
 
-    @Test
-    public void resetDiet() {
-    }
 
 
     @Test
