@@ -176,8 +176,11 @@ public class DataCenter {
                 // KFC for life
 //
                 for(Map.Entry<Integer,Float> food_item : dietInfo.entrySet()){
-//                    String item_name = food_item.getKey();
-//                    Float currentConsumeValue = food_item.getValue();
+
+                    Integer item_id = food_item.getKey();
+                    Float currentConsumeValue = food_item.getValue();
+
+//                    current use: mFoodLst.get(item.getKey()).getCo2()
 //
 //                    if ( item_name != "CHICKEN" && meats.contains(item_name) ){
 //
