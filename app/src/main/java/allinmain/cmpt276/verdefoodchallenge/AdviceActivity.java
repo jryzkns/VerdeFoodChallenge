@@ -1,7 +1,6 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,7 +11,6 @@ public class AdviceActivity extends Activity implements View.OnClickListener{
     private Button back,recal;
     private TextView calinfo;
     private DataCenter dc=DataCenter.getInstance();
-    private String PolicType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +25,7 @@ public class AdviceActivity extends Activity implements View.OnClickListener{
         calinfo=(TextView)this.findViewById(R.id.calinfo);
         back.setOnClickListener(this);
         recal.setOnClickListener(this);
-        calinfo.setText(dc.getDietInfo());
-        Intent intent= this.getIntent();
-        PolicType=intent.getStringExtra("Strategy");
+        calinfo.setText(dc.getSuggestionInfo());
 
     }
 
