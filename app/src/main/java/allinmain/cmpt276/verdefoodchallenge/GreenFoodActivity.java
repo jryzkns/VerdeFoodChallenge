@@ -1,9 +1,11 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -15,6 +17,7 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
     private GridView foodgrdv;
     private DataCenter dc;
     private GridViewAdapter mGridViewAdapter;
+    private SharedPreferences sp ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +27,20 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
     private void init()
     {
         dc=DataCenter.getInstance();
+
+
+        sp=getSharedPreferences("userData", Context.MODE_PRIVATE);;
+
+        for(int i=0;i<dc.getFoodsSize();i++)
+        {
+            if(sp.getFloat(dc.getFood(i).getName(),-1f)>0)
+            {
+                dc.addDietItem(i, sp.getFloat(dc.getFood(i).getName(),-1f));
+            }
+
+        }
+
+
 
         reset=(Button)this.findViewById(R.id.reset);
         suggest=(Button)this.findViewById(R.id.suggest);
@@ -56,6 +73,8 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
             case R.id.reset:
                 dc.resetDiet();
                 Toast.makeText(getApplicationContext(), "all data has been cleared", Toast.LENGTH_SHORT).show();
+                //remove saved data
+                sp.edit().clear().commit();
                 break;
             case R.id.suggest:
                 intent =new Intent(GreenFoodActivity.this,SuggestionType.class);
