@@ -50,6 +50,7 @@ public class InputActivity extends Activity {
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                dc.addDietItem(FoodStringIndex,seekBar.getProgress()/2);
             }
         });
 
@@ -146,27 +147,32 @@ public class InputActivity extends Activity {
            write code that pass user input [FoodNameString.get(FoodStringIndex),inputSeekBar.getProgress()/2]
            覆盖
          */
-        dc.addDietItem(FoodStringIndex,inputSeekBar.getProgress()/2);
 
         FoodStringIndex++;
         update();
     }
 
-    //button back
     public void back(View view) {
         InputActivity.this.finish();
+    }
 
-        /*if (FoodStringIndex == 0) {
+    public void privious(View view) {
+        //InputActivity.this.finish();
+
+        if (FoodStringIndex == 0) {
             //go to beginning activity
+            InputActivity.this.finish();
         } else {
             FoodStringIndex--;
             update();
-        }*/
+        }
     }
 
     public void random(View view){
         int r=ThreadLocalRandom.current().nextInt(0, 100);
         skBar.setProgress(r);
+        dc.addDietItem(FoodStringIndex,skBar.getProgress()/2);
+
     }
 
     public void result(View view){
@@ -184,6 +190,7 @@ public class InputActivity extends Activity {
             set hash<FoodNameString.get(i)> to zero
              */
         dc.resetDiet();
+        update();
     }
 
 }
