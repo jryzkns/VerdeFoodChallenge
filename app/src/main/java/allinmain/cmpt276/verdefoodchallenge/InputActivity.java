@@ -43,14 +43,15 @@ public class InputActivity extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 TextView sb_process = findViewById(R.id.skprocess);
-                sb_process.setText(""+0.5*seekBar.getProgress());
+                sb_process.setText(""+0.5*(float)seekBar.getProgress());
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                input(seekBar.getProgress()/2);
+                input((float)seekBar.getProgress()/2);
+                update();
             }
         });
 
@@ -88,7 +89,7 @@ public class InputActivity extends Activity {
         foodName.setText(dc.getFood(FoodStringIndex).getName());
         MuBar = findViewById(R.id.menu);
         MuBar.setProgress(FoodStringIndex);
-        inputSeekBar.setProgress(2*(int)dc.getDietItem(FoodStringIndex));//set to 2*hash<FoodNameString.get(FoodStringIndex)>
+        inputSeekBar.setProgress((int)(dc.getDietItem(FoodStringIndex)*2));//set to 2*hash<FoodNameString.get(FoodStringIndex)>
     }
 
     //run when the first time hits button "next"
@@ -171,7 +172,7 @@ public class InputActivity extends Activity {
     public void random(View view){
         int r=ThreadLocalRandom.current().nextInt(0, 100);
         skBar.setProgress(r);
-        input(skBar.getProgress()/2);
+        input((float)skBar.getProgress()/2);
 
     }
 
