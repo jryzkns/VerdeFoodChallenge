@@ -1,8 +1,10 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +26,7 @@ public class InputActivity extends Activity {
     private SeekBar skBar;
     private SeekBar MuBar;
 
-        private DataCenter dc=DataCenter.getInstance();
+    private DataCenter dc=DataCenter.getInstance();
 
 
     @Override
@@ -36,6 +38,12 @@ public class InputActivity extends Activity {
         Intent intent= this.getIntent();
 
         FoodStringIndex=intent.getIntExtra("foodid",-1);;
+
+        SharedPreferences sp=getSharedPreferences("userData", Context.MODE_PRIVATE);;
+        if(sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f)>0)
+        {
+            dc.addDietItem(FoodStringIndex, sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f));
+        }
         //start();
         skBar = findViewById(R.id.input_value);
         MuBar = findViewById(R.id.menu);
@@ -81,12 +89,13 @@ public class InputActivity extends Activity {
             InputActivity.this.finish();
             return;
         }
+
         TextView foodName = findViewById(R.id.foodName);
         ImageView foodImg = findViewById(R.id.foodImg);
         SeekBar inputSeekBar = findViewById(R.id.input_value);
         foodImg.setImageResource(dc.getFood(FoodStringIndex).getResid());
         foodName.setText(dc.getFood(FoodStringIndex).getName());
-        MuBar = findViewById(R.id.menu);
+
         MuBar.setProgress(FoodStringIndex);
         inputSeekBar.setProgress((int)(dc.getDietItem(FoodStringIndex)*2));//set to 2*hash<FoodNameString.get(FoodStringIndex)>
     }
@@ -140,7 +149,26 @@ public class InputActivity extends Activity {
 
     //  button next
     public void next(View view) {
+
+
+        SeekBar inputSeekBar = findViewById(R.id.input_value);
+        /*
+           write code that pass user input [FoodNameString.get(FoodStringIndex),inputSeekBar.getProgress()/2]
+           覆盖
+         */
+        dc.addDietItem(FoodStringIndex,inputSeekBar.getProgress()/2);
+        SharedPreferences sp=getSharedPreferences("userData", Context.MODE_PRIVATE);;
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putFloat(dc.getFood(FoodStringIndex).getName(),inputSeekBar.getProgress()/2);
+        edit.commit();
         FoodStringIndex++;
+
+
+        if(sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f)>0)
+        {
+            dc.addDietItem(FoodStringIndex, sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f));
+        }
+
         update();
     }
 
@@ -191,4 +219,5 @@ public class InputActivity extends Activity {
     }
 
 }
+
 
