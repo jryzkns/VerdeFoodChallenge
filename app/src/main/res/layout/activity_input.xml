@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
-        android:text="Select your weekly input(approximately) for"
+        android:text="@string/prompt"
         android:textColor="#707070"
         android:textSize="18sp" />
 
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:gravity="center"
-            android:text="Lamb"
+            android:text="@string/default_food"
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -80,7 +80,7 @@
             <TextView
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="@string/zero"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:textColor="#000000"
-                android:text="50 kg"
+                android:text="@string/max_value50"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -119,7 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="privious"
-            android:text="◀ ----" />
+            android:text="@string/backarrow" />
 
         <Space
             android:layout_width="80dp"
@@ -130,7 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="next"
-            android:text="---- ▶" />
+            android:text="@string/forwardarrow" />
 
     </LinearLayout>
 
@@ -149,7 +149,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="result"
-            android:text="Result" />
+            android:text="@string/result" />
         <Space
             android:layout_width="40dp"
             android:layout_height="match_parent" />
@@ -159,7 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="back"
-            android:text="Back" />
+            android:text="@string/back" />
         <Space
             android:layout_width="40dp"
             android:layout_height="match_parent" />
@@ -169,7 +169,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="random"
-            android:text="Random" />
+            android:text="@string/random" />
 
     </LinearLayout>
 
