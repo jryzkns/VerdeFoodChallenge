@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class Co2CalActivity extends Activity implements View.OnClickListener{
-    private Button recal, suggest;//Button back
+    private Button recal, suggest;
     private TextView calinfo;
     private DataCenter dc=DataCenter.getInstance();
 
@@ -21,10 +21,8 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
     }
     private void init()
     {
-        //back=(Button)this.findViewById(R.id.back);
         recal=(Button)this.findViewById(R.id.recal);
         calinfo=(TextView)this.findViewById(R.id.calinfo);
-        //back.setOnClickListener(this);
         recal.setOnClickListener(this);
         calinfo.setText(dc.getDietInfo());
         suggest=this.findViewById(R.id.suggestion_from_result);
