@@ -50,7 +50,7 @@ public class InputActivity extends Activity {
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                dc.addDietItem(FoodStringIndex,seekBar.getProgress()/2);
+                input(seekBar.getProgress()/2);
             }
         });
 
@@ -171,7 +171,7 @@ public class InputActivity extends Activity {
     public void random(View view){
         int r=ThreadLocalRandom.current().nextInt(0, 100);
         skBar.setProgress(r);
-        dc.addDietItem(FoodStringIndex,skBar.getProgress()/2);
+        input(skBar.getProgress()/2);
 
     }
 
@@ -191,6 +191,12 @@ public class InputActivity extends Activity {
              */
         dc.resetDiet();
         update();
+    }
+
+    private void input(float f){
+        if(f!=0){ dc.addDietItem(FoodStringIndex,f);}
+        else{dc.delDietItem(FoodStringIndex);}
+
     }
 
 }
