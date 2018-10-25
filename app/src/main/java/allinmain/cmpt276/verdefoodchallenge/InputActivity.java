@@ -50,7 +50,7 @@ public class InputActivity extends Activity {
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                input((float)seekBar.getProgress()/2);
+                input(seekBar.getProgress());
                 update();
             }
         });
@@ -77,9 +77,8 @@ public class InputActivity extends Activity {
     private void update() {
         if (FoodStringIndex > 19) {
             FoodStringIndex = 19;
-            // goto next activity
-            Intent intent =new Intent(InputActivity.this,Co2CalActivity.class);
-            InputActivity.this.startActivity(intent);
+            // exit activity
+            InputActivity.this.finish();
             return;
         }
         TextView foodName = findViewById(R.id.foodName);
@@ -141,14 +140,6 @@ public class InputActivity extends Activity {
 
     //  button next
     public void next(View view) {
-
-
-        SeekBar inputSeekBar = findViewById(R.id.input_value);
-        /*
-           write code that pass user input [FoodNameString.get(FoodStringIndex),inputSeekBar.getProgress()/2]
-           覆盖
-         */
-
         FoodStringIndex++;
         update();
     }
@@ -172,7 +163,7 @@ public class InputActivity extends Activity {
     public void random(View view){
         int r=ThreadLocalRandom.current().nextInt(0, 100);
         skBar.setProgress(r);
-        input((float)skBar.getProgress()/2);
+        input(skBar.getProgress());
 
     }
 
@@ -183,19 +174,18 @@ public class InputActivity extends Activity {
         Intent intent =new Intent(InputActivity.this,Co2CalActivity.class);
         InputActivity.this.startActivity(intent);
     }
-
+/*
     public void clear(View view){
         Toast.makeText(getApplicationContext(), "all data has been cleared", Toast.LENGTH_SHORT).show();
-        //for (int i=0;i<=19;i++){
-            /*
-            set hash<FoodNameString.get(i)> to zero
-             */
         dc.resetDiet();
         update();
-    }
+    }*/
 
-    private void input(float f){
-        if(f!=0){ dc.addDietItem(FoodStringIndex,f);}
+    private void input(int f){
+        if(f!=0){
+
+            dc.addDietItem(FoodStringIndex,(float)f/2);
+        }
         else{dc.delDietItem(FoodStringIndex);}
 
     }
