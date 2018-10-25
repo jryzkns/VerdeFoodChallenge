@@ -51,13 +51,15 @@ public class InputActivity extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 TextView sb_process = findViewById(R.id.skprocess);
-                sb_process.setText(""+0.5*seekBar.getProgress());
+                sb_process.setText(""+0.5*(float)seekBar.getProgress());
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                input(seekBar.getProgress());
+                update();
             }
         });
 
@@ -83,9 +85,8 @@ public class InputActivity extends Activity {
     private void update() {
         if (FoodStringIndex > 19) {
             FoodStringIndex = 19;
-            // goto next activity
-            Intent intent =new Intent(InputActivity.this,Co2CalActivity.class);
-            InputActivity.this.startActivity(intent);
+            // exit activity
+            InputActivity.this.finish();
             return;
         }
 
@@ -96,7 +97,7 @@ public class InputActivity extends Activity {
         foodName.setText(dc.getFood(FoodStringIndex).getName());
 
         MuBar.setProgress(FoodStringIndex);
-        inputSeekBar.setProgress(2*(int)dc.getDietItem(FoodStringIndex));//set to 2*hash<FoodNameString.get(FoodStringIndex)>
+        inputSeekBar.setProgress((int)(dc.getDietItem(FoodStringIndex)*2));//set to 2*hash<FoodNameString.get(FoodStringIndex)>
     }
 
     //run when the first time hits button "next"
@@ -171,21 +172,27 @@ public class InputActivity extends Activity {
         update();
     }
 
-    //button back
     public void back(View view) {
         InputActivity.this.finish();
+    }
 
-        /*if (FoodStringIndex == 0) {
+    public void privious(View view) {
+        //InputActivity.this.finish();
+
+        if (FoodStringIndex == 0) {
             //go to beginning activity
+            InputActivity.this.finish();
         } else {
             FoodStringIndex--;
             update();
-        }*/
+        }
     }
 
     public void random(View view){
         int r=ThreadLocalRandom.current().nextInt(0, 100);
         skBar.setProgress(r);
+        input(skBar.getProgress());
+
     }
 
     public void result(View view){
@@ -195,16 +202,21 @@ public class InputActivity extends Activity {
         Intent intent =new Intent(InputActivity.this,Co2CalActivity.class);
         InputActivity.this.startActivity(intent);
     }
-
+/*
     public void clear(View view){
         Toast.makeText(getApplicationContext(), "all data has been cleared", Toast.LENGTH_SHORT).show();
-        //for (int i=0;i<=19;i++){
-            /*
-            set hash<FoodNameString.get(i)> to zero
-             */
         dc.resetDiet();
+        update();
+    }*/
+
+    private void input(int f){
+        if(f!=0){
+
+            dc.addDietItem(FoodStringIndex,(float)f/2);
+        }
+        else{dc.delDietItem(FoodStringIndex);}
+
     }
 
 }
-
 

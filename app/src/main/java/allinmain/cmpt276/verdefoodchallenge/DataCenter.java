@@ -95,6 +95,7 @@ public class DataCenter {
     {
         dietInfo.put(foodid,kg);
     }
+    public void delDietItem(int foodid){dietInfo.remove(foodid);}
     public float getDietItem(int foodid)
     {
        if(dietInfo.containsKey(foodid))
