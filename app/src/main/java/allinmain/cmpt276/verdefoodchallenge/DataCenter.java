@@ -1,5 +1,14 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Environment;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.*;
+import java.lang.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -129,6 +138,8 @@ public class DataCenter {
     }
     public String getDietInfo()
     {
+        //File file= new File(path+"/savedText.txt");
+
         String result="";
 
         //potentially getting rid of this in the end product
