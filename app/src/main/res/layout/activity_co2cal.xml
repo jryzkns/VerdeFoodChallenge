@@ -10,7 +10,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calculate Co2"
+        android:text="@string/calculating_co2e"
         android:textColor="#000"
         android:textSize="24dp"
         android:layout_marginTop="8dp"
@@ -35,13 +35,13 @@
         android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="calinfo"/>
+        android:text="@string/calinfo"/>
     <Button
         android:id="@+id/recal"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"
-        android:text="Back"
+        android:text="@string/back"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
@@ -53,7 +53,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
-        android:text="Suggestion"
+        android:text="@string/make_a_difference"
         app:layout_constraintBottom_toTopOf="@+id/recal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

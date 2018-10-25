@@ -33,8 +33,10 @@
         <activity
             android:name=".ActivityAboutUs"
             android:screenOrientation="portrait" />
-        <activity android:name=".InputActivity" />
-        <activity android:name=".SuggestionType"></activity>
+        <activity android:name=".InputActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SuggestionType"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
