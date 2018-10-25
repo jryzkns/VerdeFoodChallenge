@@ -12,7 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 
 public class MainActivity extends Activity implements CompoundButton.OnCheckedChangeListener{
-    private RadioButton malerb,femalerb;
+    ///private RadioButton malerb,femalerb;
     private SharedPreferences sp ;
     private Button start;
 
@@ -30,11 +30,11 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
            // this.startActivity(new Intent(this,GreenFoodActivity.class));
             //this.finish();
         };
-        malerb=(RadioButton)this.findViewById(R.id.malerb);
-        femalerb=(RadioButton)this.findViewById(R.id.femalerb);
+        //malerb=(RadioButton)this.findViewById(R.id.malerb);
+        //femalerb=(RadioButton)this.findViewById(R.id.femalerb);
         start=(Button)this.findViewById(R.id.start);
-        malerb.setOnCheckedChangeListener(this);
-        femalerb.setOnCheckedChangeListener(this);
+        //malerb.setOnCheckedChangeListener(this);
+        //femalerb.setOnCheckedChangeListener(this);
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +49,7 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
         SharedPreferences.Editor edit = sp.edit();
-        switch (compoundButton.getId())
+        /*switch (compoundButton.getId())
         {
             case R.id.malerb:
                 if(b)
@@ -62,6 +62,6 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
                 edit.putInt("gender",0);
                 edit.commit();
                 break;
-        }
+        }*/
     }
 }
