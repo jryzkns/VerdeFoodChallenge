@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class AdviceActivity extends Activity implements View.OnClickListener{
-    private Button back,recal;
+    private Button recal;
     private TextView calinfo;
     private DataCenter dc=DataCenter.getInstance();
     private String PolicyType;
@@ -22,10 +22,9 @@ public class AdviceActivity extends Activity implements View.OnClickListener{
     }
     private void init()
     {
-        back=(Button)this.findViewById(R.id.back);
+
         recal=(Button)this.findViewById(R.id.recal);
         calinfo=(TextView)this.findViewById(R.id.calinfo);
-        back.setOnClickListener(this);
         recal.setOnClickListener(this);
         Intent intent= this.getIntent();
         PolicyType=intent.getStringExtra("Strategy");
