@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
-
+//Food menu activity
 public class GreenFoodActivity extends Activity implements View.OnClickListener {
     private Button reset,suggest,result,about;
     private GridView foodgrdv;
@@ -24,6 +24,7 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
         setContentView(R.layout.activity_greenfood);
         init();
     }
+    //Initialization
     private void init()
     {
         dc=DataCenter.getInstance();
@@ -70,21 +71,21 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
         Intent intent=null;
         switch(view.getId())
         {
-            case R.id.reset:
+            case R.id.reset:    //Button "Rest"
                 dc.resetDiet();
                 Toast.makeText(getApplicationContext(), "all data has been cleared", Toast.LENGTH_SHORT).show();
                 //remove saved data
                 sp.edit().clear().commit();
                 break;
-            case R.id.suggest:
+            case R.id.suggest:  //Button "Suggestion"
                 intent =new Intent(GreenFoodActivity.this,SuggestionType.class);
                 GreenFoodActivity.this.startActivity(intent);
                 break;
-            case R.id.result:
+            case R.id.result:   //Button "Result"
                 intent =new Intent(GreenFoodActivity.this,Co2CalActivity.class);
                 GreenFoodActivity.this.startActivity(intent);
                 break;
-            case R.id.about:
+            case R.id.about:    //Button "About us"
                 intent =new Intent(GreenFoodActivity.this,ActivityAboutUs.class);
                 GreenFoodActivity.this.startActivity(intent);
                 break;

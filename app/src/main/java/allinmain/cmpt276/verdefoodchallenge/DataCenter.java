@@ -82,7 +82,7 @@ public class DataCenter {
         vegetables = new HashSet<>(Arrays.asList(18,19));
 
     }
-
+    //Basic function
     public int getFoodsSize()
     {
         return mFoodLst.size();
@@ -105,6 +105,7 @@ public class DataCenter {
        return -1f;
 
     }
+    //Reset data
     public void resetDiet()
     {
         dietInfo.clear();
@@ -126,6 +127,7 @@ public class DataCenter {
     }
 
     //As per requirement 3.1.5a
+    //Calculate suggestion
     public float calSuggestCo2()
     {
         float result=0;
@@ -136,6 +138,7 @@ public class DataCenter {
 
         return result;
     }
+    //Get data from Hash table
     public String getDietInfo()
     {
         //File file= new File(path+"/savedText.txt");
@@ -155,7 +158,7 @@ public class DataCenter {
         return result;
     }
 
-
+    //Get Suggestion Information
     public String getSuggestionInfo(String Policy){
 
         suggestion = makeDietChangeTable(Policy);
@@ -197,7 +200,7 @@ public class DataCenter {
             result += -1 * ( calSuggestCo2() / 1000 * 52 / 6);
             result += " elephants!\n\n";
 
-            if(calculateMetroVanSavings() > 0) {
+            if(calculateMetroVanSavings() < 0) {
 
                 result += "The Metro Vancouver area can collectively save ";
                 result += -1 * (calculateMetroVanSavings() * 52 / 1000);
@@ -339,7 +342,6 @@ public class DataCenter {
 
                 }
 
-            //other ideas?
         }
 
         return suggestion;
