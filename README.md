@@ -38,7 +38,7 @@ This app will be developed in 3 phases:
 ![Screenshot](ss/screenshot1.jpg)
 
 - Entering diet habit values
-![Screenshot](ss/screenshot2.jpg)
+![Screenshot](ss/sreenshot2.jpg)
 
 - Receiving suggestions
 ![Screenshot](ss/screenshot3.jpg)
