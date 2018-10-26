@@ -35,10 +35,10 @@ This app will be developed in 3 phases:
 ## Sample screenshots
 
 - Main screen
-![Screenshot](screenshot1.png)
+![Screenshot](screenshot1.jpg)
 
 - Entering diet habit values
-![Screenshot](screenshot2.png)
+![Screenshot](screenshot2.jpg)
 
 - Receiving suggestions
-![Screenshot](screenshot3.png)
+![Screenshot](screenshot3.jpg)
