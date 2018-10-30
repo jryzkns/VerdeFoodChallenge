@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "658160048116",
+    "firebase_url": "https://greenfoodtest.firebaseio.com",
+    "project_id": "greenfoodtest",
+    "storage_bucket": "greenfoodtest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658160048116:android:be23510583dffc97",
+        "android_client_info": {
+          "package_name": "allinmain.cmpt276.verdefoodchallenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658160048116-bca74c9cski9r6dgngk4es7sjs5tph58.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "allinmain.cmpt276.verdefoodchallenge",
+            "certificate_hash": "1716c18ae98063bad9a7fc4f135ed82f4d2a0df8"
+          }
+        },
+        {
+          "client_id": "658160048116-m7h2tacjbt59v2ft0i0p2jje1h59sph8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIWswQyHAXxAK_hgFX9ognwElfYrYVMXg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658160048116-m7h2tacjbt59v2ft0i0p2jje1h59sph8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
