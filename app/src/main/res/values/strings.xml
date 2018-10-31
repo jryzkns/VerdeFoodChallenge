@@ -27,27 +27,15 @@
             Yijin Ma - Team Member\n
             Min-jun Lee - Repo Manager\n
     </string>
-    <string name="about_us">About Us</string>
-    <string name="ret">Return</string>
-    <string name="back">Back</string>
-    <string name="calculating_co2e">Calculating CO2E</string>
-    <string name="calinfo">calinfo</string>
-    <string name="make_a_difference">Let\'s make a difference!</string>
-    <string name="kgperweek">kg/week</string>
-    <string name="cancel">Cancel</string>
-    <string name="set">Set</string>
-    <string name="green_food">Green Food</string>
-    <string name="reset">Reset</string>
-    <string name="suggest">Suggestion</string>
-    <string name="result">Result</string>
-    <string name="prompt">Select your approximate weekly intake for</string>
-    <string name="default_food">Default</string>
-    <string name="zero">0 kg</string>
-    <string name="max_value50">50 kg</string>
-    <string name="backarrow">◀ ----</string>
-    <string name="forwardarrow">---- ▶</string>
-    <string name="random">Random</string>
-    <string name="splash">Welcome to \nGreen Food Challenge!</string>
-    <string name="start">Start</string>
+    <string name="title_activity_profile">buttom_menu</string>
+
+    <string name="title_Food">Food</string>
+    <string name="title_CO2e">CO2e</string>
+    <string name="title_Suggestion">Suggestion</string>
+    <string name="title_Community">Community</string>
+    <string name="title_Me">Me</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
