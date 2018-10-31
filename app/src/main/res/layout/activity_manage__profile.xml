@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Manage_Profile"
+    android:orientation="vertical"
+    android:background="@color/page_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/bar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Manage My Pledge"
+            android:textColor="@color/word_bar"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:src="@color/space_Profile" />
+
+    <TextView
+        android:id="@+id/change_icon"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="My icon"
+        android:textSize="30sp"
+        android:background="@color/buttonbar"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:src="@color/space_Profile" />
+
+
+    <TextView
+        android:id="@+id/change_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="My name"
+        android:textSize="30sp"
+        android:background="@color/buttonbar"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:src="@color/space_Profile" />
+
+
+    <TextView
+        android:id="@+id/change_location"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="My location"
+        android:textSize="30sp"
+        android:background="@color/buttonbar"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:src="@color/space_Profile" />
+
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="320dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/delete_Profile"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/logout_red"
+            android:gravity="center"
+            android:text="delete my pledge"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>
