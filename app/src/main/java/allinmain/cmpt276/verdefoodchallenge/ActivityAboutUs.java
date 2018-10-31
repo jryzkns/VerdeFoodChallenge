@@ -20,7 +20,7 @@ public class ActivityAboutUs extends Activity implements View.OnClickListener {
         iknow=(Button)this.findViewById(R.id.iknow);
         iknow.setOnClickListener(this);
     }
-
+    //Exit activity
     @Override
     public void onClick(View view) {
         this.finish();

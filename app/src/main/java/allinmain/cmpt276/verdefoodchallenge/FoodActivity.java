@@ -14,7 +14,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-
+//For test
+//Unused activity
 public class FoodActivity extends Activity implements View.OnClickListener {
     //public String path= Environment.getExternalStorageDirectory().getAbsolutePath()+"/userData";
 
