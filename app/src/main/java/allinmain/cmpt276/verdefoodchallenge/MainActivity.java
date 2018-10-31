@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-//import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +15,7 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
     ///private RadioButton malerb,femalerb;
     private SharedPreferences sp ;
     private Button start;
-    //Initialization
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,12 +39,12 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.this.startActivity(new Intent(MainActivity.this,GreenFoodActivity.class));
+                MainActivity.this.startActivity(new Intent(MainActivity.this,login.class));
                 MainActivity.this.finish();
             }
         });
     }
-    //Saved data
+
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
