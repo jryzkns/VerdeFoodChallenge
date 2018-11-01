@@ -42,7 +42,8 @@
         <activity
             android:name=".SuggestionType"
             android:screenOrientation="portrait" />
-        <activity android:name=".UserProfileInputActivity"></activity>
+        <activity android:name=".UserProfileInputActivity" />
+        <activity android:name=".UserProfileActivity"></activity>
     </application>
 
 </manifest>
