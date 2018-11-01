@@ -47,7 +47,8 @@
         <activity
             android:name=".Manage_Profile"
             android:screenOrientation="portrait" />
-        <activity android:name=".login"></activity>
+        <activity android:name=".login" />
+        <activity android:name=".community"></activity>
     </application>
 
 </manifest>
