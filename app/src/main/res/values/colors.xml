@@ -11,4 +11,6 @@
     <color name="buttonbar_change">#aeaeae</color>
     <color name="logout_red">#c61e1e</color>
     <color name="page_background">#ffffff</color>
+    <color name="save_bar">#4e7829</color>
+    <color name="save_word">#ffffff</color>
 </resources>
