@@ -69,12 +69,13 @@ public class Profile extends Activity implements View.OnClickListener{
     public void onClick(View view ){
         //view.setBackgroundResource(R.color.buttonbar_change);
         switch(view.getId()){
-            case R.id.about:
-
+            case R.id.about_food:
+                Intent about =new Intent(Profile.this,ActivityAboutUs.class);
+                Profile.this.startActivity(about);
                 break;
             case R.id.manage_Profile:
-                Intent intent=new Intent(Profile.this,Manage_Profile.class);
-                Profile.this.startActivity(intent);
+                Intent manage=new Intent(Profile.this,Manage_Profile.class);
+                Profile.this.startActivity(manage);
                 break;
             case R.id.share_Profile:
 
