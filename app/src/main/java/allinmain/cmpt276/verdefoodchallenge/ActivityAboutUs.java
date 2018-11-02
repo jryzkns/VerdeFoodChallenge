@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.GridView;
 
 public class ActivityAboutUs extends Activity implements OnClickListener {
 
@@ -14,7 +13,8 @@ public class ActivityAboutUs extends Activity implements OnClickListener {
 
     Intent shareIntent;
 
-    String shareBody = "I am making positive change on the world with this app, come join me!";
+    String shareBody = "I am making **positive** change on the world with this app, and I have " +
+            "pledged to <PLEDGE_DATA>! Come join me!";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,8 @@ public class ActivityAboutUs extends Activity implements OnClickListener {
         iknow=(Button)this.findViewById(R.id.iknow);
         iknow.setOnClickListener(this);
 
+
+        // As per Requirement 3.2.5
         share=(Button)this.findViewById(R.id.share);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,9 +39,7 @@ public class ActivityAboutUs extends Activity implements OnClickListener {
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Verde Food Challenge!");
                 shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(shareIntent, "Share to: "));
-
             }
-
         });
 
     }
