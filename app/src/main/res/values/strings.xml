@@ -49,5 +49,8 @@
     <string name="random">Random</string>
     <string name="splash">Welcome to \nGreen Food Challenge!</string>
     <string name="start">Start</string>
+    <string name="share">Share</string>
+
+    <string name="facebook_app_id">2175579612701136</string>
 
 </resources>
