@@ -15,13 +15,12 @@ public class ActivityAboutUs extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_aboutus);
         init();
     }
-    //Initialization
     private void init()
     {
         iknow=(Button)this.findViewById(R.id.iknow);
         iknow.setOnClickListener(this);
     }
-    //Exit activity
+
     @Override
     public void onClick(View view) {
         this.finish();

@@ -86,7 +86,7 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
                 GreenFoodActivity.this.startActivity(intent);
                 break;
             case R.id.about:    //Button "About us"
-                intent =new Intent(GreenFoodActivity.this,ActivityAboutUs.class);
+                intent =new Intent(GreenFoodActivity.this,Profile.class);
                 GreenFoodActivity.this.startActivity(intent);
                 break;
         }

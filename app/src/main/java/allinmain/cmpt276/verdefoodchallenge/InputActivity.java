@@ -16,7 +16,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-//Food Input Activity
+
 public class InputActivity extends Activity {
 
     //private ArrayList<String> FoodNameString = new ArrayList<>();
@@ -28,7 +28,7 @@ public class InputActivity extends Activity {
 
     private DataCenter dc=DataCenter.getInstance();
 
-    ////Initialization
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,23 +48,21 @@ public class InputActivity extends Activity {
         skBar = findViewById(R.id.input_value);
         MuBar = findViewById(R.id.menu);
         skBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            //Slider Input listener
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 TextView sb_process = findViewById(R.id.skprocess);
                 sb_process.setText(""+0.5*(float)seekBar.getProgress());
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                input(seekBar.getProgress());   //Input Data
+                input(seekBar.getProgress());
                 update();
             }
         });
-        //Slider for food quickly access
+
         MuBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -102,13 +100,16 @@ public class InputActivity extends Activity {
         inputSeekBar.setProgress((int)(dc.getDietItem(FoodStringIndex)*2));//set to 2*hash<FoodNameString.get(FoodStringIndex)>
     }
 
-    //  button "-->"
+    //  button next
     public void next(View view) {
 
 
         SeekBar inputSeekBar = findViewById(R.id.input_value);
-
-        //dc.addDietItem(FoodStringIndex,inputSeekBar.getProgress()/2);
+        /*
+           write code that pass user input [FoodNameString.get(FoodStringIndex),inputSeekBar.getProgress()/2]
+           覆盖
+         */
+        dc.addDietItem(FoodStringIndex,inputSeekBar.getProgress()/2);
         SharedPreferences sp=getSharedPreferences("userData", Context.MODE_PRIVATE);;
         SharedPreferences.Editor edit = sp.edit();
         edit.putFloat(dc.getFood(FoodStringIndex).getName(),inputSeekBar.getProgress()/2);
@@ -123,12 +124,11 @@ public class InputActivity extends Activity {
 
         update();
     }
-    //Button "Back"
+
     public void back(View view) {
         InputActivity.this.finish();
     }
 
-    //Button "<--"
     public void privious(View view) {
         //InputActivity.this.finish();
 
@@ -140,8 +140,7 @@ public class InputActivity extends Activity {
             update();
         }
     }
-    //Button "Random"
-    //Input Random value
+
     public void random(View view){
         int r=ThreadLocalRandom.current().nextInt(0, 100);
         skBar.setProgress(r);
@@ -149,9 +148,10 @@ public class InputActivity extends Activity {
 
     }
 
-    //Button "Result"
     public void result(View view){
-        //Go to Co2CalActivity
+        /*
+        go to result activity
+         */
         Intent intent =new Intent(InputActivity.this,Co2CalActivity.class);
         InputActivity.this.startActivity(intent);
     }
@@ -162,7 +162,6 @@ public class InputActivity extends Activity {
         update();
     }*/
 
-    //Basic function Input
     private void input(int f){
         if(f!=0){
 
@@ -173,3 +172,4 @@ public class InputActivity extends Activity {
     }
 
 }
+

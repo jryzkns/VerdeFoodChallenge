@@ -141,8 +141,6 @@ public class DataCenter {
     //Get data from Hash table
     public String getDietInfo()
     {
-        //File file= new File(path+"/savedText.txt");
-
         String result="";
 
         //potentially getting rid of this in the end product

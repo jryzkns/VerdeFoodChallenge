@@ -1,5 +1,5 @@
 package allinmain.cmpt276.verdefoodchallenge;
-//Food Structure
+
 public class Food {
     private String name="";
     private int resid=0;

@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Profile extends Activity implements View.OnClickListener{
 
     //private TextView mTextMessage;
@@ -80,7 +82,9 @@ public class Profile extends Activity implements View.OnClickListener{
 
                 break;
             case R.id.logout_Profile:
-
+                FirebaseAuth.getInstance().signOut();
+                Intent i=new Intent(Profile.this,login.class);
+                Profile.this.startActivity(i);
                 break;
         }
 
