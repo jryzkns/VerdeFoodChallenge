@@ -21,7 +21,7 @@ public class ActivityAboutUs extends Activity implements View.OnClickListener {
         iknow.setOnClickListener(this);
     }
 
-    @Override
+        @Override
     public void onClick(View view) {
         this.finish();
     }
