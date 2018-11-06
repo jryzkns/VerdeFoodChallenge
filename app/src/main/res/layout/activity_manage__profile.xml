@@ -33,9 +33,10 @@
         android:id="@+id/change_icon"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@color/bbutton2"
         android:text="My icon"
-        android:textSize="30sp"
-        android:background="@color/buttonbar"/>
+        android:textColor="@color/word_Prifile"
+        android:textSize="30sp" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -93,8 +94,9 @@
         android:id="@+id/change_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/buttonbar"
+        android:background="@color/bbutton2"
         android:text="My name"
+        android:textColor="@color/word_Prifile"
         android:textSize="30sp" />
 
     <ImageView
@@ -194,9 +196,10 @@
         android:id="@+id/change_location"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@color/bbutton2"
         android:text="My location"
-        android:textSize="30sp"
-        android:background="@color/buttonbar"/>
+        android:textColor="@color/word_Prifile"
+        android:textSize="30sp" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -210,12 +213,14 @@
         android:orientation="horizontal"
         android:gravity="center">
 
-        <ImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:src="@mipmap/beef" />
+        <Spinner
+            android:id="@+id/locationList"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+
+            />
         <Space
-            android:layout_width="80dp"
+            android:layout_width="50dp"
             android:layout_height="0dp" />
 
         <LinearLayout
@@ -246,9 +251,10 @@
         android:id="@+id/delete_Profile"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@color/bbutton2"
         android:text="Delete My Pledge"
-        android:textSize="30sp"
-        android:background="@color/buttonbar"/>
+        android:textColor="@color/word_Prifile"
+        android:textSize="30sp" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -306,12 +312,12 @@
                 android:layout_height="0dp" />
 
         </LinearLayout>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:src="@color/space_Profile" />
 
     </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:src="@color/space_Profile" />
 
 
 
