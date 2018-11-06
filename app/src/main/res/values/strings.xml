@@ -69,8 +69,12 @@
         <item>Surrey</item>
         <item>Richmond</item>
         <item>New Westminster</item>
-
     </string-array>
+    <string name="cancel">Cancel</string>
+    <string name="about_us">about_us</string>
 
 
+=======
+    <string name="about_us">about_us</string>
+>>>>>>> app/src/main/res/values/strings.xml
 </resources>

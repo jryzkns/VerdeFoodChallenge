@@ -7,8 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-//GraidView Activity
-//list all food in a GraidView
+
 public class GridViewAdapter extends BaseAdapter {
     private DataCenter dc=DataCenter.getInstance();
     private Context mContext;
@@ -60,7 +59,6 @@ public class GridViewAdapter extends BaseAdapter {
         }
     }
 }
-//Hold image and Food name
 class ViewHolder{
     ImageView img;
     TextView name;

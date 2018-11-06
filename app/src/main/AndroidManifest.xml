@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="allinmain.cmpt276.verdefoodchallenge">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,8 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.NoTitleBar">
-        <activity
-            android:name=".MainActivity"
+
+        <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,6 +38,12 @@
         <activity
             android:name=".ActivityAboutUs"
             android:screenOrientation="portrait" />
+        <activity android:name=".InputActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SuggestionType"
+            android:screenOrientation="portrait"></activity>
+
+
         <activity
             android:name=".InputActivity"
             android:screenOrientation="portrait" />
@@ -48,7 +58,7 @@
             android:name=".Manage_Profile"
             android:screenOrientation="portrait" />
         <activity android:name=".login" />
-        <activity android:name=".community"></activity>
+        <activity android:name=".SignUpActivity"></activity>
     </application>
 
 </manifest>
