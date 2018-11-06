@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Community"
+            android:text="  Community"
             android:textColor="@color/word_bar"
             android:textSize="30sp" />
 
@@ -34,7 +34,7 @@
                 android:id="@+id/about_community"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@color/colorAccent" />
+                android:src="@drawable/info" />
         </LinearLayout>
 
     </LinearLayout>
