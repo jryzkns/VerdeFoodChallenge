@@ -30,7 +30,7 @@ public class community extends Activity implements View.OnClickListener {
     List<UserInformation> pledgeList;
     List<UserInformation> localInfo;
 
-    TextView num_pledges,ttl_pledges;
+    TextView num_pledges,ttl_pledges,comparison;
 
     Double ttl_pledge_val = 0d;
 
@@ -64,6 +64,7 @@ public class community extends Activity implements View.OnClickListener {
         listViewPledges = findViewById(R.id.listviewPledges);
         num_pledges = findViewById(R.id.num_pledges);
         ttl_pledges = findViewById(R.id.ttl_pledges);
+        comparison = findViewById(R.id.comparison);
 
         DBPledges = FirebaseDatabase.getInstance().getReference("USERINFO");
         pledgeList = new ArrayList<>();
@@ -126,7 +127,7 @@ public class community extends Activity implements View.OnClickListener {
             case R.id.V_map_community:
                 map.setBackgroundResource(R.drawable.vancouver);
                 for (UserInformation user : pledgeList){
-                    if (user.getLOCATION() == "VANCOUVER"){
+                    if (user.getLOCATION().equalsIgnoreCase("VANCOUVER")){
                         localInfo.add(user);
                         ttl_pledge_val += new Double(user.getPLEDGEAMOUNT());
                     }
@@ -136,7 +137,7 @@ public class community extends Activity implements View.OnClickListener {
             case R.id.B_map_community:
                 map.setBackgroundResource(R.drawable.burnaby);
                 for (UserInformation user : pledgeList){
-                    if (user.getLOCATION() == "BURNABY"){
+                    if (user.getLOCATION().equalsIgnoreCase("BURNABY")){
                         localInfo.add(user);
                         ttl_pledge_val += new Double(user.getPLEDGEAMOUNT());
                     }
@@ -146,7 +147,7 @@ public class community extends Activity implements View.OnClickListener {
             case R.id.C_map_community:
                 map.setBackgroundResource(R.drawable.coquitlam);
                 for (UserInformation user : pledgeList){
-                    if (user.getLOCATION() == "COQUITLAM"){
+                    if (user.getLOCATION().equalsIgnoreCase("COQUITLAM")){
                         localInfo.add(user);
                         ttl_pledge_val += new Double(user.getPLEDGEAMOUNT());
                     }
@@ -156,7 +157,7 @@ public class community extends Activity implements View.OnClickListener {
             case R.id.S_map_community:
                 map.setBackgroundResource(R.drawable.surrey);
                 for (UserInformation user : pledgeList){
-                    if (user.getLOCATION() == "SURREY"){
+                    if (user.getLOCATION().equalsIgnoreCase("SURREY")){
                         localInfo.add(user);
                         ttl_pledge_val += new Double(user.getPLEDGEAMOUNT());
                     }
@@ -166,7 +167,7 @@ public class community extends Activity implements View.OnClickListener {
             case R.id.R_map_community:
                 map.setBackgroundResource(R.drawable.richmond);
                 for (UserInformation user : pledgeList){
-                    if (user.getLOCATION() == "RICHMOND"){
+                    if (user.getLOCATION().equalsIgnoreCase("RICHMOND")){
                         localInfo.add(user);
                         ttl_pledge_val += new Double(user.getPLEDGEAMOUNT());
                     }
@@ -176,7 +177,7 @@ public class community extends Activity implements View.OnClickListener {
             case R.id.NW_map_community:
                 map.setBackgroundResource(R.drawable.new_westminster);
                 for (UserInformation user : pledgeList){
-                    if (user.getLOCATION() == "NEW WESTMINSTER"){
+                    if (user.getLOCATION().equalsIgnoreCase("NEW WESTMINSTER")){
                         localInfo.add(user);
                         ttl_pledge_val += new Double(user.getPLEDGEAMOUNT());
                     }
@@ -193,12 +194,25 @@ public class community extends Activity implements View.OnClickListener {
         listViewPledges.setAdapter(adapter);
         if ( localInfo.size() > 0 ) {
 
-            Log.d("jek",String.valueOf(localInfo.size()));
             // As per: req 3.2.4a
-            num_pledges.setText("Total Amount of Pledges: " + String.valueOf(localInfo.size()));
+            num_pledges.setText("Pledgers in this area: " + String.valueOf(localInfo.size()));
 
-            // As per: req 3.2.4b
-            ttl_pledges.setText("Total Pledge Amounts to: " + String.valueOf(ttl_pledge_val));
+            // As per: req 3.2.4b,d
+            ttl_pledges.setText("Everyone pledged: " + String.valueOf(ttl_pledge_val) + " units!" +
+                            "\n That's like " + String.valueOf(ttl_pledge_val/localInfo.size()) +
+                            " per person!");
+
+            // As per: req 3.2.4c
+            comparison.setText("That's about the same as taking " +
+                            String.valueOf((int)(ttl_pledge_val/4.6)) +
+                            " cars off the road for a year! With everyone's efforts we can make " +
+                            " the earth a better place!");
+        } else{
+            num_pledges.setText("Nothing to show!");
+            ttl_pledges.setText("People haven't made pledges in this area yet, would you like" +
+                            " to be the first?");
+            comparison.setText("Remember to share this app to spread the action and make a" +
+                            " difference!");
         }
     }
 

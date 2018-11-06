@@ -36,9 +36,9 @@ public class Pledgelist extends ArrayAdapter<UserInformation> {
         UserInformation user = pledgeList.get(position);
 
 
-        tvName.setText(user.getNAME());
-        tvLocation.setText(user.getLOCATION());
-        tvPledge.setText(user.getPLEDGEAMOUNT().toString());
+        tvName.setText(" "+user.getNAME());
+        tvLocation.setText("From: " + user.getLOCATION());
+        tvPledge.setText("Pledged to save "+user.getPLEDGEAMOUNT().toString() + "T of CO2e!");
 
         return listViewItem;
     }
