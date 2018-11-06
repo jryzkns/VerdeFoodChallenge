@@ -61,23 +61,5 @@
     <string name="splash">Welcome to \nGreen Food Challenge!</string>
     <string name="start">Start</string>
     <string name="share">Share</string>
-    <string name="make_a_difference">make_a_difference</string>
-    <string name="set">set</string>
-    <string name="cancel">cancel</string>
-    <string name="kgperweek">kgperweek</string>
-    <string name="green_food">green_food</string>
     <string name="about_us">about_us</string>
-    <string name="reset">reset</string>
-    <string name="suggest">suggest</string>
-    <string name="result">result</string>
-    <string name="prompt">prompt</string>
-    <string name="default_food">default_food</string>
-    <string name="zero">zero</string>
-    <string name="max_value50">max_value50</string>
-    <string name="backarrow">backarrow</string>
-    <string name="forwardarrow">forwardarrow</string>
-    <string name="random" />
-    <string name="start">start</string>
-    <string name="splash">splash</string>
-
 </resources>
