@@ -16,31 +16,7 @@ public class Profile extends Activity implements View.OnClickListener{
 
     //private TextView mTextMessage;
 
-    /*private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.Food_Menu:
-                    mTextMessage.setText(R.string.title_Food);
-                    return true;
-                case R.id.CO2e_Menu:
-                    mTextMessage.setText(R.string.title_CO2e);
-                    return true;
-                case R.id.Suggestion_Menu:
-                    mTextMessage.setText(R.string.title_Suggestion);
-                    return true;
-                case R.id.Community_Menu:
-                    mTextMessage.setText(R.string.title_Suggestion);
-                    return true;
-                case R.id.Me_Menu:
-                    mTextMessage.setText(R.string.title_Me);
-                    return true;
-            }
-            return false;
-        }
-    };*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
