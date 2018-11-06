@@ -45,7 +45,6 @@
     <string name="calinfo">calinfo</string>
     <string name="make_a_difference">Let\'s make a difference!</string>
     <string name="kgperweek">kg/week</string>
-    <string name="cancel">Cancel</string>
     <string name="set">Set</string>
     <string name="green_food">Green Food</string>
     <string name="reset">Reset</string>
@@ -61,5 +60,21 @@
     <string name="splash">Welcome to \nGreen Food Challenge!</string>
     <string name="start">Start</string>
     <string name="share">Share</string>
+    <string-array name="Locations">
+
+        <item>Selet Location</item>
+        <item>Vancouver</item>
+        <item>Burnaby</item>
+        <item>Coquitlam</item>
+        <item>Surrey</item>
+        <item>Richmond</item>
+        <item>New Westminster</item>
+    </string-array>
+    <string name="cancel">Cancel</string>
     <string name="about_us">about_us</string>
+
+
+=======
+    <string name="about_us">about_us</string>
+>>>>>>> app/src/main/res/values/strings.xml
 </resources>

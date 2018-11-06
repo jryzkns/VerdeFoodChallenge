@@ -1,73 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    >
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/green_food"
-        android:textColor="#000"
-        android:textSize="24dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/bar">
 
-    <Button
-        android:id="@+id/about"
-        android:layout_width="87dp"
-        android:layout_height="34dp"
-        android:layout_margin="0dp"
-        android:text="@string/about_us"
-        app:layout_constraintBottom_toBottomOf="@id/title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Selet your food"
+            android:textColor="@color/word_bar"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="end">
+            <Space
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/about_food"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/info" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <View
         android:id="@+id/headline"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
-        android:background="#000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title"></View>
+        android:background="#000"></View>
 
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="@string/reset"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/suggest" />
 
-    <Button
-        android:id="@+id/suggest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="@string/suggest"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/reset"
-        app:layout_constraintRight_toLeftOf="@id/result" />
-
-    <Button
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginRight="52dp"
-        android:text="@string/result"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
 
     <GridView
         android:id="@+id/foodgrdv"
@@ -76,7 +55,15 @@
         android:columnWidth="80dp"
         android:gravity="top"
         android:numColumns="3"
-        android:stretchMode="spacingWidthUniform"
-        app:layout_constraintBottom_toTopOf="@id/reset"
-        app:layout_constraintTop_toBottomOf="@id/headline"></GridView>
-</android.support.constraint.ConstraintLayout>
+        android:stretchMode="spacingWidthUniform">
+
+    </GridView>
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Reset" />
+
+</LinearLayout>
