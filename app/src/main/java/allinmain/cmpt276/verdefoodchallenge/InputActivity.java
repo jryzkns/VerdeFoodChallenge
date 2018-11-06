@@ -145,18 +145,10 @@ public class InputActivity extends Activity {
     }
 
     public void result(View view){
-        /*
-        go to result activity
-         */
+
         Intent intent =new Intent(InputActivity.this,Co2CalActivity.class);
         InputActivity.this.startActivity(intent);
     }
-/*
-    public void clear(View view){
-        Toast.makeText(getApplicationContext(), "all data has been cleared", Toast.LENGTH_SHORT).show();
-        dc.resetDiet();
-        update();
-    }*/
 
     private void input(int f){
         if(f!=0){
