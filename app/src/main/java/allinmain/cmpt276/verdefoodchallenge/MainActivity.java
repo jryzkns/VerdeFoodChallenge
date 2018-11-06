@@ -39,7 +39,8 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.this.startActivity(new Intent(MainActivity.this,login.class));
+//                MainActivity.this.startActivity(new Intent(MainActivity.this,login.class));
+                MainActivity.this.startActivity(new Intent(MainActivity.this,community.class));
                 MainActivity.this.finish();
             }
         });
