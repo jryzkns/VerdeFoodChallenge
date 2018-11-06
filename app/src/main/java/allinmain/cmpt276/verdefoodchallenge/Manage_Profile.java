@@ -3,11 +3,25 @@ package allinmain.cmpt276.verdefoodchallenge;
 import android.app.Activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class Manage_Profile extends Activity implements View.OnClickListener {
+
+    Spinner location_spinner;
+    ArrayAdapter<CharSequence> location_adapter;
+
+//    private ArrayList<String> locations;
+    private int location_seleted;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,16 +31,43 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
     }
     private void init(){
 
+//        locations.add(0,"all");
+//        locations.add(1,"V");
+//        locations.add(2,"B");
+//        locations.add(3,"C");
+//        locations.add(4,"S");
+//        locations.add(5,"R");
+//        locations.add(6,"NW");
+
+        location_spinner = findViewById(R.id.locationList);
+        location_adapter=ArrayAdapter.createFromResource(this,R.array.Locations,android.R.layout.simple_spinner_item);
+        location_adapter.setDropDownViewResource(android.R.layout.simple_expandable_list_item_1);
+        location_spinner.setAdapter(location_adapter);
+        location_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                location_seleted = i;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
         TextView icon_bar=findViewById(R.id.change_icon);
         TextView name_bar=findViewById(R.id.change_name);
         TextView location_bar=findViewById(R.id.change_location);
         TextView delete_bar=findViewById(R.id.delete_Profile);
 
-
         icon_bar.setOnClickListener(this);
         name_bar.setOnClickListener(this);
         location_bar.setOnClickListener(this);
         delete_bar.setOnClickListener(this);
+
+
+
     }
 
     public void onClick(View view){
