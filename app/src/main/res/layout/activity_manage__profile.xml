@@ -4,97 +4,333 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Manage_Profile"
+    android:background="@drawable/green_background1"
     android:orientation="vertical"
-    android:background="@color/page_background">
+    tools:context=".Manage_Profile">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:background="@color/bar">
+        android:layout_height="match_parent"
+        android:background="@color/frame1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/bar"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Manage My Pledge"
+                android:textColor="@color/word_bar"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:src="@color/space_Profile" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Manage My Pledge"
-            android:textColor="@color/word_bar"
+            android:id="@+id/change_icon"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/bbutton2"
+            android:text="My icon"
+            android:textColor="@color/word_Prifile"
             android:textSize="30sp" />
 
-    </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:src="@color/space_Profile" />
+
+        <LinearLayout
+            android:id="@+id/change_icon_layout_manage"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/icon_change_icon_manage"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:background="#fff"
+                android:src="@drawable/default_icon" />
+
+            <Space
+                android:layout_width="80dp"
+                android:layout_height="0dp" />
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="170dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/upload_icon_button_manage"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="upload"
+                    android:textSize="18sp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="30dp" />
+
+                <Button
+                    android:id="@+id/save_icon_button_manage"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/save_bar"
+                    android:text="save"
+                    android:textColor="@color/save_word"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:src="@color/space_Profile" />
-
-    <TextView
-        android:id="@+id/change_icon"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="My icon"
-        android:textSize="30sp"
-        android:background="@color/buttonbar"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:src="@color/space_Profile" />
+        </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/change_name"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="My name"
-        android:textSize="30sp"
-        android:background="@color/buttonbar"/>
+        <TextView
+            android:id="@+id/change_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/bbutton2"
+            android:text="My name"
+            android:textColor="@color/word_Prifile"
+            android:textSize="30sp" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:src="@color/space_Profile" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:src="@color/space_Profile" />
+
+        <LinearLayout
+            android:id="@+id/change_name_layout_manage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="First name"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/firstname_change_name_manage"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="First" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="30dp" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="0dp" />
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="Last Init."
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/lastinit_change_name_manage"
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    android:hint="I." />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="60dp"
+                android:layout_height="0dp" />
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="170dp"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/save_name_button_manage"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/save_bar"
+                    android:text="save"
+                    android:textColor="@color/save_word"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="30dp" />
+
+            </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/change_location"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="My location"
-        android:textSize="30sp"
-        android:background="@color/buttonbar"/>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:src="@color/space_Profile" />
+        </LinearLayout>
 
 
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="320dp" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:gravity="center">
+        <TextView
+            android:id="@+id/change_location"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/bbutton2"
+            android:text="My location"
+            android:textColor="@color/word_Prifile"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:src="@color/space_Profile" />
+
+        <LinearLayout
+            android:id="@+id/change_location_layout_manage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/locationList"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+
+                />
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="0dp" />
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="170dp"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/save_bar"
+                    android:text="save"
+                    android:textColor="@color/save_word"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="30dp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/delete_Profile"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/logout_red"
-            android:gravity="center"
-            android:text="delete my pledge"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/bbutton2"
+            android:text="Delete My Pledge"
+            android:textColor="@color/word_Prifile"
             android:textSize="30sp" />
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:src="@color/space_Profile" />
+
+        <LinearLayout
+            android:id="@+id/delete_layout_manage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkbox_delete_manage"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="I want to delete my pledge"
+                    android:textColor="#000"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/save_delete_button_manage"
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:background="@color/logout_red"
+                    android:text="I am sure"
+                    android:textColor="@color/save_word"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="30dp"
+                    android:layout_height="0dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:src="@color/space_Profile" />
     </LinearLayout>
-
-
-
-
-
 
 
 </LinearLayout>
