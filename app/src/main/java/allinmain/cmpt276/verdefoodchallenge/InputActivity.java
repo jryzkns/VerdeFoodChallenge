@@ -105,10 +105,6 @@ public class InputActivity extends Activity {
 
 
         SeekBar inputSeekBar = findViewById(R.id.input_value);
-        /*
-           write code that pass user input [FoodNameString.get(FoodStringIndex),inputSeekBar.getProgress()/2]
-           覆盖
-         */
         dc.addDietItem(FoodStringIndex,inputSeekBar.getProgress()/2);
         SharedPreferences sp=getSharedPreferences("userData", Context.MODE_PRIVATE);;
         SharedPreferences.Editor edit = sp.edit();
