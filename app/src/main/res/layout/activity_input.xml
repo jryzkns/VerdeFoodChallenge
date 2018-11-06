@@ -114,7 +114,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="30dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -124,27 +124,27 @@
 
         <Button
             android:id="@+id/input_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="privious"
-            android:text="◀ ----" />
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/arraw2"
+            android:onClick="privious" />
 
         <Space
-            android:layout_width="80dp"
-            android:layout_height="match_parent" />
+            android:layout_width="100dp"
+            android:layout_height="0dp" />
 
         <Button
             android:id="@+id/input_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="next"
-            android:text="---- ▶" />
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/arraw"
+            android:onClick="next" />
 
     </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="40dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -152,19 +152,15 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <Space
-            android:layout_width="40dp"
-            android:layout_height="match_parent" />
 
         <Button
             android:id="@+id/Back_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/grey_rectangular_button"
             android:onClick="back"
             android:text="Back" />
-        <Space
-            android:layout_width="40dp"
-            android:layout_height="match_parent" />
+
 
     </LinearLayout>
 
