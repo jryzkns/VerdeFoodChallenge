@@ -1,3 +1,4 @@
+/*
 package allinmain.cmpt276.verdefoodchallenge;
 
 public class User {
@@ -47,3 +48,4 @@ public class User {
         this.name = name;
     }
 }
+*/
