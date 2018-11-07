@@ -61,9 +61,15 @@
 
     <Button
         android:id="@+id/reset"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
+        android:layout_width="84dp"
+        android:layout_height="22dp"
         android:layout_marginBottom="4dp"
         android:text="Reset" />
 
+    <Button
+        android:id="@+id/profile"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Profile" />
 </LinearLayout>

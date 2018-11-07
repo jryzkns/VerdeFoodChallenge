@@ -5,7 +5,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -105,7 +105,7 @@ public class login extends Activity implements View.OnClickListener {
                         progressDialog.dismiss();
                         if (task.isSuccessful()){
                             Toast.makeText(login.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
-                            Intent intent =new Intent(login.this,GreenFoodActivity.class);
+                            Intent intent =new Intent(login.this,ProfileInfor.class);
                             login.this.startActivity(intent);
 
 
