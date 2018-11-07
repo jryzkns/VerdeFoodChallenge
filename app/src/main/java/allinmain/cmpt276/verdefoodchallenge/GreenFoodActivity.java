@@ -17,6 +17,7 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
     private GridView foodgrdv;
     private DataCenter dc;
     private GridViewAdapter mGridViewAdapter;
+    private Button profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +29,12 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
         dc=DataCenter.getInstance();
 
         reset=(Button)this.findViewById(R.id.reset);
-
+        profile=(Button)this.findViewById((R.id.profile));
         about=this.findViewById(R.id.about_food);
 
         reset.setOnClickListener(this);
-
         about.setOnClickListener(this);
-
+        profile.setOnClickListener(this);
         foodgrdv=(GridView)this.findViewById(R.id.foodgrdv);
         mGridViewAdapter=new GridViewAdapter(this);
         foodgrdv.setAdapter(mGridViewAdapter);
@@ -53,6 +53,10 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
         Intent intent=null;
         switch(view.getId())
         {
+            case R.id.profile:
+                intent =new Intent(GreenFoodActivity.this,Profile.class);
+                GreenFoodActivity.this.startActivity(intent);
+                break;
             case R.id.reset:
                 dc.resetDiet();
                 Toast.makeText(getApplicationContext(), "all data has been cleared", Toast.LENGTH_SHORT).show();

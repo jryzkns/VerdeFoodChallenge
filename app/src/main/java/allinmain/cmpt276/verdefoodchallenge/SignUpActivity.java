@@ -78,7 +78,7 @@ public class SignUpActivity extends Activity implements View.OnClickListener {
 
                                 //FirebaseUser user = firebaseAuth.getCurrentUser();
                                 Toast.makeText(SignUpActivity.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
-                                Intent intent =new Intent(SignUpActivity.this,login.class);
+                                Intent intent =new Intent(SignUpActivity.this,ProfileInfor.class);
                                 SignUpActivity.this.startActivity(intent);
 
 

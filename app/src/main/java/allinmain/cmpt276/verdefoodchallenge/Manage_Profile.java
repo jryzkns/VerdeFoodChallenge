@@ -2,19 +2,33 @@ package allinmain.cmpt276.verdefoodchallenge;
 
 import android.app.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 //import android.support.v7.widget.LinearLayoutManager;
 //import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class Manage_Profile extends Activity implements View.OnClickListener {
+    private Button buttonsave;
+    private DatabaseReference databaseReference;
+    private FirebaseAuth firebaseAuth;
+    private EditText editTextfirstName,editTextLastinit;
+    private EditText editTextLocation;
 
     Spinner location_spinner;
     ArrayAdapter<CharSequence> location_adapter;
@@ -28,6 +42,19 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage__profile);
         init();
+        firebaseAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        editTextfirstName= (EditText) findViewById(R.id.firstname_change_name_manage);
+        editTextLastinit=(EditText) findViewById(R.id.lastinit_change_name_manage);
+        buttonsave = (Button)findViewById(R.id.saveButton);
+        if (firebaseAuth.getCurrentUser()==null){
+            finish();
+            Intent intent =new Intent(Manage_Profile.this,login.class);
+            Manage_Profile.this.startActivity(intent);
+        }
+
+
+
     }
     private void init(){
 
@@ -60,7 +87,7 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
         TextView name_bar=findViewById(R.id.change_name);
         TextView location_bar=findViewById(R.id.change_location);
         TextView delete_bar=findViewById(R.id.delete_Profile);
-
+        buttonsave.setOnClickListener(this);
         icon_bar.setOnClickListener(this);
         name_bar.setOnClickListener(this);
         location_bar.setOnClickListener(this);
@@ -70,9 +97,23 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
 
     }
 
+    private void saveUserInformation(){
+        String firstName= editTextfirstName.getText().toString().trim();
+        String lastInitial=editTextLastinit.getText().toString().trim();
+        UserInformation userInformation = new UserInformation(firstName,lastInitial,"0","0");
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        databaseReference.child(user.getUid()).setValue(userInformation);
+        Toast.makeText(this,"Informtion saved...",Toast.LENGTH_LONG).show();
+    }
+
     public void onClick(View view){
 
         switch(view.getId()){
+            case R.id.saveButton:
+                saveUserInformation();
+                Intent intent =new Intent(Manage_Profile.this,GreenFoodActivity.class);
+                Manage_Profile.this.startActivity(intent);
+                break;
             case R.id.change_icon:
                 icon_bar();
                 break;

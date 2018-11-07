@@ -330,6 +330,12 @@
             android:layout_width="match_parent"
             android:layout_height="4dp"
             android:src="@color/space_Profile" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
     </LinearLayout>
 
 
