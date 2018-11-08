@@ -1,11 +1,10 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
 public class UserInformation {
-    public String NAME;
-    //public String lastinital;
-    public String LOCATION;
-    public String ID;
-    public String PLEDGEAMOUNT;
+    private String NAME;
+    private String LOCATION;
+    private String ID;
+    private String PLEDGEAMOUNT;
 
     public UserInformation(){
 
@@ -15,6 +14,38 @@ public class UserInformation {
         this.NAME = NAME;
         this.LOCATION = LOCATION;
         this.ID = ID;
+        this.PLEDGEAMOUNT = PLEDGEAMOUNT;
+    }
+
+    public String getNAME() {
+        return NAME;
+    }
+
+    public String getLOCATION() {
+        return LOCATION;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public String getPLEDGEAMOUNT() {
+        return PLEDGEAMOUNT;
+    }
+
+    public void setNAME(String NAME) {
+        this.NAME = NAME;
+    }
+
+    public void setLOCATION(String LOCATION) {
+        this.LOCATION = LOCATION;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public void setPLEDGEAMOUNT(String PLEDGEAMOUNT) {
         this.PLEDGEAMOUNT = PLEDGEAMOUNT;
     }
 }

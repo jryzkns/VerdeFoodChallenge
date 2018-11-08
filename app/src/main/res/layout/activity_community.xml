@@ -26,6 +26,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:gravity="end">
+
             <Space
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent" />
@@ -42,7 +43,7 @@
     <ImageView
         android:id="@+id/map_community"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:background="@drawable/gvancouver">
 
     </ImageView>
@@ -121,8 +122,57 @@
     </LinearLayout>
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/info_community"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="0dp"
+            android:orientation="horizontal">
+
+            <ListView
+                android:id="@+id/listviewPledges"
+                android:layout_width="130dp"
+                android:layout_height="fill_parent"></ListView>
+
+            <!--<ImageView-->
+                <!--android:layout_width="5dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@color/frame1"-->
+                <!--android:src="@color/space2" />-->
+
+            <LinearLayout
+                android:id="@+id/text_community"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/num_pledges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/ttl_pledges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/comparison"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
 
 
+    </RelativeLayout>
 
 
 </LinearLayout>

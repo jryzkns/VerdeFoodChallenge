@@ -39,7 +39,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="back">back</string>
     <string name="calculating_co2e">calculating_co2e</string>
-    <string name="ret">ret</string>
+    <string name="pledge">Let me pledge this change!</string>
+    <string name="ret">return</string>
     <string name="calinfo">calinfo</string>
     <string name="make_a_difference">Let\'s make a difference!</string>
     <string name="kgperweek">kg/week</string>
