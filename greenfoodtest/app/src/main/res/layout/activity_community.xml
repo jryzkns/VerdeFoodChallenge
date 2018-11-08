@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".community"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/bar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="  Community"
+            android:textColor="@color/word_bar"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <Space
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/about_community"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/info" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/map_community"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/gvancouver">
+
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#000">
+
+        <TextView
+            android:id="@+id/all_map_community"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:background="#000"
+            android:text="all"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textColor="#fff"/>
+        <TextView
+            android:id="@+id/V_map_community"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:background="#000"
+            android:text="V"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textColor="#fff"/>
+        <TextView
+            android:id="@+id/B_map_community"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:background="#000"
+            android:text="B"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textColor="#fff"/>
+        <TextView
+            android:id="@+id/C_map_community"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:background="#000"
+            android:text="C"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textColor="#fff"/>
+        <TextView
+            android:id="@+id/S_map_community"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:background="#000"
+            android:text="S"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textColor="#fff"/>
+        <TextView
+            android:id="@+id/R_map_community"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:background="#000"
+            android:text="R"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textColor="#fff"/>
+        <TextView
+            android:id="@+id/NW_map_community"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:background="#000"
+            android:text="NW"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textColor="#fff"/>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/info_community"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/navigation_community"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="0dp"
+            android:orientation="horizontal">
+
+            <ListView
+                android:id="@+id/listviewPledges"
+                android:layout_width="130dp"
+                android:layout_height="fill_parent"></ListView>
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="@color/frame1"
+                android:src="@color/space2" />
+
+            <LinearLayout
+                android:id="@+id/text_community"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/num_pledges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/ttl_pledges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/comparison"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/navigation_community"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/bar"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:id="@+id/toGreenfood_community"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/food_icon"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/toResult_community"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/paper"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/toCommunity_community"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/earth"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/toProfile_community"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/uesr"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
