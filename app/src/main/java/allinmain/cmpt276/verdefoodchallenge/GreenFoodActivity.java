@@ -3,7 +3,7 @@ package allinmain.cmpt276.verdefoodchallenge;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-//import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -17,7 +17,6 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
     private GridView foodgrdv;
     private DataCenter dc;
     private GridViewAdapter mGridViewAdapter;
-    private Button profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +28,13 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
         dc=DataCenter.getInstance();
 
         reset=(Button)this.findViewById(R.id.reset);
-        profile=(Button)this.findViewById((R.id.profile));
+
         about=this.findViewById(R.id.about_food);
 
         reset.setOnClickListener(this);
+
         about.setOnClickListener(this);
-        profile.setOnClickListener(this);
+
         foodgrdv=(GridView)this.findViewById(R.id.foodgrdv);
         mGridViewAdapter=new GridViewAdapter(this);
         foodgrdv.setAdapter(mGridViewAdapter);
@@ -46,6 +46,17 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
                 GreenFoodActivity.this.startActivity(intent);
             }
         });
+
+
+        //navigation
+        ImageView toGreenfood = findViewById(R.id.toGreenfood_greenfood);
+        ImageView toResult = findViewById(R.id.toResult_greenfood);
+        ImageView toCommunity = findViewById(R.id.toCommunity_greenfood);
+        ImageView toProfile = findViewById(R.id.toProfile_greenfood);
+        toGreenfood.setOnClickListener(this);
+        toResult.setOnClickListener(this);
+        toCommunity.setOnClickListener(this);
+        toProfile.setOnClickListener(this);
     }
 
     @Override
@@ -53,25 +64,34 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
         Intent intent=null;
         switch(view.getId())
         {
-            case R.id.profile:
-                intent =new Intent(GreenFoodActivity.this,Profile.class);
-                GreenFoodActivity.this.startActivity(intent);
-                break;
             case R.id.reset:
                 dc.resetDiet();
                 Toast.makeText(getApplicationContext(), "all data has been cleared", Toast.LENGTH_SHORT).show();
                 break;
-//            case R.id.suggest:
-  //              intent =new Intent(GreenFoodActivity.this,SuggestionType.class);
-    //            GreenFoodActivity.this.startActivity(intent);
-      //          break;
-//            case R.id.result:
-  //              intent =new Intent(GreenFoodActivity.this,Co2CalActivity.class);
-    //            GreenFoodActivity.this.startActivity(intent);
-      //          break;
+
             case R.id.about_food:
                 intent =new Intent(GreenFoodActivity.this,ActivityAboutUs.class);
                 GreenFoodActivity.this.startActivity(intent);
+                break;
+
+
+
+
+            //navigation bar
+            case R.id.toResult_greenfood:
+                intent = new Intent(GreenFoodActivity.this, Co2CalActivity.class);
+                GreenFoodActivity.this.startActivity(intent);
+//                this.finish();
+                break;
+            case R.id.toCommunity_greenfood:
+                intent = new Intent(GreenFoodActivity.this, community.class);
+                GreenFoodActivity.this.startActivity(intent);
+//                this.finish();
+                break;
+            case R.id.toProfile_greenfood:
+                intent = new Intent(GreenFoodActivity.this, Profile.class);
+                GreenFoodActivity.this.startActivity(intent);
+//                this.finish();
                 break;
         }
 

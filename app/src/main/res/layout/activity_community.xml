@@ -26,6 +26,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:gravity="end">
+
             <Space
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent" />
@@ -42,7 +43,7 @@
     <ImageView
         android:id="@+id/map_community"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:background="@drawable/gvancouver">
 
     </ImageView>
@@ -121,42 +122,100 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <ListView
-            android:id="@+id/listviewPledges"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
-
-    </LinearLayout>
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="bottom"
-        android:orientation="vertical"
-        android:visibility="visible">
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/num_pledges"
+        <LinearLayout
+            android:id="@+id/info_community"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/navigation_community"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="0dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/ttl_pledges"
+            <ListView
+                android:id="@+id/listviewPledges"
+                android:layout_width="130dp"
+                android:layout_height="fill_parent"></ListView>
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="@color/frame1"
+                android:src="@color/space2" />
+
+            <LinearLayout
+                android:id="@+id/text_community"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/num_pledges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/ttl_pledges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/comparison"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/navigation_community"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="40dp"
+            android:background="@color/bar"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:layout_alignParentBottom="true">
 
-        <TextView
-            android:id="@+id/comparison"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/toGreenfood_community"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/food_icon"
+                android:layout_weight="1"/>
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/toResult_community"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/paper"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/toCommunity_community"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/earth"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/toProfile_community"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/uesr"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 
 </LinearLayout>

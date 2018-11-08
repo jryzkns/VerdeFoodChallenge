@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
-    android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:background="#fff">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:background="@color/bar">
+        android:background="@color/bar"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Selet your food"
+            android:text="  Selet your food"
             android:textColor="@color/word_bar"
             android:textSize="30sp" />
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="end">
+            android:gravity="end"
+            android:orientation="horizontal">
+
             <Space
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent" />
@@ -39,37 +39,71 @@
 
     </LinearLayout>
 
-    <View
-        android:id="@+id/headline"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
-        android:background="#000"></View>
-
-
 
     <GridView
         android:id="@+id/foodgrdv"
         android:layout_width="match_parent"
-        android:layout_height="452dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="0dp"
         android:columnWidth="80dp"
         android:gravity="top"
         android:numColumns="3"
-        android:stretchMode="spacingWidthUniform">
+        android:stretchMode="spacingWidthUniform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
     </GridView>
 
     <Button
         android:id="@+id/reset"
-        android:layout_width="84dp"
-        android:layout_height="22dp"
-        android:layout_marginBottom="4dp"
-        android:text="Reset" />
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/button_red_circle"
+        android:text="Reset"
+        app:layout_constraintBottom_toBottomOf="@+id/foodgrdv"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/profile"
-        android:layout_width="84dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="Profile" />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/bar"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/toGreenfood_greenfood"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/food_icon" />
+
+        <ImageView
+            android:id="@+id/toResult_greenfood"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/paper" />
+
+        <ImageView
+            android:id="@+id/toCommunity_greenfood"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/earth" />
+
+        <ImageView
+            android:id="@+id/toProfile_greenfood"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/uesr" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -24,16 +24,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class Manage_Profile extends Activity implements View.OnClickListener {
-    private Button buttonsave;
-    private DatabaseReference databaseReference;
-    private FirebaseAuth firebaseAuth;
-    private EditText editTextfirstName,editTextLastinit;
-    private EditText editTextLocation;
+ //   private DatabaseReference databaseReference;
+//    private FirebaseAuth firebaseAuth;
+//    private EditText editTextfirstName,editTextLastinit;
+//    private EditText editTextLocation;
 
     Spinner location_spinner;
     ArrayAdapter<CharSequence> location_adapter;
 
 //    private ArrayList<String> locations;
+
     private int location_seleted;
 
 
@@ -42,16 +42,15 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage__profile);
         init();
-        firebaseAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        editTextfirstName= (EditText) findViewById(R.id.firstname_change_name_manage);
-        editTextLastinit=(EditText) findViewById(R.id.lastinit_change_name_manage);
-        buttonsave = (Button)findViewById(R.id.saveButton);
-        if (firebaseAuth.getCurrentUser()==null){
-            finish();
-            Intent intent =new Intent(Manage_Profile.this,login.class);
-            Manage_Profile.this.startActivity(intent);
-        }
+//        firebaseAuth = FirebaseAuth.getInstance();
+//        databaseReference = FirebaseDatabase.getInstance().getReference();
+//        editTextfirstName= (EditText) findViewById(R.id.firstname_change_name_manage);
+//        editTextLastinit=(EditText) findViewById(R.id.lastinit_change_name_manage);
+//        if (firebaseAuth.getCurrentUser()==null){
+//            finish();
+//            Intent intent =new Intent(Manage_Profile.this,login.class);
+//            Manage_Profile.this.startActivity(intent);
+//        }
 
 
 
@@ -75,7 +74,6 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 location_seleted = i;
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -87,7 +85,6 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
         TextView name_bar=findViewById(R.id.change_name);
         TextView location_bar=findViewById(R.id.change_location);
         TextView delete_bar=findViewById(R.id.delete_Profile);
-        buttonsave.setOnClickListener(this);
         icon_bar.setOnClickListener(this);
         name_bar.setOnClickListener(this);
         location_bar.setOnClickListener(this);
@@ -97,23 +94,23 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
 
     }
 
-    private void saveUserInformation(){
-        String firstName= editTextfirstName.getText().toString().trim();
-        String lastInitial=editTextLastinit.getText().toString().trim();
-        UserInformation userInformation = new UserInformation(firstName,lastInitial,"0","0");
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-        databaseReference.child(user.getUid()).setValue(userInformation);
-        Toast.makeText(this,"Informtion saved...",Toast.LENGTH_LONG).show();
-    }
+//    private void saveUserInformation(){
+//        String firstName= editTextfirstName.getText().toString().trim();
+//        String lastInitial=editTextLastinit.getText().toString().trim();
+//        UserInformation userInformation = new UserInformation(firstName,lastInitial,"0","0");
+//        FirebaseUser user = firebaseAuth.getCurrentUser();
+//        databaseReference.child(user.getUid()).setValue(userInformation);
+//        Toast.makeText(this,"Informtion saved...",Toast.LENGTH_LONG).show();
+//    }
 
     public void onClick(View view){
 
         switch(view.getId()){
-            case R.id.saveButton:
-                saveUserInformation();
-                Intent intent =new Intent(Manage_Profile.this,GreenFoodActivity.class);
-                Manage_Profile.this.startActivity(intent);
-                break;
+//            case R.id.saveButton:
+//                saveUserInformation();
+//                Intent intent =new Intent(Manage_Profile.this,GreenFoodActivity.class);
+//                Manage_Profile.this.startActivity(intent);
+//                break;
             case R.id.change_icon:
                 icon_bar();
                 break;
@@ -134,6 +131,10 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
     }
 
 
+
+
+
+    //expand 4 bars
     private void icon_bar(){
         LinearLayout icon= findViewById(R.id.change_icon_layout_manage);
         LinearLayout name= findViewById(R.id.change_name_layout_manage);

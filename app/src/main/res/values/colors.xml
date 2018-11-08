@@ -14,5 +14,7 @@
     <color name="save_bar">#4e7829</color>
     <color name="save_word">#ffffff</color>
     <color name="frame1">#9cffffff</color>
-    <color name="bbutton2">#dcdcdc</color>
+    <color name="bbutton2">#e5e5e5</color>
+    <color name="space2">#2a000000</color>
+    <color name="button_change">#737373</color>
 </resources>

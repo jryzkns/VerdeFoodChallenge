@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "613078667616",
+    "firebase_url": "https://greenfood-challenge.firebaseio.com",
+    "project_id": "greenfood-challenge",
+    "storage_bucket": "greenfood-challenge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613078667616:android:be23510583dffc97",
+        "android_client_info": {
+          "package_name": "allinmain.cmpt276.verdefoodchallenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613078667616-vje7to8g83o3h9cb3gc6g4f0kauko07r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwK2wFy42AU2bztvG6SrcVwRlP_583gI4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

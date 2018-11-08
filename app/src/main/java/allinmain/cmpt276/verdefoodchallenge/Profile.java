@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-//import android.support.design.widget.BottomNavigationView;
-//import android.support.v7.app.AppCompatActivity;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -36,16 +36,34 @@ public class Profile extends Activity implements View.OnClickListener{
         TextView manage= findViewById(R.id.manage_Profile);
         TextView share= findViewById(R.id.share_Profile);
         TextView logout= findViewById(R.id.logout_Profile);
+
+
+
         about.setOnClickListener(this);
         manage.setOnClickListener(this);
         share.setOnClickListener(this);
         logout.setOnClickListener(this);
 
 
+        //navigation
+        ImageView toGreenfood = findViewById(R.id.toGreenfood_profile);
+        ImageView toResult = findViewById(R.id.toResult_profile);
+        ImageView toCommunity = findViewById(R.id.toCommunity_profile);
+        ImageView toProfile = findViewById(R.id.toProfile_profile);
+        toGreenfood.setOnClickListener(this);
+        toResult.setOnClickListener(this);
+        toCommunity.setOnClickListener(this);
+        toProfile.setOnClickListener(this);
+
+
+
+
+
     }
 
     public void onClick(View view ){
         //view.setBackgroundResource(R.color.buttonbar_change);
+        Intent intent;
         switch(view.getId()){
             case R.id.about_food:
                 Intent about =new Intent(Profile.this,ActivityAboutUs.class);
@@ -60,8 +78,27 @@ public class Profile extends Activity implements View.OnClickListener{
                 break;
             case R.id.logout_Profile:
                 FirebaseAuth.getInstance().signOut();
-                Intent i=new Intent(Profile.this,login.class);
-                Profile.this.startActivity(i);
+                intent = new Intent(Profile.this, login.class);
+                Profile.this.startActivity(intent);
+                break;
+
+
+
+            //navigation bar
+            case R.id.toResult_profile:
+                intent = new Intent(Profile.this, Co2CalActivity.class);
+                Profile.this.startActivity(intent);
+                this.finish();
+                break;
+            case R.id.toCommunity_profile:
+                intent = new Intent(Profile.this, community.class);
+                Profile.this.startActivity(intent);
+                this.finish();
+                break;
+            case R.id.toGreenfood_profile:
+                intent = new Intent(Profile.this, GreenFoodActivity.class);
+                Profile.this.startActivity(intent);
+                this.finish();
                 break;
         }
 

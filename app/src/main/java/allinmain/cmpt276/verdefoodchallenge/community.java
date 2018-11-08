@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import static allinmain.cmpt276.verdefoodchallenge.R.color.bar;
 
 public class community extends Activity implements View.OnClickListener {
 
@@ -42,7 +45,7 @@ public class community extends Activity implements View.OnClickListener {
     }
 
     private void init(){
-//        ImageView about = findViewById(R.id.about_profile);
+        ImageView about = findViewById(R.id.about_community);
         TextView map_all=findViewById(R.id.all_map_community);
         TextView map_V=findViewById(R.id.V_map_community);
         TextView map_B=findViewById(R.id.B_map_community);
@@ -51,7 +54,7 @@ public class community extends Activity implements View.OnClickListener {
         TextView map_R=findViewById(R.id.R_map_community);
         TextView map_NW=findViewById(R.id.NW_map_community);
 
-//        about.setOnClickListener(this);
+        about.setOnClickListener(this);
         map_all.setOnClickListener(this);
         map_V.setOnClickListener(this);
         map_B.setOnClickListener(this);
@@ -71,6 +74,19 @@ public class community extends Activity implements View.OnClickListener {
         localInfo = new ArrayList<>();
 
         map_all.performClick(); //automatically shows all
+        set_all_mapbutton_black();
+
+        //navigation
+        ImageView toGreenfood = findViewById(R.id.toGreenfood_community);
+        ImageView toResult = findViewById(R.id.toResult_community);
+        ImageView toCommunity = findViewById(R.id.toCommunity_community);
+        ImageView toProfile = findViewById(R.id.toProfile_community);
+        toGreenfood.setOnClickListener(this);
+        toResult.setOnClickListener(this);
+        toCommunity.setOnClickListener(this);
+        toProfile.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -108,6 +124,9 @@ public class community extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
+        Intent intent;
+        set_all_mapbutton_black();
+
         ttl_pledge_val = 0d;
 
         localInfo.clear();
@@ -116,8 +135,33 @@ public class community extends Activity implements View.OnClickListener {
 
         switch(view.getId()){
 
+
+
+            //navigation bar
+            case R.id.toGreenfood_community:
+                intent = new Intent(community.this, GreenFoodActivity.class);
+                community.this.startActivity(intent);
+                this.finish();
+                break;
+            case R.id.toResult_community:
+                intent = new Intent(community.this, Co2CalActivity.class);
+                community.this.startActivity(intent);
+                this.finish();
+                break;
+            case R.id.toProfile_community:
+                intent = new Intent(community.this, Profile.class);
+                community.this.startActivity(intent);
+                this.finish();
+                break;
+
+
+
+
+
             case R.id.all_map_community:
                 map.setBackgroundResource(R.drawable.gvancouver);
+                view.setBackgroundColor(getResources().getColor(R.color.button_change));
+
                 for (UserInformation user : pledgeList) {
                     localInfo.add(user);
                     ttl_pledge_val += new Double(user.getPLEDGEAMOUNT());
@@ -126,6 +170,8 @@ public class community extends Activity implements View.OnClickListener {
 
             case R.id.V_map_community:
                 map.setBackgroundResource(R.drawable.vancouver);
+                view.setBackgroundColor(getResources().getColor(R.color.button_change));
+
                 for (UserInformation user : pledgeList){
                     if (user.getLOCATION().equalsIgnoreCase("VANCOUVER")){
                         localInfo.add(user);
@@ -136,6 +182,8 @@ public class community extends Activity implements View.OnClickListener {
 
             case R.id.B_map_community:
                 map.setBackgroundResource(R.drawable.burnaby);
+                view.setBackgroundColor(getResources().getColor(R.color.button_change));
+
                 for (UserInformation user : pledgeList){
                     if (user.getLOCATION().equalsIgnoreCase("BURNABY")){
                         localInfo.add(user);
@@ -146,6 +194,8 @@ public class community extends Activity implements View.OnClickListener {
 
             case R.id.C_map_community:
                 map.setBackgroundResource(R.drawable.coquitlam);
+                view.setBackgroundColor(getResources().getColor(R.color.button_change));
+
                 for (UserInformation user : pledgeList){
                     if (user.getLOCATION().equalsIgnoreCase("COQUITLAM")){
                         localInfo.add(user);
@@ -156,6 +206,8 @@ public class community extends Activity implements View.OnClickListener {
 
             case R.id.S_map_community:
                 map.setBackgroundResource(R.drawable.surrey);
+                view.setBackgroundColor(getResources().getColor(R.color.button_change));
+
                 for (UserInformation user : pledgeList){
                     if (user.getLOCATION().equalsIgnoreCase("SURREY")){
                         localInfo.add(user);
@@ -166,6 +218,8 @@ public class community extends Activity implements View.OnClickListener {
 
             case R.id.R_map_community:
                 map.setBackgroundResource(R.drawable.richmond);
+                view.setBackgroundColor(getResources().getColor(R.color.button_change));
+
                 for (UserInformation user : pledgeList){
                     if (user.getLOCATION().equalsIgnoreCase("RICHMOND")){
                         localInfo.add(user);
@@ -176,6 +230,8 @@ public class community extends Activity implements View.OnClickListener {
 
             case R.id.NW_map_community:
                 map.setBackgroundResource(R.drawable.new_westminster);
+                view.setBackgroundColor(getResources().getColor(R.color.button_change));
+
                 for (UserInformation user : pledgeList){
                     if (user.getLOCATION().equalsIgnoreCase("NEW WESTMINSTER")){
                         localInfo.add(user);
@@ -184,10 +240,10 @@ public class community extends Activity implements View.OnClickListener {
                 }
                 break;
 
-//            case R.id.about_community:
-//                Intent about =new Intent(community.this,ActivityAboutUs.class);
-//                community.this.startActivity(about);
-//                break;
+            case R.id.about_community:
+                Intent about =new Intent(community.this,ActivityAboutUs.class);
+                community.this.startActivity(about);
+                break;
         }
 
         Pledgelist adapter = new Pledgelist(community.this, localInfo);
@@ -199,21 +255,42 @@ public class community extends Activity implements View.OnClickListener {
 
             // As per: req 3.2.4b,d
             ttl_pledges.setText("Everyone pledged: " + String.valueOf(ttl_pledge_val) + " units!" +
-                            "\n That's like " + String.valueOf(ttl_pledge_val/localInfo.size()) +
-                            " per person!");
+                    "\n That's like " + String.valueOf(ttl_pledge_val/localInfo.size()) +
+                    " per person!");
 
             // As per: req 3.2.4c
             comparison.setText("That's about the same as taking " +
-                            String.valueOf((int)(ttl_pledge_val/4.6)) +
-                            " cars off the road for a year! With everyone's efforts we can make " +
-                            " the earth a better place!");
+                    String.valueOf((int)(ttl_pledge_val/4.6)) +
+                    " cars off the road for a year! With everyone's efforts we can make " +
+                    " the earth a better place!");
         } else{
             num_pledges.setText("Nothing to show!");
             ttl_pledges.setText("People haven't made pledges in this area yet, would you like" +
-                            " to be the first?");
+                    " to be the first?");
             comparison.setText("Remember to share this app to spread the action and make a" +
-                            " difference!");
+                    " difference!");
         }
+    }
+
+
+
+
+    private void set_all_mapbutton_black(){
+        TextView map_all=findViewById(R.id.all_map_community);
+        TextView map_V=findViewById(R.id.V_map_community);
+        TextView map_B=findViewById(R.id.B_map_community);
+        TextView map_C=findViewById(R.id.C_map_community);
+        TextView map_S=findViewById(R.id.S_map_community);
+        TextView map_R=findViewById(R.id.R_map_community);
+        TextView map_NW=findViewById(R.id.NW_map_community);
+
+        map_all.setBackgroundColor(getResources().getColor(R.color.bar));
+        map_B.setBackgroundColor(getResources().getColor(R.color.bar));
+        map_C.setBackgroundColor(getResources().getColor(R.color.bar));
+        map_NW.setBackgroundColor(getResources().getColor(R.color.bar));
+        map_R.setBackgroundColor(getResources().getColor(R.color.bar));
+        map_S.setBackgroundColor(getResources().getColor(R.color.bar));
+        map_V.setBackgroundColor(getResources().getColor(R.color.bar));
     }
 
 }
