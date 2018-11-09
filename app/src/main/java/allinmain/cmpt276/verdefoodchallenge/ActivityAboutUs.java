@@ -49,6 +49,7 @@ public class ActivityAboutUs extends Activity implements OnClickListener {
 
         // As per Requirement 3.2.5
         share=(Button)this.findViewById(R.id.share);
+ //       share.setOnClickListener(this);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -82,11 +83,11 @@ public class ActivityAboutUs extends Activity implements OnClickListener {
                     }
                 });
 
-//                shareIntent = new Intent(Intent.ACTION_SEND);
-//                shareIntent.setType("test/pain");
-//                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Verde Food Challenge!");
-//                shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
-//                startActivity(Intent.createChooser(shareIntent, "Share to: "));
+                shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("test/pain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Verde Food Challenge!");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(shareIntent, "Share to: "));
             }
         });
 

@@ -30,6 +30,8 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
         calinfo.setText(dc.getDietInfo());
         suggest=this.findViewById(R.id.suggestion_from_result);
         suggest.setOnClickListener(this);
+        ImageView about = findViewById(R.id.about_result);
+
 
 
 
@@ -43,6 +45,8 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
         toResult.setOnClickListener(this);
         toCommunity.setOnClickListener(this);
         toProfile.setOnClickListener(this);
+
+        about.setOnClickListener(this);
 
     }
 
