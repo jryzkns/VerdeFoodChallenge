@@ -65,7 +65,7 @@ public class UserProfileActivity extends Activity {
 
 
 
-
+        // connect to editText and buttons
         mFirstName= (EditText) findViewById(R.id.FirstNameField);
         mLastName= (EditText) findViewById(R.id.LastNameField);
         mEmail = (EditText)findViewById(R.id.EmailField);
@@ -76,7 +76,7 @@ public class UserProfileActivity extends Activity {
 
 
 
-
+        // read user profile from database
         mDatabase.child("users").child(userId).addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
@@ -106,6 +106,7 @@ public class UserProfileActivity extends Activity {
 //        boolean bLastName = dataSnapshot.getValue(User.class);
 //        boolean bArea = dataSnapshot.getValue(User.class);
 
+        // upload user data onclick listener
         mUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,6 +134,8 @@ public class UserProfileActivity extends Activity {
 
 
 //@IgnoreExtraProperties
+
+//User property class
 class User {
     public String userId = FirebaseUser.getIdToken();
     public String firstName;

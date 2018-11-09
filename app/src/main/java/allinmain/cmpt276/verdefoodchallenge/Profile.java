@@ -265,7 +265,6 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
     {
         super.onActivityResult( requestCode, resultCode, data);
 
-
         if (requestCode == CHOOSE_ICON &&
                 resultCode == RESULT_OK &&
                 data!=null &&
@@ -276,7 +275,7 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
             {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),uriProfileIcon);
                 iconImage.setImageBitmap(bitmap);
-                uploadIconToFirebaseStorge();
+                //uploadIconToFirebaseStorge();  getInstance().getReference() does not work
             }
             catch (IOException e)
             {
