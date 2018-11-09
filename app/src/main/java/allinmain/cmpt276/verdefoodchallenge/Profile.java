@@ -73,6 +73,7 @@ public class Profile extends Activity implements View.OnClickListener{
     public void shareMethod()
     {
         // share button listener
+        TextView share= findViewById(R.id.share_Profile);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
