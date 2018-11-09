@@ -20,15 +20,12 @@ public class UserInformation {
     public String getNAME() {
         return NAME;
     }
-
     public String getLOCATION() {
         return LOCATION;
     }
-
     public String getID() {
         return ID;
     }
-
     public String getPLEDGEAMOUNT() {
         return PLEDGEAMOUNT;
     }
@@ -36,15 +33,12 @@ public class UserInformation {
     public void setNAME(String NAME) {
         this.NAME = NAME;
     }
-
     public void setLOCATION(String LOCATION) {
         this.LOCATION = LOCATION;
     }
-
     public void setID(String ID) {
         this.ID = ID;
     }
-
     public void setPLEDGEAMOUNT(String PLEDGEAMOUNT) {
         this.PLEDGEAMOUNT = PLEDGEAMOUNT;
     }

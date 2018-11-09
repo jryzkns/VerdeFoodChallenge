@@ -51,18 +51,23 @@ public class ProfileInfor extends Activity implements View.OnClickListener {
         }
         //FirebaseUser user = firebaseAuth.getCurrentUser();
         databaseReference= FirebaseDatabase.getInstance().getReference();
+
+        // connect to layout objects
         editTextLocation = (EditText) findViewById(R.id.editLocation);
         editTextName = (EditText) findViewById(R.id.editTextName);
         Buttonsave = (Button) findViewById(R.id.Buttonsave);
         ButtonDelete = (Button)findViewById(R.id.delete_Profile);
         logout = (Button)findViewById(R.id.logout_Profile);
+        //initialize onClick listeners
         Buttonsave.setOnClickListener(this);
         logout.setOnClickListener(this);
         ButtonDelete.setOnClickListener(this);
 
+
         FirebaseUser user = firebaseAuth.getCurrentUser();
         DatabaseReference databaseReferenceName = FirebaseDatabase.getInstance().getReference("USERINFO").child(user.getUid()).child("name");
         DatabaseReference databaseReferenceLocation = FirebaseDatabase.getInstance().getReference("USERINFO").child(user.getUid()).child("location");
+        // firebase addVaulueEvent listeners for names
         databaseReferenceName.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -74,7 +79,7 @@ public class ProfileInfor extends Activity implements View.OnClickListener {
 
             }
         });
-
+        // firebase addVaulueEvent listeners for location
         databaseReferenceLocation.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -90,7 +95,7 @@ public class ProfileInfor extends Activity implements View.OnClickListener {
 
     }
 
-
+    //save user information
     private void saveUserInformation(){
         String FullName= editTextName.getText().toString().trim();
         String Location=editTextLocation.getText().toString().trim();
@@ -102,8 +107,7 @@ public class ProfileInfor extends Activity implements View.OnClickListener {
     }
 
 
-
-
+    //on click event
     @Override
     public void onClick(View view) {
 
@@ -126,8 +130,6 @@ public class ProfileInfor extends Activity implements View.OnClickListener {
                 editTextName.setText("");
                 editTextLocation.setText("");
                 Toast.makeText(this,"INFOR delete",Toast.LENGTH_LONG).show();
-
-
                 break;
         }
 

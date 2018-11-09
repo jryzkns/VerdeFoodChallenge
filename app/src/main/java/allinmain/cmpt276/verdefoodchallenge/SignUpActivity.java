@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends Activity implements View.OnClickListener {
 
+    // define layout objects which will be used
     private Button buttonRegister;
     private EditText editTextEmail;
     private EditText editTextPassword;
@@ -40,18 +41,16 @@ public class SignUpActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_sign_up);
 
         firebaseAuth =FirebaseAuth.getInstance();
-
-
-
-
         progressDialog=new ProgressDialog(this);
+
+        //connect to layout objects
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
         editTextEmail = (EditText)findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         emailView = (TextView) findViewById(R.id.emailView);
         passwordView = (TextView) findViewById(R.id.passwordView);
 
-
+        //initialize onclick listeners
         buttonRegister.setOnClickListener(this);
         emailView.setOnClickListener(this);
         passwordView.setOnClickListener(this);
@@ -60,6 +59,7 @@ public class SignUpActivity extends Activity implements View.OnClickListener {
 
 
 
+    //register User methods
     private void registerUser(){
         String email= editTextEmail.getText().toString();
         String password= editTextPassword.getText().toString();
@@ -81,7 +81,6 @@ public class SignUpActivity extends Activity implements View.OnClickListener {
                                 Intent intent =new Intent(SignUpActivity.this,ProfileInfor.class);
                                 SignUpActivity.this.startActivity(intent);
 
-
                             }
                             else {
                                 Toast.makeText(SignUpActivity.this,"Registered Failed, please try again...",Toast.LENGTH_SHORT).show();
@@ -89,12 +88,12 @@ public class SignUpActivity extends Activity implements View.OnClickListener {
                             }
                         }
                     });
-
         }
 
 
 
     }
+    //onclick listener events for buttonRegister
     @Override
     public void onClick(View view) {
 

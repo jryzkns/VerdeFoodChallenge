@@ -22,6 +22,7 @@ public class Pledgelist extends ArrayAdapter<UserInformation> {
         this.pledgeList = pledgeList;
     }
 
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

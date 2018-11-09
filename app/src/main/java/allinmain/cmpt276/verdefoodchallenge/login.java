@@ -24,14 +24,15 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class login extends Activity implements View.OnClickListener {
 
+    // define layout object be used in login activity
     private Button buttonRegister;
     private EditText editTextEmail;
     private EditText editTextPassword;
     private TextView emailView;
     private TextView passwordView;
     private ProgressDialog progressDialog;
-    private FirebaseAuth firebaseAuth;
     private Button signupView;
+    private FirebaseAuth firebaseAuth;
 
 
 
@@ -65,7 +66,7 @@ public class login extends Activity implements View.OnClickListener {
             Intent intent =new Intent(login.this,GreenFoodActivity.class);
             login.this.startActivity(intent);
         }
-
+        // connect to layout objects
         progressDialog=new ProgressDialog(this);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
@@ -74,6 +75,7 @@ public class login extends Activity implements View.OnClickListener {
         passwordView = (TextView) findViewById(R.id.passwordView);
         signupView = (Button) findViewById(R.id.signupView);
 
+        // initialize onClick Listener
         signupView.setOnClickListener(this);
        // signupView.setOnClickListener(new view.onClick);
         buttonRegister.setOnClickListener(this);
@@ -82,7 +84,7 @@ public class login extends Activity implements View.OnClickListener {
 
     }
 
-
+    //methods for registering user
     private void registerUser(){
         String email= editTextEmail.getText().toString().trim();
         String password= editTextPassword.getText().toString().trim();
@@ -107,8 +109,6 @@ public class login extends Activity implements View.OnClickListener {
                             Toast.makeText(login.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
                             Intent intent =new Intent(login.this,ProfileInfor.class);
                             login.this.startActivity(intent);
-
-
                         }
                         else {
                             Toast.makeText(login.this,"Registered Failed, please try again...",Toast.LENGTH_SHORT).show();
@@ -120,7 +120,7 @@ public class login extends Activity implements View.OnClickListener {
     }
 
 
-
+    //Onclick event for button register and sign up view
     @Override
     public void onClick(View view) {
 
