@@ -125,8 +125,8 @@
         <Button
             android:id="@+id/input_back"
             android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:background="@drawable/arraw2"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_arrow_pback_notail"
             android:onClick="privious" />
 
         <Space
@@ -136,8 +136,8 @@
         <Button
             android:id="@+id/input_next"
             android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:background="@drawable/arraw"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_arrow_pforward_notail"
             android:onClick="next" />
 
     </LinearLayout>
