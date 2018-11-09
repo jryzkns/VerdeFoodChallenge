@@ -55,7 +55,24 @@ public class Profile extends Activity implements View.OnClickListener{
         manage.setOnClickListener(this);
         logout.setOnClickListener(this);
 
+        //response to share button
+        shareMethod();
 
+        //navigation
+        ImageView toGreenfood = findViewById(R.id.toGreenfood_profile);
+        ImageView toResult = findViewById(R.id.toResult_profile);
+        ImageView toCommunity = findViewById(R.id.toCommunity_profile);
+        ImageView toProfile = findViewById(R.id.toProfile_profile);
+        toGreenfood.setOnClickListener(this);
+        toResult.setOnClickListener(this);
+        toCommunity.setOnClickListener(this);
+        toProfile.setOnClickListener(this);
+    }
+
+
+    public void shareMethod()
+    {
+        // share button listener
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -96,22 +113,10 @@ public class Profile extends Activity implements View.OnClickListener{
 //                startActivity(Intent.createChooser(shareIntent, "Share to: "));
             }
         });
-
-
-
-        //navigation
-        ImageView toGreenfood = findViewById(R.id.toGreenfood_profile);
-        ImageView toResult = findViewById(R.id.toResult_profile);
-        ImageView toCommunity = findViewById(R.id.toCommunity_profile);
-        ImageView toProfile = findViewById(R.id.toProfile_profile);
-        toGreenfood.setOnClickListener(this);
-        toResult.setOnClickListener(this);
-        toCommunity.setOnClickListener(this);
-        toProfile.setOnClickListener(this);
     }
 
 
-
+    //onClick action
     public void onClick(View view ){
         //view.setBackgroundResource(R.color.buttonbar_change);
         Intent intent;

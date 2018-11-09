@@ -34,6 +34,8 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
 //    private EditText editTextLocation;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
+
+    // define layout objects be used in this activity
     private Button manage_save;
     private EditText manage_editText_name;
     private Button delete_infor;
@@ -46,6 +48,8 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
 //    private ArrayList<String> locations;
 
     private int location_seleted;
+
+
 
 
     @Override
@@ -78,7 +82,6 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
             }
         });
 
-
     }
     private void init(){
 
@@ -90,6 +93,7 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
 //        locations.add(5,"R");
 //        locations.add(6,"NW");
 
+        // connect to layout objects
         location_spinner = findViewById(R.id.locationList);
         location_adapter=ArrayAdapter.createFromResource(this,R.array.Locations,android.R.layout.simple_spinner_item);
         location_adapter.setDropDownViewResource(android.R.layout.simple_expandable_list_item_1);
@@ -105,16 +109,18 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
             }
         });
 
-
-        TextView icon_bar=findViewById(R.id.change_icon);
-        TextView name_bar=findViewById(R.id.change_name);
-        TextView location_bar=findViewById(R.id.change_location);
-        TextView delete_bar=findViewById(R.id.delete_Profile);
-        delete_infor = findViewById(R.id.save_delete_button_manage);
-        manage_save=findViewById(R.id.save_name_button_manage);
-        location_save_Button = findViewById(R.id.location_save);
-        manage_editText_name=findViewById(R.id.firstname_change_name_manage);
+        // connect to layout ojects
+        TextView icon_bar =     findViewById(R.id.change_icon);
+        TextView name_bar =     findViewById(R.id.change_name);
+        TextView location_bar = findViewById(R.id.change_location);
+        TextView delete_bar =   findViewById(R.id.delete_Profile);
+        delete_infor =          findViewById(R.id.save_delete_button_manage);
+        manage_save =           findViewById(R.id.save_name_button_manage);
+        location_save_Button =  findViewById(R.id.location_save);
+        manage_editText_name =  findViewById(R.id.firstname_change_name_manage);
         //getManage_editText_location = findViewById(R.id.)
+
+        // initialize and set up onClick listener for buttons
         delete_infor.setOnClickListener(this);
         manage_save.setOnClickListener(this);
         location_save_Button.setOnClickListener(this);
@@ -124,7 +130,7 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
         delete_bar.setOnClickListener(this);
 
 
-
+    // method for saving user informations
     }
     private void saveUserInformation(){
         String FullName= manage_editText_name.getText().toString().trim();
@@ -136,7 +142,7 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
         Toast.makeText(this,"Informtion saved...",Toast.LENGTH_LONG).show();
     }
 
-
+// Onclick listener for committing user profile data change
     public void onClick(View view){
 
         switch(view.getId()){
@@ -182,7 +188,7 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
 
 
 
-    //expand 4 bars
+    //expand four spinning bars (adjust the height of bars layout space)
     private void icon_bar(){
         LinearLayout icon= findViewById(R.id.change_icon_layout_manage);
         LinearLayout name= findViewById(R.id.change_name_layout_manage);
@@ -194,10 +200,10 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
         delete.requestLayout();
 
         if(icon.getLayoutParams().height==0) {
-            icon.getLayoutParams().height = 500;
-            name.getLayoutParams().height = 0;
-            location.getLayoutParams().height = 0;
-            delete.getLayoutParams().height = 0;
+            icon.getLayoutParams().height       = 500;
+            name.getLayoutParams().height       = 0;
+            location.getLayoutParams().height   = 0;
+            delete.getLayoutParams().height     = 0;
         }else{
             icon.getLayoutParams().height = 0;
         }
@@ -223,6 +229,7 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
         }
 
     }
+
     private void location_bar(){
         LinearLayout icon= findViewById(R.id.change_icon_layout_manage);
         LinearLayout name= findViewById(R.id.change_name_layout_manage);
@@ -243,6 +250,7 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
         }
 
     }
+
     private void delete_bar(){
         LinearLayout icon= findViewById(R.id.change_icon_layout_manage);
         LinearLayout name= findViewById(R.id.change_name_layout_manage);
@@ -263,4 +271,18 @@ public class Manage_Profile extends Activity implements View.OnClickListener {
         }
 
     }
+
+//    public void initializeManageBars()
+//    {
+//        LinearLayout icon       = findViewById(R.id.change_icon_layout_manage);
+//        LinearLayout name       = findViewById(R.id.change_name_layout_manage);
+//        LinearLayout location   = findViewById(R.id.change_location_layout_manage);
+//        LinearLayout delete     = findViewById(R.id.delete_layout_manage);
+//
+//        icon.requestLayout();
+//        name.requestLayout();
+//        location.requestLayout();
+//        delete.requestLayout();
+//    }
+
 }
