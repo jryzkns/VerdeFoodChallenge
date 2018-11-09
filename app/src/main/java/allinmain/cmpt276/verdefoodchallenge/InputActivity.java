@@ -86,6 +86,8 @@ public class InputActivity extends Activity {
         if (FoodStringIndex > 19) {
             FoodStringIndex = 19;
             // exit activity
+            Intent intent =new Intent(InputActivity.this,Co2CalActivity.class);
+            InputActivity.this.startActivity(intent);
             InputActivity.this.finish();
             return;
         }

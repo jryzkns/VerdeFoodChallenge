@@ -61,8 +61,8 @@ public class ProfileInfor extends Activity implements View.OnClickListener {
         ButtonDelete.setOnClickListener(this);
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        DatabaseReference databaseReferenceName = FirebaseDatabase.getInstance().getReference("USERINFO").child(user.getUid()).child("NAME");
-        DatabaseReference databaseReferenceLocation = FirebaseDatabase.getInstance().getReference("USERINFO").child(user.getUid()).child("LOCATION");
+        DatabaseReference databaseReferenceName = FirebaseDatabase.getInstance().getReference("USERINFO").child(user.getUid()).child("name");
+        DatabaseReference databaseReferenceLocation = FirebaseDatabase.getInstance().getReference("USERINFO").child(user.getUid()).child("location");
         databaseReferenceName.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

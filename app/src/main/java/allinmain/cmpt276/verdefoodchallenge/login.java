@@ -106,8 +106,6 @@ public class login extends Activity implements View.OnClickListener {
                         if (task.isSuccessful()){
                             Toast.makeText(login.this,"Registered Successfully",Toast.LENGTH_SHORT).show();
                             Intent intent =new Intent(login.this,ProfileInfor.class);
-
-
                             login.this.startActivity(intent);
 
 
