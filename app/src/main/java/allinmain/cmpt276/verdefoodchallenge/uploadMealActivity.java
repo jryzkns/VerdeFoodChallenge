@@ -14,15 +14,22 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class uploadMealActivity extends Activity implements View.OnClickListener {
 
     private Button submit,choosePhoto;
     private EditText mName,mProtein,mRestName,mRestLoc,mDesc;
+    private Bitmap meal_image = null;
     private ImageView preview;
     private FirebaseFirestore db;
+
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
     private Uri filepath;
 
@@ -50,6 +57,9 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
 
         preview = findViewById(R.id.image_preview);
 
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
@@ -68,6 +78,9 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
                 String meal_Description = mDesc.getText().toString().trim();
 
                 meal new_meal = new meal(meal_name,meal_protein,meal_Restaurant_Name,meal_Restaurant_Location,meal_Description);
+
+                StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+                ref.putFile(filepath);
 
                 db.collection("meals").add(new_meal);
 
@@ -92,8 +105,8 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
                 && data != null && data.getData() != null){
             filepath = data.getData();
             try{
-                Bitmap preview_image = MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
-                preview.setImageBitmap(preview_image);
+                meal_image = MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                preview.setImageBitmap(meal_image);
             }catch(IOException e){
                 e.printStackTrace();
             }
