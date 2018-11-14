@@ -62,7 +62,9 @@
         <activity android:name=".community" />
         <activity android:name=".login" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".ProfileInfor"></activity>
+        <activity android:name=".ProfileInfor" />
+        <activity android:name=".UploadMealActivity" />
+        <activity android:name=".uploadMealActivity"></activity>
     </application>
 
 </manifest>
