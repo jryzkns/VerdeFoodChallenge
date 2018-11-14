@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -40,10 +41,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
+    <com.dd.processbutton.iml.ActionProcessButton
         android:id="@+id/buttonRegister"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
         android:text="Sign Up"
-        android:textSize="20dp"/>
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        custom:pb_colorComplete="@color/blue_normal"
+        custom:pb_colorNormal="@color/green_complete"
+        custom:pb_colorPressed="@color/colorPrimary"
+        custom:pb_colorProgress="@color/purple_progress"
+        custom:pb_textComplete="@string/Success"
+        custom:pb_textProgress="@string/Loading" />
+
 </LinearLayout>
