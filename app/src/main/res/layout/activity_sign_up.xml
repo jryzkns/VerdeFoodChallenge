@@ -55,5 +55,5 @@
         custom:pb_colorProgress="@color/purple_progress"
         custom:pb_textComplete="@string/Success"
         custom:pb_textProgress="@string/Loading" />
-    
+
 </LinearLayout>
