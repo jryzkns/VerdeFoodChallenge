@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Meal_Search"
+    android:orientation="vertical"
+    android:background="#fff">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/bar"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="  Meals"
+            android:textColor="@color/word_bar"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/buttonbar"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/button_selected"
+            android:gravity="center"
+            android:text="Search Meal"
+            android:textColor="#fff"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/My_meal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="My Meals"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/searchbar_meal"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:hint="Meal Name"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:id="@+id/SearchButton_meal"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:text="Search"
+            android:gravity="center"
+            android:background="@color/save_bar"
+            android:textColor="@color/save_word"
+            android:layout_marginRight="20dp"/>
+
+        <TextView
+            android:id="@+id/advance_expand_meal"
+            android:layout_width="65dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="advanced"
+            android:textColor="@color/link"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/advanceLayout_meal"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:background="@color/bbutton2"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textColor="#000"
+                android:gravity="center"/>
+            <Spinner
+                android:id="@+id/location_advanceSearch_meal"
+                android:layout_width="130dp"
+                android:layout_height="35dp"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Main Protein"
+                android:textColor="#000"
+                android:gravity="center"/>
+            <Spinner
+                android:id="@+id/protein_advanceSearch_meal"
+                android:layout_width="130dp"
+                android:layout_height="35dp"></Spinner>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/searchButton_advance_meal"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:text="Search"
+            android:gravity="center"
+            android:background="@color/save_bar"
+            android:textColor="@color/save_word"
+            android:layout_marginRight="20dp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
