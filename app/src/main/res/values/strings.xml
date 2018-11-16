@@ -60,13 +60,14 @@
     <string name="share">Share</string>
     <string-array name="Locations">
 
-        <item>Selet Location</item>
+        <item>All</item>
         <item>Vancouver</item>
         <item>Burnaby</item>
         <item>Coquitlam</item>
         <item>Surrey</item>
         <item>Richmond</item>
         <item>New Westminster</item>
+        <item>Other</item>
     </string-array>
     <string name="cancel">Cancel</string>
     <string name="about_us">about_us</string>
@@ -77,6 +78,20 @@
     <string name="Success">Success</string>
     <string name="Upload">Upload</string>
     <string name="Uploading">Uploading</string>
+    
+    <string-array name="Proteins">
+
+        <item>All</item>
+        <item>Meat</item>
+        <item>Cheese</item>
+        <item>Fish</item>
+        <item>Eggs</item>
+        <item>Vegetables</item>
+        <item>Fruits</item>
+        <item>Nuts</item>
+        <item>Tofu</item>
+        <item>Other</item>
+    </string-array>
 
 
 </resources>
