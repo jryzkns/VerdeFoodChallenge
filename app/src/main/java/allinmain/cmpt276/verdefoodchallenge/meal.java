@@ -1,21 +1,28 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
-import android.graphics.Bitmap;
-
 public class meal {
     String mName,mProtein,mrName,mrLoc,mDesc;
 
-    public meal(String mName, String mProtein, String mrName, String mrLoc, String mDesc) {
+    String mImg;
+
+    public meal(String mName, String mProtein, String mrName, String mrLoc, String mDesc, String mImg) {
         this.mName = mName;
         this.mProtein = mProtein;
         this.mrName = mrName;
         this.mrLoc = mrLoc;
         this.mDesc = mDesc;
+        this.mImg = mImg;
     }
 
-    public String getmName() {
-        return mName;
+    public String getmImg() {
+        return mImg;
     }
+
+    public void setmImg(String mImg) {
+        this.mImg = mImg;
+    }
+
+    public String getmName() { return mName; }
 
     public String getmProtein() {
         return mProtein;

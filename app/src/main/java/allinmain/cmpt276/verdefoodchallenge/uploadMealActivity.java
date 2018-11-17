@@ -8,11 +8,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -31,8 +35,9 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
     private FirebaseStorage storage;
     private StorageReference storageReference;
 
-    private Uri filepath;
+    private Uri filepath = Uri.EMPTY;
 
+    private String defaultimg = "gs://greenfood-challenge.appspot.com/images/default.jpg";
     private final int PICK_IMAGE_REQUEST = 71;
 
     @Override
@@ -69,27 +74,43 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
         switch (view.getId()){
             case R.id.submit_meal:
 
-                //need catch for empty results!
+                final String meal_name = mName.getText().toString().trim();
+                final String meal_protein = mProtein.getText().toString().trim();
+                final String meal_Restaurant_Name = mRestName.getText().toString().trim();
+                final String meal_Restaurant_Location = mRestLoc.getText().toString().trim();
+                final String meal_Description = mDesc.getText().toString().trim();
 
-                String meal_name = mName.getText().toString().trim();
-                String meal_protein = mProtein.getText().toString().trim();
-                String meal_Restaurant_Name = mRestName.getText().toString().trim();
-                String meal_Restaurant_Location = mRestLoc.getText().toString().trim();
-                String meal_Description = mDesc.getText().toString().trim();
+                //very naive approach to catch for empty submissions
+                if (    meal_name.equals("") || meal_protein.equals("") ||
+                        meal_Restaurant_Name.equals("") || meal_Restaurant_Location.equals("")){
+                    Toast.makeText(this,"You have left some fields blank!",Toast.LENGTH_LONG).show();
+                    break;
+                }
 
-                meal new_meal = new meal(meal_name,meal_protein,meal_Restaurant_Name,meal_Restaurant_Location,meal_Description);
+                if (!filepath.equals(Uri.EMPTY)) {
 
-                StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
-                ref.putFile(filepath);
+                    String identifier = UUID.randomUUID().toString();
+                    StorageReference ref = storageReference.child("images/" + identifier);
+                    ref.putFile(filepath);
 
-                db.collection("meals").add(new_meal);
+                    String constructed_uri = "gs://greenfood-challenge.appspot.com/images/" + identifier;
 
+                    upload_meal(meal_name, meal_protein, meal_Restaurant_Name,
+                            meal_Restaurant_Location, meal_Description, constructed_uri);
+
+                }else{
+
+                    upload_meal(meal_name, meal_protein, meal_Restaurant_Name,
+                            meal_Restaurant_Location, meal_Description, defaultimg);
+
+                }
                 break;
 
             case R.id.image_upload:
                 Intent imageSelectIntent = new Intent();
                 imageSelectIntent.setType("image/*");
                 imageSelectIntent.setAction(Intent.ACTION_GET_CONTENT);
+                //TODO:may be a LOT more to add taking photos so we aren't gonna bother until later
                 startActivityForResult(Intent.createChooser(imageSelectIntent,"Select Picture"),PICK_IMAGE_REQUEST);
                 break;
         }
@@ -111,5 +132,11 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
                 e.printStackTrace();
             }
         }
+    }
+
+    private void upload_meal(String mN, String mP, String mrN, String mrL, String mD, String mDL){
+        meal new_meal = new meal(mN,mP,mrN,mrL,mD,mDL);
+        db.collection("meals").add(new_meal);
+        this.finish();
     }
 }
