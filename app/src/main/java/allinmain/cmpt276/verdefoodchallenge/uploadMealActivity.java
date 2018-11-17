@@ -8,15 +8,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -37,7 +34,9 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
 
     private Uri filepath = Uri.EMPTY;
 
+    //String representation of uri linked to default image
     private String defaultimg = "gs://greenfood-challenge.appspot.com/images/default.jpg";
+
     private final int PICK_IMAGE_REQUEST = 71;
     private final int TAKE_IMAGE_REQUEST = 0;
 
@@ -53,7 +52,6 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
         mRestName = findViewById(R.id.ETmealrest_name);
         mRestLoc = findViewById(R.id.ETmeal_loc);
         mDesc = findViewById(R.id.ETmeal_desc);
-
 
         submit = findViewById(R.id.submit_meal);
         submit.setOnClickListener(this);
@@ -119,7 +117,6 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
                 Intent imageSelectIntent = new Intent();
                 imageSelectIntent.setType("image/*");
                 imageSelectIntent.setAction(Intent.ACTION_GET_CONTENT);
-                //TODO:may be a LOT more to add taking photos so we aren't gonna bother until later
                 startActivityForResult(Intent.createChooser(imageSelectIntent,"Select Picture"),PICK_IMAGE_REQUEST);
                 break;
         }
@@ -132,8 +129,10 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK){
+
+            filepath = data.getData();
+
             if (requestCode == PICK_IMAGE_REQUEST){
-                filepath = data.getData();
                 try{
                     meal_image = MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
                 }catch(IOException e){
@@ -141,7 +140,6 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
                 }
             } else if (requestCode == TAKE_IMAGE_REQUEST){
                 meal_image = (Bitmap)data.getExtras().get("data");
-
             }
 
             preview.setImageBitmap(meal_image);
