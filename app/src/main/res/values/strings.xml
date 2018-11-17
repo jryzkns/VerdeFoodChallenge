@@ -85,5 +85,6 @@
     <string name="meal_desc">Meal Description…</string>
     <string name="submit_meal">submit!</string>
     <string name="meal_img_upload_hint">Choose a picture</string>
+    <string name="meal_img_camera_hint">Take a picture!</string>
 
 </resources>

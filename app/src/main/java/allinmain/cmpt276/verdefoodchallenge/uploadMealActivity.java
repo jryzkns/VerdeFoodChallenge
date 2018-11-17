@@ -26,7 +26,7 @@ import java.util.UUID;
 
 public class uploadMealActivity extends Activity implements View.OnClickListener {
 
-    private Button submit,choosePhoto;
+    private Button submit,choosePhoto, imageCamera;
     private EditText mName,mProtein,mRestName,mRestLoc,mDesc;
     private Bitmap meal_image = null;
     private ImageView preview;
@@ -39,6 +39,7 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
 
     private String defaultimg = "gs://greenfood-challenge.appspot.com/images/default.jpg";
     private final int PICK_IMAGE_REQUEST = 71;
+    private final int TAKE_IMAGE_REQUEST = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,9 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
 
         choosePhoto = findViewById(R.id.image_upload);
         choosePhoto.setOnClickListener(this);
+
+        imageCamera = findViewById(R.id.image_camera);
+        imageCamera.setOnClickListener(this);
 
         preview = findViewById(R.id.image_preview);
 
@@ -106,6 +110,11 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
                 }
                 break;
 
+            case R.id.image_camera:
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent,TAKE_IMAGE_REQUEST);
+                break;
+
             case R.id.image_upload:
                 Intent imageSelectIntent = new Intent();
                 imageSelectIntent.setType("image/*");
@@ -122,16 +131,22 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null){
-            filepath = data.getData();
-            try{
-                meal_image = MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
-                preview.setImageBitmap(meal_image);
-            }catch(IOException e){
-                e.printStackTrace();
+        if (resultCode == RESULT_OK){
+            if (requestCode == PICK_IMAGE_REQUEST){
+                filepath = data.getData();
+                try{
+                    meal_image = MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            } else if (requestCode == TAKE_IMAGE_REQUEST){
+                meal_image = (Bitmap)data.getExtras().get("data");
+
             }
+
+            preview.setImageBitmap(meal_image);
         }
+
     }
 
     private void upload_meal(String mN, String mP, String mrN, String mrL, String mD, String mDL){
