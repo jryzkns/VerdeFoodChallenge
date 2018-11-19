@@ -38,6 +38,8 @@ dependencies {
     //button process for login and sign up
     implementation'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
     implementation'com.getbase:floatingactionbutton:1.10.1'
+
+    implementation 'com.felipecsl.asymmetricgridview:library:2.0.1'
 //    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
 }
 
