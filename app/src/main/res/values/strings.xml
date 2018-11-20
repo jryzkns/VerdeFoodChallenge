@@ -69,16 +69,6 @@
         <item>New Westminster</item>
         <item>Other</item>
     </string-array>
-    <string name="cancel">Cancel</string>
-    <string name="about_us">about_us</string>
-    <string name="Send">Send</string>
-    <string name="log_in">Log in</string>
-    <string name="Done">Done</string>
-    <string name="Loading">Loading</string>
-    <string name="Success">Success</string>
-    <string name="Upload">Upload</string>
-    <string name="Uploading">Uploading</string>
-    
     <string-array name="Proteins">
 
         <item>All</item>
@@ -92,6 +82,25 @@
         <item>Tofu</item>
         <item>Other</item>
     </string-array>
+    <string name="cancel">Cancel</string>
+    <string name="about_us">about_us</string>
+    <string name="Send">Send</string>
+    <string name="log_in">Log in</string>
+    <string name="Done">Done</string>
+    <string name="Loading">Loading</string>
+    <string name="Success">Success</string>
+    <string name="Upload">Upload</string>
+    <string name="Uploading">Uploading</string>
+
+    <string name="meal_name">Name</string>
+    <string name="meal_protein">Main Protein…</string>
+    <string name="meal_loc">Location of Restaurant…</string>
+    <string name="mealrest_name">Restaurant Name…</string>
+    <string name="meal_desc">Meal Description…</string>
+    <string name="submit_meal">submit!</string>
+    <string name="meal_img_upload_hint">Choose a picture</string>
+    <string name="meal_img_camera_hint">Take a picture!</string>
+
 
 
 </resources>
