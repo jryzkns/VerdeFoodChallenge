@@ -99,7 +99,7 @@ public class InputActivity extends Activity {
         foodName.setText(dc.getFood(FoodStringIndex).getName());
 
         MuBar.setProgress(FoodStringIndex);
-        inputSeekBar.setProgress((int)(dc.getDietItem(FoodStringIndex)*2));//set to 2*hash<FoodNameString.get(FoodStringIndex)>
+        inputSeekBar.setProgress((int)(dc.getDietItem(FoodStringIndex)*2));
     }
 
     //  button next
@@ -121,6 +121,10 @@ public class InputActivity extends Activity {
         }
 
         update();
+        if(sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f)>0)
+        {
+            dc.addDietItem(FoodStringIndex, sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f));
+        }
     }
 
     public void back(View view) {
