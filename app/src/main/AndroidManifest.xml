@@ -56,8 +56,9 @@
         <activity android:name=".community" />
         <activity android:name=".ProfileInfor" />
         <activity android:name=".MainPage" />
-        <activity android:name=".Meal_Search" ></activity>
-        <activity android:name=".Meal_My"/>
+        <activity android:name=".Meal_Search" />
+        <activity android:name=".Meal_My" />
+        <activity android:name=".Meal_Add"></activity>
     </application>
 
 </manifest>
