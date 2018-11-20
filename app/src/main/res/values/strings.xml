@@ -101,6 +101,7 @@
     <string name="Success">Success</string>
     <string name="Upload">Upload</string>
     <string name="Uploading">Uploading</string>
+    <string name="appbar_scrolling_view_behavior">appbar_scrolling_view_behavior</string>
 
     <string name="meal_name">Name</string>
     <string name="meal_protein">Main Protein…</string>
