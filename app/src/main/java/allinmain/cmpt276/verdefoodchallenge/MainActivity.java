@@ -53,7 +53,7 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
 
 
         if (savedInstanceState == null) {
-            adapter = new DefaultListAdapter(this, resetutils.moarItems(50));
+            adapter = new DefaultListAdapter(this, resetutils.DesigningItem(7));
         }
         else {
             adapter = new DefaultListAdapter(this);
