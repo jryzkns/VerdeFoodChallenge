@@ -27,7 +27,7 @@ import java.util.UUID;
 public class Meal_Add extends Activity implements View.OnClickListener {
 
     private Button submit,choosePhoto, imageCamera;
-    private EditText mName,mProtein,mRestName,mRestLoc,mDesc;
+    private EditText mName,mRestName,mDesc;
     private Bitmap meal_image = null;
     private ImageView preview;
     private FirebaseFirestore db;
@@ -148,6 +148,7 @@ public class Meal_Add extends Activity implements View.OnClickListener {
                             meal_Restaurant_Location, meal_Description, defaultimg);
 
                 }
+                this.finish();
                 break;
 
             case R.id.image_camera:
