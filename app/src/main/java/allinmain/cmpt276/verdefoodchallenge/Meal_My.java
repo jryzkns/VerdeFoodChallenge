@@ -34,9 +34,11 @@ public class Meal_My extends Activity implements View.OnClickListener {
             case R.id.Search_meal:
                 intent = new Intent(Meal_My.this,Meal_Search.class);
                 Meal_My.this.startActivity(intent);
+                this.finish();
                 break;
             case R.id.addNewMeal_meal:
-
+                intent = new Intent(Meal_My.this,Meal_Add.class);
+                Meal_My.this.startActivity(intent);
                 break;
         }
     }
