@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Asym_Unitset {
-    int currentOffset;
+    int currentOffset=0;
     Asym_Unitset(){}
     public List<Asymmetric_Itemset> moarItems( int qty) {
         List<Asymmetric_Itemset> items = new ArrayList<>();

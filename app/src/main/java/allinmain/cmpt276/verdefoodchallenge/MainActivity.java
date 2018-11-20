@@ -24,12 +24,15 @@ import com.felipecsl.asymmetricgridview.library.Utils;
 import com.felipecsl.asymmetricgridview.library.model.AsymmetricItem;
 import com.felipecsl.asymmetricgridview.library.widget.AsymmetricGridView;
 import com.felipecsl.asymmetricgridview.library.widget.AsymmetricGridViewAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity implements CompoundButton.OnCheckedChangeListener{
+
+
+public class MainActivity extends Activity implements CompoundButton.OnCheckedChangeListener, AdapterView.OnItemClickListener {
     ///private RadioButton malerb,femalerb;
     private SharedPreferences sp ;
     private Button start;
@@ -53,19 +56,18 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
 
 
         if (savedInstanceState == null) {
-            adapter = new DefaultListAdapter(this, resetutils.DesigningItem(7));
+            //I set the Design Item number independently to mack share the number will not be affect by older
+            adapter = new DefaultListAdapter(this, resetutils.DesigningItem(9));
         }
         else {
             adapter = new DefaultListAdapter(this);
         }
 
-
-
         listView.setRequestedColumnCount(3);
         listView.setRequestedHorizontalSpacing(Utils.dpToPx(this, 3));
         listView.setAdapter(getNewAdapter());
-//        listView.setDebugging(true);
-//        listView.setOnItemClickListener((AdapterView.OnItemClickListener) this);
+        //listView.setDebugging(true);
+        listView.setOnItemClickListener(this);
 
     }
     private AsymmetricGridViewAdapter getNewAdapter() {
@@ -96,9 +98,11 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
     @Override public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.one_column) {
+            //connect to the menu information (id directed)
             setNumColumns(1);
         } else if (id == R.id.two_columnns) {
             setNumColumns(2);
+
         } else if (id == R.id.three_columns) {
             setNumColumns(3);
         } else if (id == R.id.four_columns) {
@@ -169,8 +173,58 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
     }
     public void onItemClick(@NonNull AdapterView<?> parent, @NonNull View view,
                                       int position, long id) {
+
+        if (position==0){// The item 0 is the personal account information
+            //Toast.makeText(this, "Item " + position + " clicked", Toast.LENGTH_SHORT).show();
+            MainActivity.this.startActivity(new Intent(MainActivity.this,login.class));
+            //MainActivity.this.finish();
+        }
+        else if (position==1){// target to the meal planning
+            // The item 0 is the personal account information
+            //Toast.makeText(this, "Item " + position + " clicked", Toast.LENGTH_SHORT).show();
+            MainActivity.this.startActivity(new Intent(MainActivity.this,GreenFoodActivity.class));
+            //MainActivity.this.finish();
+        }
+
+        else if (position==2){//upcoming information
+            Toast.makeText(this, "Weekly plan coming soon", Toast.LENGTH_SHORT).show();
+//            MainActivity.this.startActivity(new Intent(MainActivity.this,Co2CalActivity.class));
+        }
+        else if (position==3){//upcoming information: the weekly history week have
+            Toast.makeText(this, "Weekly History coming soon", Toast.LENGTH_SHORT).show();
+//            MainActivity.this.startActivity(new Intent(MainActivity.this,Co2CalActivity.class));
+
+        }
+        else if (position==4){//upcoming information: the weekly history week have
+//            Toast.makeText(this, "Weekly History coming soon", Toast.LENGTH_SHORT).show();
+            MainActivity.this.startActivity(new Intent(MainActivity.this,community.class));
+        }
+        else if (position==5){//upcoming information: Suggestion / empty? not?
+//            Toast.makeText(this, "Weekly History coming soon", Toast.LENGTH_SHORT).show();
+            MainActivity.this.startActivity(new Intent(MainActivity.this,SuggestionType.class));
+
+        }
+        else if (position==6){//upcoming information: Share activity
+            Toast.makeText(this, "Share function coming soon", Toast.LENGTH_SHORT).show();
+//            shareMethod();
+//            MainActivity.this.startActivity(new Intent(MainActivity.this,Profile.class));
+
+
+        }
+        else if (position==7){//upcoming information: the weekly history week have
+//            Toast.makeText(this, "Weekly History coming soon", Toast.LENGTH_SHORT).show();
+            FirebaseAuth.getInstance().signOut();
+            Intent i=new Intent(MainActivity.this,login.class);
+
+        }
+        else if (position==8){// The result to the one previous setting have (if there is not reset info
+            //Toast.makeText(this, "Item " + position + " clicked", Toast.LENGTH_SHORT).show();
+            MainActivity.this.startActivity(new Intent(MainActivity.this,Co2CalActivity.class));
+        }
+        else
         Toast.makeText(this, "Item " + position + " clicked", Toast.LENGTH_SHORT).show();
     }
+
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -192,4 +246,8 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
         }*/
     }
 
+    @Override
+    public void onPointerCaptureChanged( boolean hasCapture ) {
+
+    }
 }

@@ -33,12 +33,16 @@ public class DefaultListAdapter extends ArrayAdapter<Asymmetric_Itemset> impleme
   @Override
   public View getView( int position, View convertView, @NonNull ViewGroup parent) {
     View v;
-
     Asymmetric_Itemset item = getItem(position);
+    //Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.
     boolean isRegular = getItemViewType(position) == 0;
-
+    //position==0
     if (convertView == null) {
-      v = layoutInflater.inflate(
+//      if(position==0)
+//      v = layoutInflater.inflate(
+//              R.layout.adapter_item_even, parent, false);
+//      else
+       v = layoutInflater.inflate(
           isRegular ? R.layout.adapter_item_even : R.layout.adapter_item_odd, parent, false);
     } else {
       v = convertView;
