@@ -18,13 +18,21 @@
         android:text="E-mail"
         android:textColor="@color/word_Prifile"
         android:textSize="25dp" />
-    <EditText
-        android:layout_margin="15dp"
-        android:inputType="textEmailAddress"
-        android:id="@+id/editTextEmail"
-        android:hint="Enter your email"
+    <customfonts.EditText__SF_Pro_Display_Medium
+        android:layout_gravity="center"
+        android:layout_marginLeft="41dp"
+        android:layout_marginRight="41dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Email or Username"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:textColorHint="#ffffff"
+        android:textSize="11.5sp"
+        android:background="@drawable/rect"
+        />
     <TextView
         android:id="@+id/passwordView"
         android:textAlignment="center"
@@ -33,13 +41,29 @@
         android:text="Password"
         android:textColor="@color/word_Prifile"
         android:textSize="25dp"/>
-    <EditText
-        android:layout_margin="15dp"
-        android:inputType="textPassword"
+
+
+    <customfonts.EditText__SF_Pro_Display_Medium
         android:id="@+id/editTextPassword"
-        android:hint="Enter your password"
+        android:layout_gravity="center"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginRight="41dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:paddingLeft="20dp"
+        android:paddingRight="13dp"
+        android:paddingTop="13dp"
+        android:paddingBottom="14dp"
+        android:textColorHint="#ffffff"
+        android:textSize="11.5sp"
+        android:drawableRight="@drawable/ic_eye"
+        android:background="@drawable/rect"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
 
     <com.dd.processbutton.iml.ActionProcessButton
         android:id="@+id/buttonRegister"
