@@ -6,6 +6,7 @@ import android.content.Intent;
 //import android.support.v7.app.AppCompatActivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,6 +14,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -26,7 +29,7 @@ public class InputActivity extends Activity {
     private SeekBar skBar;
     private SeekBar MuBar;
 
-    private DataCenter dc=DataCenter.getInstance();
+    private DataCenter dc;
 
 
     @Override
@@ -34,48 +37,50 @@ public class InputActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
 
+        dc = DataCenter.getInstance();
 
         Intent intent= this.getIntent();
 
-        FoodStringIndex=intent.getIntExtra("foodid",-1);;
+        FoodStringIndex=intent.getIntExtra("foodid",-1);
 
-        SharedPreferences sp=getSharedPreferences("userData", Context.MODE_PRIVATE);;
+        SharedPreferences sp=getSharedPreferences("userData", Context.MODE_PRIVATE);
         if(sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f)>0)
         {
             dc.addDietItem(FoodStringIndex, sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f));
         }
-        //start();
+
+
         skBar = findViewById(R.id.input_value);
-        MuBar = findViewById(R.id.menu);
         skBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 TextView sb_process = findViewById(R.id.skprocess);
-                sb_process.setText(""+0.5*(float)seekBar.getProgress());
+                sb_process.setText("" + round(getExpProgress(seekBar.getProgress()),2));
             }
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                input(seekBar.getProgress());
+
+                double expprogress = round(getExpProgress(seekBar.getProgress()),2);
+
+                input(expprogress);
                 update();
             }
         });
 
+        MuBar = findViewById(R.id.menu);
         MuBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-
+                FoodStringIndex=seekBar.getProgress();
+                update();
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                FoodStringIndex=seekBar.getProgress();
-                update();
+            public void onStopTrackingTouch(SeekBar seekBar){
             }
         });
         update();
@@ -83,13 +88,9 @@ public class InputActivity extends Activity {
 
     //update food name and food picture base on FoodStringIndex
     private void update() {
+
         if (FoodStringIndex > 19) {
-            FoodStringIndex = 19;
-            // exit activity
-            Intent intent =new Intent(InputActivity.this,Co2CalActivity.class);
-            InputActivity.this.startActivity(intent);
             InputActivity.this.finish();
-            return;
         }
 
         TextView foodName = findViewById(R.id.foodName);
@@ -99,35 +100,38 @@ public class InputActivity extends Activity {
         foodName.setText(dc.getFood(FoodStringIndex).getName());
 
         MuBar.setProgress(FoodStringIndex);
-        inputSeekBar.setProgress((int)(dc.getDietItem(FoodStringIndex)*2));//set to 2*hash<FoodNameString.get(FoodStringIndex)>
+        inputSeekBar.setProgress((int) getLinearProgress(dc.getDietItem(FoodStringIndex)));
+
     }
 
     //  button next
     public void next(View view) {
 
-
         SeekBar inputSeekBar = findViewById(R.id.input_value);
-        dc.addDietItem(FoodStringIndex,inputSeekBar.getProgress()/2);
-        SharedPreferences sp=getSharedPreferences("userData", Context.MODE_PRIVATE);;
+        dc.addDietItem(FoodStringIndex, (float) getExpProgress(inputSeekBar.getProgress()));
+        SharedPreferences sp=getSharedPreferences("userData", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
         edit.putFloat(dc.getFood(FoodStringIndex).getName(),inputSeekBar.getProgress()/2);
         edit.commit();
         FoodStringIndex++;
 
+        if (FoodStringIndex <= 19){
 
-        if(sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f)>0)
-        {
-            dc.addDietItem(FoodStringIndex, sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f));
+            if(sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f)>0)
+            {
+                dc.addDietItem(FoodStringIndex, sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f));
+            }
         }
 
         update();
+
     }
 
     public void back(View view) {
         InputActivity.this.finish();
     }
 
-    public void privious(View view) {
+    public void previous(View view) {
         //InputActivity.this.finish();
 
         if (FoodStringIndex == 0) {
@@ -139,26 +143,38 @@ public class InputActivity extends Activity {
         }
     }
 
-    public void random(View view){
-        int r=ThreadLocalRandom.current().nextInt(0, 100);
-        skBar.setProgress(r);
-        input(skBar.getProgress());
-
-    }
-
     public void result(View view){
 
         Intent intent =new Intent(InputActivity.this,Co2CalActivity.class);
         InputActivity.this.startActivity(intent);
     }
 
-    private void input(int f){
-        if(f!=0){
+    private void input(double d){
+        if(d!=0){
 
-            dc.addDietItem(FoodStringIndex,(float)f/2);
+            dc.addDietItem(FoodStringIndex,(float)d);
         }
         else{dc.delDietItem(FoodStringIndex);}
 
+    }
+
+    private double getExpProgress(double linearprogress){
+        double c = 100/Math.log(51);
+        double expProgress = Math.exp(linearprogress/c) - 1;
+        return expProgress;
+    }
+
+    //inverse of getExpProgress
+    private double getLinearProgress(double expprogress){
+        double linearProgress = 100* Math.log(expprogress+1)/Math.log(51);
+        return linearProgress;
+    }
+
+    // function referred from: https://www.baeldung.com/java-round-decimal-number
+    private static double round(double value, int places) {
+        BigDecimal bd = new BigDecimal(Double.toString(value));
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
 }
