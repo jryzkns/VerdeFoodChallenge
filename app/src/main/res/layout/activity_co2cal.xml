@@ -34,6 +34,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title" />
 
+
+
     <Button
         android:id="@+id/suggestion_from_result"
         android:layout_width="120dp"

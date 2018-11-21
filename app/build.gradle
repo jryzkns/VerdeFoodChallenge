@@ -46,6 +46,8 @@ dependencies {
 
     implementation 'com.felipecsl.asymmetricgridview:library:2.0.1'
 //    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
+    //import the pie chart lib
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
 }
 
 apply plugin: 'com.google.gms.google-services'

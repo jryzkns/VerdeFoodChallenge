@@ -2,6 +2,7 @@ package allinmain.cmpt276.verdefoodchallenge;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
@@ -23,7 +24,7 @@ import com.felipecsl.asymmetricgridview.library.widget.AsymmetricGridView;
 import com.felipecsl.asymmetricgridview.library.widget.AsymmetricGridViewAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends Activity{
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -212,4 +213,8 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
     }
 
 
+    @Override
+    public void onCheckedChanged( CompoundButton compoundButton, boolean b ) {
+
+    }
 }

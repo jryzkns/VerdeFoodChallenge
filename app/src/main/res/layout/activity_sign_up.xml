@@ -18,7 +18,7 @@
         android:text="E-mail"
         android:textColor="@color/word_Prifile"
         android:textSize="25dp" />
-    <customfonts.EditText__SF_Pro_Display_Medium
+    <EditText
         android:layout_gravity="center"
         android:layout_marginLeft="41dp"
         android:layout_marginRight="41dp"
@@ -43,7 +43,7 @@
         android:textSize="25dp"/>
 
 
-    <customfonts.EditText__SF_Pro_Display_Medium
+    <EditText
         android:id="@+id/editTextPassword"
         android:layout_gravity="center"
         android:layout_marginTop="21dp"
