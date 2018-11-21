@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login"
+    tools:context=".ProfileInfor"
     android:background="#fff"
     android:orientation="vertical"
     android:gravity="center">
@@ -19,20 +19,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <EditText
-        android:layout_margin="15dp"
-        android:inputType="text"
-        android:maxLines="1"
-        android:id="@+id/editLocation"
-        android:hint="Enter your location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <!--<EditText-->
+        <!--android:layout_margin="15dp"-->
+        <!--android:inputType="text"-->
+        <!--android:maxLines="1"-->
+        <!--android:id="@+id/editLocation"-->
+        <!--android:hint="Enter your location"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
 
-    <Spinner
+    <LinearLayout
         android:layout_margin="15dp"
-        android:id="@+id/SPmeal_protein"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></Spinner>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select your location"
+            android:textColor="#000"/>
+
+        <Spinner
+            android:id="@+id/SPlogin_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/Buttonsave"

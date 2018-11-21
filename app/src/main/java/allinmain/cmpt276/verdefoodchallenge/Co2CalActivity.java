@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
@@ -67,7 +68,12 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
             if (temp!=-1f)
                 poeEntries.add(new PieEntry(dc.getDietItem(i),dc.mFoodLst.get(i).getName()));
         }
-        PieDataSet dataSet=new PieDataSet(poeEntries,);
+        PieDataSet dataSet=new PieDataSet(poeEntries, "Deit Item pie chart" ) ;
+        PieData data = new PieData (dataSet);
+
+        PieChart chart = (PieChart) findViewById(R.id.chart);
+        chart.setData(data);
+
     }
 
     @Override
