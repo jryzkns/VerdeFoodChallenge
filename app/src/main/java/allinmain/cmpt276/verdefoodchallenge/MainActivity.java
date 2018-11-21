@@ -163,7 +163,8 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
 
         if (position==0){// The item 0 is the personal account information
             //Toast.makeText(this, "Item " + position + " clicked", Toast.LENGTH_SHORT).show();
-            MainActivity.this.startActivity(new Intent(MainActivity.this,login.class));
+            MainActivity.this.startActivity(new Intent(MainActivity.this,Profile.class));
+
             //MainActivity.this.finish();
         }
         else if (position==1){// target to the meal planning
@@ -178,8 +179,8 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
 //            MainActivity.this.startActivity(new Intent(MainActivity.this,Co2CalActivity.class));
         }
         else if (position==3){//upcoming information: the weekly history week have
-            Toast.makeText(this, "Weekly History coming soon", Toast.LENGTH_SHORT).show();
-//            MainActivity.this.startActivity(new Intent(MainActivity.this,Co2CalActivity.class));
+//            Toast.makeText(this, "Weekly History coming soon", Toast.LENGTH_SHORT).show();
+            MainActivity.this.startActivity(new Intent(MainActivity.this,login.class));
 
         }
         else if (position==4){//upcoming information: the weekly history week have

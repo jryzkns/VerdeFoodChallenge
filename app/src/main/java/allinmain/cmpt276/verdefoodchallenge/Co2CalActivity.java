@@ -13,7 +13,12 @@ import android.widget.TextView;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Co2CalActivity extends Activity implements View.OnClickListener{
     private Button recal, suggest;
@@ -39,56 +44,7 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
         suggest.setOnClickListener(this);
         ImageView about = findViewById(R.id.about_result);
 
-
-//        // pie chart style
-//        mChart = (PieChart) findViewById(R.id.chart1);
-//        mChart.setUsePercentValues(true);
-//        mChart.getDescription().setEnabled(false);
-//        mChart.setExtraOffsets(5, 10, 5, 5);
-//
-//
-//        mChart.setDrawHoleEnabled(true);
-//        mChart.setHoleColor(Color.WHITE);
-//
-//        mChart.setTransparentCircleColor(Color.WHITE);
-//        mChart.setTransparentCircleAlpha(110);
-//
-//        mChart.setHoleRadius(58f);
-//        mChart.setTransparentCircleRadius(61f);
-//
-//        mChart.setDrawCenterText(true);
-//
-//        mChart.setRotationAngle(0);
-//        // enable rotation of the chart by touch
-//        mChart.setRotationEnabled(true);
-//        mChart.setHighlightPerTapEnabled(true);
-//
-//        // mChart.setUnit(" €");
-//        // mChart.setDrawUnitsInChart(true);
-//
-//        // add a selection listener
-//        mChart.setOnChartValueSelectedListener((OnChartValueSelectedListener) this);
-//
-//
-//
-//        mChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
-//        // mChart.spin(2000, 0, 360);
-//        Legend l = mChart.getLegend();
-//        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-//        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-//        l.setOrientation(Legend.LegendOrientation.VERTICAL);
-//        l.setDrawInside(false);
-//        l.setXEntrySpace(7f);
-//        l.setYEntrySpace(0f);
-//        l.setYOffset(0f);
-//        mChart.setEntryLabelColor(Color.WHITE);
-////        mChart.setEntryLabelTypeface(mTfRegular);
-//        mChart.setEntryLabelTextSize(12f);
-
-
-
-
-
+        SetUpPieChart();
         //navigation
         ImageView toGreenfood = findViewById(R.id.toGreenfood_result);
         ImageView toResult = findViewById(R.id.toResult_result);
@@ -101,6 +57,17 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
 
         about.setOnClickListener(this);
 
+    }
+
+    private void SetUpPieChart() {
+        List<PieEntry> poeEntries = new ArrayList<>();
+
+        for (int i = 0 ; i < dc.getFoodsSize();i++){
+            float temp=dc.getDietItem(i);
+            if (temp!=-1f)
+                poeEntries.add(new PieEntry(dc.getDietItem(i),dc.mFoodLst.get(i).getName()));
+        }
+        PieDataSet dataSet=new PieDataSet(poeEntries,);
     }
 
     @Override

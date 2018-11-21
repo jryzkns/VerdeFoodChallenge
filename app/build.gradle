@@ -42,12 +42,15 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:11.8.0'
 
     implementation'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
+    //function button ( add, share and back )
     implementation'com.getbase:floatingactionbutton:1.10.1'
 
     implementation 'com.felipecsl.asymmetricgridview:library:2.0.1'
 //    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
     //import the pie chart lib
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
 }
 
 apply plugin: 'com.google.gms.google-services'
@@ -71,5 +74,6 @@ allprojects {
         maven {
             url "https://maven.google.com"
         }
+        maven { url 'https://jitpack.io' }
     }
 }

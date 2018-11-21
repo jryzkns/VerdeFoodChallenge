@@ -1,197 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bbutton2"
-    android:orientation="vertical"
     tools:context=".Profile">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/bar"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="  Personal profile"
-            android:textColor="@color/word_bar"
-            android:textSize="30sp" />
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:gravity="end"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent" />
-
-            <ImageView
-                android:id="@+id/about_profile"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/info" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:gravity="center"
-        android:orientation="vertical">
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/userIcon_Profile"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="#fff"
-                android:src="@drawable/default_icon" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="10dp" />
-
-            <TextView
-                android:id="@+id/uesrName_Profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/frame1"
-                android:text="Name I."
-                android:textColor="@color/word_Prifile"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:background="@color/frame1"
-        android:gravity="bottom"
-        android:orientation="vertical">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/manage_Profile"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/button"
-                android:gravity="center"
-                android:text="Manage My Pledge"
-                android:textColor="@color/save_word"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/share_Profile"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/button"
-                android:gravity="center"
-                android:text="Share My Pledge"
-                android:textColor="@color/save_word"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="30dp" />
+        android:layout_height="match_parent"
+        android:background="@color/bbutton2"
+        android:orientation="vertical"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:gravity="center"
+            android:background="@color/bar"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/logout_Profile"
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@color/logout_red"
-                android:gravity="center"
-                android:text="log out"
+                android:text="  Personal profile"
+                android:textColor="@color/word_bar"
                 android:textSize="30sp" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:id="@+id/about_profile"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/info" />
+            </LinearLayout>
 
         </LinearLayout>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="50dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/bar"
+            android:layout_height="200dp"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="4">
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/toGreenfood_profile"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/food_icon" />
 
-            <ImageView
-                android:id="@+id/toResult_profile"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/paper" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/toCommunity_profile"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/earth" />
+                <ImageView
+                    android:id="@+id/userIcon_Profile"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="#fff"
+                    android:src="@drawable/default_icon" />
 
-            <ImageView
-                android:id="@+id/toProfile_profile"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/uesr" />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp" />
+
+                <TextView
+                    android:id="@+id/uesrName_Profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/frame1"
+                    android:text="Name I."
+                    android:textColor="@color/word_Prifile"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/frame1"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/manage_Profile"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:text="Manage My Pledge"
+                    android:textColor="@color/save_word"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/share_Profile"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button"
+                    android:gravity="center"
+                    android:text="Share My Pledge"
+                    android:textColor="@color/save_word"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/logout_Profile"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/logout_red"
+                    android:gravity="center"
+                    android:text="log out"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/bar"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <ImageView
+                    android:id="@+id/toGreenfood_profile"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/food_icon" />
+
+                <ImageView
+                    android:id="@+id/toResult_profile"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/paper" />
+
+                <ImageView
+                    android:id="@+id/toCommunity_profile"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/earth" />
+
+                <ImageView
+                    android:id="@+id/toProfile_profile"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/uesr" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
 
     </LinearLayout>
 
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/function_bottom"
+        android:layout_width="3dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
 
-</LinearLayout>
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="296dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        fab:fab_addButtonColorNormal="@color/white"
+        fab:fab_addButtonColorPressed="@color/white_pressed"
+        fab:fab_addButtonPlusIconColor="@color/half_black"
+
+        fab:fab_labelStyle="@style/menu_labels_style"
+        fab:fab_labelsPosition="right">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_addButtonColorNormal="@color/white"
+            fab:fab_addButtonColorPressed="@color/white_pressed"
+            fab:fab_addButtonPlusIconColor="@color/half_black"
+            fab:fab_size="mini"
+            fab:fab_icon="@drawable/ic_add"
+            fab:fab_title="Add new calculate" />
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_addButtonColorNormal="@color/white"
+            fab:fab_addButtonColorPressed="@color/white_pressed"
+            fab:fab_addButtonPlusIconColor="@color/half_black"
+            fab:fab_icon="@drawable/ic_share"
+            fab:fab_size="mini"
+            fab:fab_title="Share you status" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+</android.support.constraint.ConstraintLayout>

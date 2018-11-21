@@ -31,11 +31,11 @@ public class DefaultListAdapter extends ArrayAdapter<Asymmetric_Itemset> impleme
   }
 
   @Override
-  public View getView( int position, View convertView, @NonNull ViewGroup parent) {
+  public View getView( int i, View convertView, @NonNull ViewGroup parent) {
     View v;
-    Asymmetric_Itemset item = getItem(position);
+    Asymmetric_Itemset item = getItem(i);
     //Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.
-    boolean isRegular = getItemViewType(position) == 0;
+    boolean isRegular = getItemViewType(i) == 0;
     //position==0
     if (convertView == null) {
 //      if(position==0)

@@ -28,6 +28,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Spinner
+        android:layout_margin="15dp"
+        android:id="@+id/SPmeal_protein"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Spinner>
+
     <Button
         android:id="@+id/Buttonsave"
         android:layout_width="wrap_content"
