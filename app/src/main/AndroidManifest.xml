@@ -4,8 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -46,22 +45,24 @@
             android:name=".SuggestionType"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".InputActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SuggestionType"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Profile"
             android:label="@string/title_activity_profile"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Manage_Profile"
             android:screenOrientation="portrait" />
-        <activity android:name=".login"
-            android:screenOrientation="portrait" />
-        <activity android:name=".SignUpActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".community"
-            android:screenOrientation="portrait" />
-        <activity android:name=".ProfileInfor"
-            android:screenOrientation="portrait" />
-        <activity android:name=".uploadMealActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".login" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".community" />
+        <activity android:name=".login" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".ProfileInfor"></activity>
     </application>
 
 </manifest>
