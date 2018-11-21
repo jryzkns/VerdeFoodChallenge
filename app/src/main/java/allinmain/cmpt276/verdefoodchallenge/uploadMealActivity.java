@@ -22,34 +22,33 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.UUID;
 
 public class uploadMealActivity extends Activity implements View.OnClickListener {
 
+    /*  UI related declarations     */
     private Button submit,choosePhoto, imageCamera;
-    private EditText mName,mProtein,mRestName,mRestLoc,mDesc;
+    private EditText mName,mRestName,mDesc;
     private Bitmap meal_image = null;
     private ImageView preview;
-    private FirebaseFirestore db;
+    private Spinner location_spinner, protein_spinner;
+    private ArrayAdapter<CharSequence> location_adapter, protein_adapter;
+    private int protein_selected, location_selected;
 
-    private FirebaseStorage storage;
-    private StorageReference storageReference;
-
-    private Uri filepath = Uri.EMPTY;
-
+    /*  firebase related declarations   */
     //String representation of uri linked to default image
     private String defaultimg = "gs://greenfood-challenge.appspot.com/images/default.jpg";
+    private FirebaseStorage storage;
+    private FirebaseFirestore db;
+    private StorageReference storageReference;
 
+    /*  Image upload related declarations   */
     private final int PICK_IMAGE_REQUEST = 71;
     private final int TAKE_IMAGE_REQUEST = 0;
-
-    private Spinner location_spinner;
-    private Spinner protein_spinner;
-    ArrayAdapter<CharSequence> location_adapter;
-    ArrayAdapter<CharSequence> protein_adapter;
-    int protein_selected;
-    int location_selected;
+    private Uri filepath = Uri.EMPTY;
+    private byte[] mImageArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +78,6 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
         init_spinner();
 
     }
-
 
     private void init_spinner(){
         //set up 2 spinners
@@ -132,18 +130,39 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
                     break;
                 }
 
-                if (!filepath.equals(Uri.EMPTY)) {
+                // image from camera
+                if (mImageArray != null){
+                    String identifier = UUID.randomUUID().toString();
+                    StorageReference ref = storageReference.child("images/" + identifier);
+
+                    ref.putBytes(mImageArray);
+
+                    String constructed_uri = "gs://greenfood-challenge.appspot.com/images/"
+                            + identifier + ".jpg";
+
+                    upload_meal(meal_name, meal_protein, meal_Restaurant_Name,
+                            meal_Restaurant_Location, meal_Description, constructed_uri);
+
+                }
+
+                //image from storage
+                else if (!filepath.equals(Uri.EMPTY)) {
 
                     String identifier = UUID.randomUUID().toString();
                     StorageReference ref = storageReference.child("images/" + identifier);
                     ref.putFile(filepath);
 
-                    String constructed_uri = "gs://greenfood-challenge.appspot.com/images/" + identifier;
+                    String constructed_uri = "gs://greenfood-challenge.appspot.com/images/"
+                            + identifier;
 
                     upload_meal(meal_name, meal_protein, meal_Restaurant_Name,
                             meal_Restaurant_Location, meal_Description, constructed_uri);
 
-                }else{
+
+                }
+
+                // no image
+                else{
 
                     upload_meal(meal_name, meal_protein, meal_Restaurant_Name,
                             meal_Restaurant_Location, meal_Description, defaultimg);
@@ -153,7 +172,6 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
 
             case R.id.image_camera:
                 Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,filepath);
                 startActivityForResult(cameraIntent,TAKE_IMAGE_REQUEST);
                 break;
 
@@ -169,25 +187,33 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        //Thank you based Tilemachos
+
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK){
 
-            filepath = data.getData();
-
             if (requestCode == PICK_IMAGE_REQUEST){
+
+                filepath = data.getData();
                 try{
                     meal_image = MediaStore.Images.Media.getBitmap(getContentResolver(),filepath);
+                    mImageArray = null;
                 }catch(IOException e){
                     e.printStackTrace();
                 }
+
             } else if (requestCode == TAKE_IMAGE_REQUEST){
+
                 meal_image = (Bitmap)data.getExtras().get("data");
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                meal_image.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                mImageArray = stream.toByteArray();
+
             }
 
             preview.setImageBitmap(meal_image);
-        } else {
-            Log.d("jek","result code for onActivityResult returned not ok");
         }
 
     }
@@ -195,6 +221,6 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
     private void upload_meal(String mN, String mP, String mrN, String mrL, String mD, String mDL){
         meal new_meal = new meal(mN,mP,mrN,mrL,mD,mDL);
         db.collection("meals").add(new_meal);
-//        this.finish();
+        this.finish();
     }
 }
