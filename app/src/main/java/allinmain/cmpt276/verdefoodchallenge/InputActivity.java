@@ -91,16 +91,16 @@ public class InputActivity extends Activity {
 
         if (FoodStringIndex > 19) {
             InputActivity.this.finish();
+        }else{
+            TextView foodName = findViewById(R.id.foodName);
+            ImageView foodImg = findViewById(R.id.foodImg);
+            SeekBar inputSeekBar = findViewById(R.id.input_value);
+            foodImg.setImageResource(dc.getFood(FoodStringIndex).getResid());
+            foodName.setText(dc.getFood(FoodStringIndex).getName());
+
+            MuBar.setProgress(FoodStringIndex);
+            inputSeekBar.setProgress((int) getLinearProgress(dc.getDietItem(FoodStringIndex)));
         }
-
-        TextView foodName = findViewById(R.id.foodName);
-        ImageView foodImg = findViewById(R.id.foodImg);
-        SeekBar inputSeekBar = findViewById(R.id.input_value);
-        foodImg.setImageResource(dc.getFood(FoodStringIndex).getResid());
-        foodName.setText(dc.getFood(FoodStringIndex).getName());
-
-        MuBar.setProgress(FoodStringIndex);
-        inputSeekBar.setProgress((int) getLinearProgress(dc.getDietItem(FoodStringIndex)));
 
     }
 
@@ -111,7 +111,8 @@ public class InputActivity extends Activity {
         dc.addDietItem(FoodStringIndex, (float) getExpProgress(inputSeekBar.getProgress()));
         SharedPreferences sp=getSharedPreferences("userData", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
-        edit.putFloat(dc.getFood(FoodStringIndex).getName(),inputSeekBar.getProgress()/2);
+        edit.putFloat(dc.getFood(FoodStringIndex).getName(),
+                (float) getExpProgress(inputSeekBar.getProgress()));
         edit.commit();
         FoodStringIndex++;
 
