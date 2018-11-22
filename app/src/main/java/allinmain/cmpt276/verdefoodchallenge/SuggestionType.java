@@ -132,7 +132,6 @@ public class SuggestionType extends Activity implements View.OnClickListener {
         }
 
         SuggestionType.this.startActivity(intent);
-
     }
     // when you click back and will slip back
     @Override

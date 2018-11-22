@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 public class ActivityAboutUs extends Activity implements OnClickListener {
 
     private Button iknow,share;
+    FloatingActionButton Back;
 
     private Intent shareIntent;
 
@@ -44,7 +46,8 @@ public class ActivityAboutUs extends Activity implements OnClickListener {
     private void init()
     {
 
-
+        Back=findViewById(R.id.toSuggestion_Back);
+        Back.setOnClickListener(this);
 
         // As per Requirement 3.2.5
  //       share.setOnClickListener(this);
@@ -93,6 +96,13 @@ public class ActivityAboutUs extends Activity implements OnClickListener {
 
         @Override
     public void onClick(View view) {
-        this.finish();
+            Intent intent=new Intent(ActivityAboutUs.this,AdviceActivity.class);
+            switch (view.getId()){
+                case R.id.toSuggestion_Back:        //Button "Back"
+                    overridePendingTransition(R.anim.move_left_in_activity, R.anim.move_right_out_activity);
+                    return;
+            }
+
+            ActivityAboutUs.this.startActivity(intent);
     }
 }

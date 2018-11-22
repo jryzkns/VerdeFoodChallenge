@@ -187,8 +187,8 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
         }
 
         else if (position==2){//upcoming information
-            Toast.makeText(this, "Weekly plan coming soon", Toast.LENGTH_SHORT).show();
-//            MainActivity.this.startActivity(new Intent(MainActivity.this,Co2CalActivity.class));
+//            Toast.makeText(this, "Weekly plan coming soon", Toast.LENGTH_SHORT).show();
+            MainActivity.this.startActivity(new Intent(MainActivity.this,ActivityAboutUs.class));
         }
         else if (position==3){//upcoming information: the weekly history week have
 //            Toast.makeText(this, "Weekly History coming soon", Toast.LENGTH_SHORT).show();

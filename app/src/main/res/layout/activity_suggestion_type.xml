@@ -12,21 +12,24 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="63dp"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Please Try a Strategy For Your Diet"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Your Diet Strategy"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/headline" />
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints"
+        />
 
     <GridLayout
         android:id="@+id/mainGrid"
         android:layout_width="365dp"
         android:layout_height="468dp"
-        android:layout_marginTop="44dp"
         android:layout_weight="8"
         android:alignmentMode="alignMargins"
         android:columnCount="2"
@@ -35,7 +38,7 @@
         android:rowCount="3"
         app:layout_constraintTop_toBottomOf="@+id/headline"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="19dp">
+        tools:layout_editor_absoluteX="0dp">
 
 
         <ImageView
@@ -131,7 +134,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="488dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="@+id/headline"
         app:layout_constraintStart_toStartOf="parent"

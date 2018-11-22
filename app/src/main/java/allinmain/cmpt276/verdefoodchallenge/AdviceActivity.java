@@ -11,6 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -22,6 +28,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class AdviceActivity extends Activity implements View.OnClickListener{
@@ -51,9 +62,34 @@ public class AdviceActivity extends Activity implements View.OnClickListener{
         Intent intent= this.getIntent();
         PolicyType=intent.getStringExtra("Strategy");
 
-        calinfo.setText(dc.getSuggestionInfo(PolicyType));
+
+        SetUpPieChart();
 
     }
+
+    private void SetUpPieChart() {
+
+        List<PieEntry> poeEntries = new ArrayList<>();
+        HashMap<Integer,Float> suggustion=dc.makeDietChangeTable("LESSMENT");
+        // error here, I don't understand the calling value in the set of for loop
+        for (Map.Entry<Integer,Float> item = null; suggustion.entrySet())
+        {
+            float temp=item.getValue();
+            if (temp!=-1f)
+                poeEntries.add(new PieEntry(dc.getDietItem(item.getKey())+item.getValue()),dc.mFoodLst.get(item.getKey()).getName();
+
+        }
+        PieDataSet dataSet=new PieDataSet(poeEntries, "Deit Item pie chart" ) ;
+        //make the pie chart colorful
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        //set the pie chart show up the percentage in the graph
+        dataSet.setValueFormatter(new PercentFormatter());
+        PieData data = new PieData (dataSet);
+
+        PieChart chart = (PieChart) findViewById(R.id.chart);
+        chart.setData(data);
+    }
+
     //Exit activity
     @Override
     public void onClick(View view){

@@ -31,7 +31,7 @@
         android:paddingBottom="14dp"
         android:textColorHint="#ffffff"
         android:textSize="11.5sp"
-        android:background="@drawable/rect"
+        android:background="@drawable/black"
         />
     <TextView
         android:id="@+id/passwordView"
@@ -54,12 +54,12 @@
         android:hint="Password"
         android:paddingLeft="20dp"
         android:paddingRight="13dp"
-        android:paddingTop="13dp"
+        android:paddingTop="14dp"
         android:paddingBottom="14dp"
         android:textColorHint="#ffffff"
         android:textSize="11.5sp"
         android:drawableRight="@drawable/ic_eye"
-        android:background="@drawable/rect"/>
+        android:background="@drawable/black"/>
 
     <Space
         android:layout_width="match_parent"
