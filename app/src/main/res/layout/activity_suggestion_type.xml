@@ -21,22 +21,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/headline" />
+
     <GridLayout
         android:id="@+id/mainGrid"
         android:layout_width="365dp"
         android:layout_height="468dp"
+        android:layout_marginTop="44dp"
         android:layout_weight="8"
         android:alignmentMode="alignMargins"
         android:columnCount="2"
         android:columnOrderPreserved="false"
         android:padding="14dp"
         android:rowCount="3"
-        tools:layout_editor_absoluteX="-5dp"
-        tools:layout_editor_absoluteY="100dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@+id/headline"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="19dp">
 
 
-        <android.support.v7.widget.CardView
+        <ImageView
+            android:id="@+id/toSuggestion_Carnivore"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -44,14 +47,11 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
-
-        </android.support.v7.widget.CardView>
+            android:src="@drawable/meat" />
 
 
-
-        <android.support.v7.widget.CardView
+        <ImageView
+            android:id="@+id/toSuggestion_Lessmeat"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -59,12 +59,10 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            android:src="@drawable/lessmeat" />
 
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
+        <ImageView
+            android:id="@+id/toSuggestion_Vegetarian"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -72,12 +70,10 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
+            android:src="@drawable/veget" />
 
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
+        <ImageView
+            android:id="@+id/toSuggestion_Vegan"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_rowWeight="1"
@@ -85,10 +81,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp">
-
-        </android.support.v7.widget.CardView>
+            android:src="@drawable/vegan" />
 
 
     </GridLayout>
@@ -112,14 +105,16 @@
         android:layout_height="1dp"
         android:background="#000"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/title"></View>
+        app:layout_constraintTop_toBottomOf="@id/title">
+
+    </View>
 
 
 
 
 
 
-    <Button
+   <!-- <Button
         android:id="@+id/toSuggestion_Back"
         android:layout_width="120dp"
         android:layout_height="50dp"
@@ -127,101 +122,24 @@
         android:text="Back"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"/>-->
 
-    <Button
-        android:id="@+id/toSuggestion_Vegetarian"
-        android:layout_width="120dp"
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/toSuggestion_Back"
+        android:layout_width="345dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Vegetarian"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/headline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toSuggestion_Lessmeat" />
+        app:layout_constraintTop_toTopOf="parent"
+        fab:fab_colorNormal="@color/white"
+        fab:fab_colorPressed="@color/half_black"
+        fab:fab_icon="@drawable/ic_cancel" />
 
-    <Button
-        android:id="@+id/toSuggestion_Vegan"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="8dp"
-        android:text="Vegan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toSuggestion_Vegetarian" />
-
-
-
-    <Button
-        android:id="@+id/toSuggestion_Lessmeat"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="8dp"
-        android:text="Less meat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toSuggestion_Carnivore" />
-
-    <com.getbase.floatingactionbutton.FloatingActionsMenu
-        android:id="@+id/right_labels"
-        android:layout_width="3dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        fab:fab_addButtonColorNormal="@color/white"
-        fab:fab_addButtonColorPressed="@color/white_pressed"
-        fab:fab_addButtonPlusIconColor="@color/half_black"
-        fab:fab_addButtonSize="mini"
-        fab:fab_labelStyle="@style/menu_labels_style"
-        fab:fab_labelsPosition="right">
-
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            fab:fab_addButtonColorNormal="@color/white"
-            fab:fab_addButtonColorPressed="@color/white_pressed"
-            fab:fab_addButtonPlusIconColor="@color/half_black"
-            fab:fab_icon="@drawable/ic_add"
-            fab:fab_title="Add new calculate" />
-
-
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            fab:fab_addButtonColorNormal="@color/white"
-            fab:fab_addButtonColorPressed="@color/white_pressed"
-            fab:fab_addButtonPlusIconColor="@color/half_black"
-            fab:fab_size="mini"
-            fab:fab_icon="@drawable/ic_share"
-            fab:fab_title="Share you status" />
-
-    </com.getbase.floatingactionbutton.FloatingActionsMenu>
-
-    <Button
-        android:id="@+id/toSuggestion_Carnivore"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
-        android:text="Carnivore"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
 </android.support.constraint.ConstraintLayout>
