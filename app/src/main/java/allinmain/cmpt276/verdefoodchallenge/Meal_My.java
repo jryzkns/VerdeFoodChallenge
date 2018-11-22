@@ -1,12 +1,13 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class Meal_My extends Activity implements View.OnClickListener {
+public class Meal_My extends Activity implements View.OnClickListener, bottom_bar.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,9 @@ public class Meal_My extends Activity implements View.OnClickListener {
         View addNew = findViewById(R.id.addNewMeal_meal);
         addNew.setOnClickListener(this);
 
+        FragmentManager fm = getFragmentManager();
+        bottom_bar fragment = new bottom_bar();
+        fm.beginTransaction().add(R.id.bottom_bar_frame,fragment).commit();
 
     }
 
@@ -41,5 +45,10 @@ public class Meal_My extends Activity implements View.OnClickListener {
                 Meal_My.this.startActivity(intent);
                 break;
         }
+    }
+
+    @Override
+    public void onFragmentInteraction() {
+
     }
 }

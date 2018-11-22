@@ -1,6 +1,7 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-public class Meal_Search extends Activity implements View.OnClickListener {
+public class Meal_Search extends Activity implements View.OnClickListener, bottom_bar.OnFragmentInteractionListener {
 
     private Spinner location_spinner;
     private Spinner protein_spinner;
@@ -21,18 +22,19 @@ public class Meal_Search extends Activity implements View.OnClickListener {
 
     private boolean advance_expand;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal__search);
+
+        FragmentManager fm = getFragmentManager();
+        bottom_bar fragment = new bottom_bar();
+        fm.beginTransaction().add(R.id.bottom_bar_frame,fragment).commit();
+        
         init();
     }
 
-
     private void init(){
-
 
         //set up 2 spinners
         location_spinner = findViewById(R.id.location_advanceSearch_meal);
@@ -74,8 +76,6 @@ public class Meal_Search extends Activity implements View.OnClickListener {
 
     }
 
-
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -100,9 +100,6 @@ public class Meal_Search extends Activity implements View.OnClickListener {
 
     }
 
-
-
-
     private void advance_expand(){
         LinearLayout layout = findViewById(R.id.advanceLayout_meal);
         layout.requestLayout();
@@ -119,5 +116,9 @@ public class Meal_Search extends Activity implements View.OnClickListener {
     }
 
 
+    @Override
+    public void onFragmentInteraction() {
+
+    }
 }
 
