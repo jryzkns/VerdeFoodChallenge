@@ -1,7 +1,11 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,7 +15,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class GreenFoodActivity extends Activity implements View.OnClickListener {
+public class GreenFoodActivity extends Activity implements bottom_bar.OnFragmentInteractionListener {
     private Button reset;
     private ImageView about;
     private GridView foodgrdv;
@@ -21,21 +25,38 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_greenfood);
+
+        FragmentManager fm = getFragmentManager();
+        bottom_bar fragment = new bottom_bar();
+        fm.beginTransaction().add(R.id.bottom_bar_frame,fragment).commit();
+
+
         init();
     }
     private void init()
     {
+
         dc=DataCenter.getInstance();
 
-        reset=(Button)this.findViewById(R.id.reset);
+        reset=findViewById(R.id.reset);
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dc.resetDiet();
+                Toast.makeText(getApplicationContext(), "all data has been cleared", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        about=this.findViewById(R.id.about_food);
+        about=findViewById(R.id.about_food);
+        about.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent intent = new Intent(GreenFoodActivity.this,ActivityAboutUs.class);
+                 GreenFoodActivity.this.startActivity(intent);
+             }
+        });
 
-        reset.setOnClickListener(this);
-
-        about.setOnClickListener(this);
-
-        foodgrdv=(GridView)this.findViewById(R.id.foodgrdv);
+        foodgrdv = findViewById(R.id.foodgrdv);
         mGridViewAdapter=new GridViewAdapter(this);
         foodgrdv.setAdapter(mGridViewAdapter);
         foodgrdv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -47,53 +68,10 @@ public class GreenFoodActivity extends Activity implements View.OnClickListener 
             }
         });
 
-
-        //navigation
-        ImageView toGreenfood = findViewById(R.id.toGreenfood);
-        ImageView toResult = findViewById(R.id.toResult);
-        ImageView toCommunity = findViewById(R.id.toCommunity);
-        ImageView toProfile = findViewById(R.id.toProfile);
-        toGreenfood.setOnClickListener(this);
-        toResult.setOnClickListener(this);
-        toCommunity.setOnClickListener(this);
-        toProfile.setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View view) {
-        Intent intent=null;
-        switch(view.getId())
-        {
-            case R.id.reset:
-                dc.resetDiet();
-                Toast.makeText(getApplicationContext(), "all data has been cleared", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.about_food:
-                intent =new Intent(GreenFoodActivity.this,ActivityAboutUs.class);
-                GreenFoodActivity.this.startActivity(intent);
-                break;
-
-
-
-
-            //navigation bar
-            case R.id.toResult:
-                intent = new Intent(GreenFoodActivity.this, Co2CalActivity.class);
-                GreenFoodActivity.this.startActivity(intent);
-//                this.finish();
-                break;
-            case R.id.toCommunity:
-                intent = new Intent(GreenFoodActivity.this, community.class);
-                GreenFoodActivity.this.startActivity(intent);
-//                this.finish();
-                break;
-            case R.id.toProfile:
-                intent = new Intent(GreenFoodActivity.this, Profile.class);
-                GreenFoodActivity.this.startActivity(intent);
-//                this.finish();
-                break;
-        }
+    public void onFragmentInteraction() {
 
     }
 }

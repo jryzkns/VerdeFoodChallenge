@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="  Selet your food"
+            android:text="@string/gf_caption"
             android:textColor="@color/word_bar"
             android:textSize="30sp" />
 
@@ -64,6 +64,20 @@
         app:layout_constraintBottom_toBottomOf="@+id/foodgrdv"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <include layout="@layout/bottom_bar"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/reset"
+        android:layout_alignParentBottom="true">
+
+        <FrameLayout
+            android:id="@+id/bottom_bar_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+
+
+    </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>

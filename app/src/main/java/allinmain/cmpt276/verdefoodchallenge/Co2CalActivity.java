@@ -1,6 +1,7 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Co2CalActivity extends Activity implements View.OnClickListener{
+public class Co2CalActivity extends Activity implements View.OnClickListener, bottom_bar.OnFragmentInteractionListener {
     private Button recal, suggest;
     private TextView calinfo;
     private DataCenter dc=DataCenter.getInstance();
@@ -18,6 +19,11 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_co2cal);
+
+        FragmentManager fm = getFragmentManager();
+        bottom_bar fragment = new bottom_bar();
+        fm.beginTransaction().add(R.id.bottom_bar_frame,fragment).commit();
+
         init();
     }
     private void init()
@@ -31,20 +37,6 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
         suggest=this.findViewById(R.id.suggestion_from_result);
         suggest.setOnClickListener(this);
         ImageView about = findViewById(R.id.about_result);
-
-
-
-
-
-        //navigation
-        ImageView toGreenfood = findViewById(R.id.toGreenfood);
-        ImageView toResult = findViewById(R.id.toResult);
-        ImageView toCommunity = findViewById(R.id.toCommunity);
-        ImageView toProfile = findViewById(R.id.toProfile);
-        toGreenfood.setOnClickListener(this);
-        toResult.setOnClickListener(this);
-        toCommunity.setOnClickListener(this);
-        toProfile.setOnClickListener(this);
 
         about.setOnClickListener(this);
 
@@ -63,26 +55,12 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
                 Co2CalActivity.this.startActivity(intent);
                 break;
 
-
-            //navigation bar
-            case R.id.toGreenfood:
-                intent = new Intent(Co2CalActivity.this, GreenFoodActivity.class);
-                Co2CalActivity.this.startActivity(intent);
-                this.finish();
-                break;
-            case R.id.toCommunity:
-                intent = new Intent(Co2CalActivity.this, community.class);
-                Co2CalActivity.this.startActivity(intent);
-                this.finish();
-                break;
-            case R.id.toProfile:
-                intent = new Intent(Co2CalActivity.this, Profile.class);
-                Co2CalActivity.this.startActivity(intent);
-                this.finish();
-                break;
-
-
         }
+    }
+
+    @Override
+    public void onFragmentInteraction() {
+
     }
 }
 

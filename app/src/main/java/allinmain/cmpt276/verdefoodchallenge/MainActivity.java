@@ -9,14 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 public class MainActivity extends Activity implements CompoundButton.OnCheckedChangeListener{
     private SharedPreferences sp ;
     private Button start;
-    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +29,8 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
             @Override
             public void onClick(View view) {
 
-//                MainActivity.this.startActivity(new Intent(MainActivity.this,login.class));
-                MainActivity.this.startActivity(new Intent(MainActivity.this,uploadMealActivity.class));
+                MainActivity.this.startActivity(new Intent(MainActivity.this,login.class));
+//                MainActivity.this.startActivity(new Intent(MainActivity.this,uploadMealActivity.class));
 //                MainActivity.this.finish();
             }
         });

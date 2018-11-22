@@ -1,6 +1,7 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Profile extends Activity implements View.OnClickListener{
+public class Profile extends Activity implements View.OnClickListener, bottom_bar.OnFragmentInteractionListener {
 
     //private TextView mTextMessage;
 
@@ -40,9 +41,10 @@ public class Profile extends Activity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        //mTextMessage = (TextView) findViewById(R.id.message);
-        //BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        //navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        FragmentManager fm = getFragmentManager();
+        bottom_bar fragment = new bottom_bar();
+        fm.beginTransaction().add(R.id.bottom_bar_frame,fragment).commit();
+
         init();
     }
 
@@ -58,15 +60,6 @@ public class Profile extends Activity implements View.OnClickListener{
         //response to share button
         shareMethod();
 
-        //navigation
-        ImageView toGreenfood = findViewById(R.id.toGreenfood);
-        ImageView toResult = findViewById(R.id.toResult);
-        ImageView toCommunity = findViewById(R.id.toCommunity);
-        ImageView toProfile = findViewById(R.id.toProfile);
-        toGreenfood.setOnClickListener(this);
-        toResult.setOnClickListener(this);
-        toCommunity.setOnClickListener(this);
-        toProfile.setOnClickListener(this);
     }
 
 
@@ -140,25 +133,13 @@ public class Profile extends Activity implements View.OnClickListener{
                 Profile.this.startActivity(i);
                 break;
 
-            //navigation bar
-            case R.id.toResult:
-                intent = new Intent(Profile.this, Co2CalActivity.class);
-                Profile.this.startActivity(intent);
-                this.finish();
-                break;
-            case R.id.toCommunity:
-                intent = new Intent(Profile.this, community.class);
-                Profile.this.startActivity(intent);
-                this.finish();
-                break;
-            case R.id.toGreenfood:
-                intent = new Intent(Profile.this, GreenFoodActivity.class);
-                Profile.this.startActivity(intent);
-                this.finish();
-                break;
         }
 
 
     }
 
+    @Override
+    public void onFragmentInteraction() {
+
+    }
 }
