@@ -7,6 +7,7 @@
     <TextView
         android:id="@+id/listusername"
         android:layout_width="match_parent"
+        android:fontFamily="@font/overpass"
         android:layout_height="wrap_content"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="#000000" />
@@ -15,12 +16,14 @@
         android:id="@+id/listuserlocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/overpass"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/listuserPledge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/overpass"
         android:textStyle="italic" />
 
 

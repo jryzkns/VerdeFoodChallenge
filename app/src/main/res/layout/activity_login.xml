@@ -21,6 +21,7 @@
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
         android:text="E-mail"
         android:textColor="@color/word_Prifile"
         android:textSize="25dp" />
@@ -44,6 +45,7 @@
         android:id="@+id/passwordView"
         android:textAlignment="center"
         android:layout_width="match_parent"
+        android:fontFamily="@font/montserrat_bold"
         android:layout_height="wrap_content"
         android:text="Password"
         android:textColor="@color/word_Prifile"
@@ -78,6 +80,7 @@
         android:text="@string/log_in"
         android:textColor="@android:color/white"
         android:textSize="18sp"
+        android:fontFamily="@font/helvetica_neue_bold"
         custom:pb_textComplete="@string/Done"
         custom:pb_textProgress="@string/Loading" />
 
@@ -96,6 +99,7 @@
         android:textSize="18sp"
         custom:pb_colorComplete="@color/green_complete"
         custom:pb_colorNormal="@color/green_complete"
+        android:fontFamily="@font/helvetica_neue_bold"
         custom:pb_colorPressed="@color/colorPrimary"
         custom:pb_colorProgress="@color/purple_progress"
         custom:pb_textComplete="@string/Success"

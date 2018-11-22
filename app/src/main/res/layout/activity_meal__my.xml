@@ -40,6 +40,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+
+            android:fontFamily="@font/overpass"
             android:text="Search Meal"
             android:textColor="#fff"
             android:textSize="30dp" />
@@ -49,6 +51,8 @@
             android:layout_height="match_parent"
             android:text="My Meals"
             android:textSize="30dp"
+
+            android:fontFamily="@font/overpass"
             android:gravity="center"
             android:textColor="#fff"
             android:layout_weight="1"
@@ -63,6 +67,8 @@
         android:layout_height="60dp"
         android:background="@color/bbutton2"
         android:text="++ADD NEW MEAL++"
+
+        android:fontFamily="@font/helvetica_neue_bold"
         android:gravity="center"
         android:textSize="40dp"/>
 

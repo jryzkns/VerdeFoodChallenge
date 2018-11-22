@@ -25,6 +25,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="  Add your meal"
+
+                android:fontFamily="@font/montserrat_bold"
                 android:textColor="@color/word_bar"
                 android:textSize="30sp" />
 
@@ -41,12 +43,16 @@
                 android:id="@+id/ETmeal_name"
                 android:singleLine="true"
                 android:hint="@string/meal_name"
+
+                android:fontFamily="@font/helvetica_neue_bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
             <EditText
                 android:id="@+id/ETmealrest_name"
                 android:singleLine="true"
+                android:textSize="20dp"
+                android:fontFamily="@font/helvetica_neue_bold"
                 android:hint="@string/mealrest_name"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -68,6 +74,8 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:text="@string/meal_loc"
+
+                android:fontFamily="@font/overpass"
                 android:textColor="#000"
                 android:gravity="center"
                 android:textSize="18dp"/>
@@ -75,6 +83,7 @@
             <Spinner
                 android:id="@+id/SPmeal_protein"
                 android:layout_width="0dp"
+                android:fontFamily="@font/helvetica_neue_bold"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"></Spinner>
 
@@ -96,6 +105,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:text="@string/meal_protein"
+                android:fontFamily="@font/overpass"
                 android:textColor="#000"
                 android:gravity="center"
                 android:textSize="18dp"/>
@@ -104,6 +114,8 @@
                 android:id="@+id/SPmeal_loc"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+
+                android:fontFamily="@font/helvetica_neue_bold"
                 android:layout_height="wrap_content"></Spinner>
 
         </LinearLayout>
@@ -134,11 +146,13 @@
                 android:text="@string/meal_img_upload_hint"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
+                android:fontFamily="@font/helvetica_neue_bold"
                 android:layout_marginBottom="20dp"/>
 
             <Button
                 android:id="@+id/image_camera"
                 android:text="@string/meal_img_camera_hint"
+                android:fontFamily="@font/helvetica_neue_bold"
                 android:layout_width="150dp"
                 android:layout_height="50dp" />
             </LinearLayout>
@@ -151,11 +165,13 @@
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:hint="@string/meal_desc"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:maxLines="3"
             android:singleLine="false" />
         <Button
             android:layout_marginTop="10dp"
             android:id="@+id/submit_meal"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:text="@string/submit_meal"
             android:layout_width="200dp"
             android:layout_height="wrap_content" />

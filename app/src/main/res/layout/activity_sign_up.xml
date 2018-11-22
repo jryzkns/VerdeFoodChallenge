@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:text="E-mail"
         android:textColor="@color/word_Prifile"
+        android:fontFamily="@font/overpass"
         android:textSize="25dp" />
     <EditText
         android:layout_gravity="center"
@@ -26,6 +27,7 @@
         android:layout_height="wrap_content"
         android:hint="Email or Username"
         android:inputType="text"
+
         android:paddingLeft="20dp"
         android:paddingTop="14dp"
         android:paddingBottom="14dp"
@@ -36,6 +38,7 @@
     <TextView
         android:id="@+id/passwordView"
         android:textAlignment="center"
+        android:fontFamily="@font/overpass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Password"

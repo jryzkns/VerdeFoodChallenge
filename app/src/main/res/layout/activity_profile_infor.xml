@@ -58,12 +58,14 @@
         android:text="Save Information"
         custom:pb_colorNormal="@color/green_complete"
         custom:pb_colorPressed="@color/colorPrimary"
+        android:fontFamily="@font/helvetica_neue_bold"
         android:textSize="20dp" />
 
     <com.dd.processbutton.iml.ActionProcessButton
         android:id="@+id/logout_Profile"
         android:layout_width="174dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/helvetica_neue_bold"
         android:text="Log out"
         android:textSize="20dp"
         custom:pb_colorNormal="@color/pink"
@@ -73,6 +75,7 @@
         android:layout_width="174dp"
         android:layout_height="wrap_content"
         android:text="Delete"
+        android:fontFamily="@font/helvetica_neue_bold"
         android:textSize="20dp"
         custom:pb_colorNormal="@color/blue_semi_transparent"
         custom:pb_colorPressed="@color/blue_semi_transparent_pressed"/>

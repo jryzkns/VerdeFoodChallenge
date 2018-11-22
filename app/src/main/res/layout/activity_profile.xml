@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bbutton2"
+
     tools:context=".Profile">
 
     <LinearLayout
@@ -26,6 +27,7 @@
                 android:layout_height="match_parent"
                 android:text="  Personal profile"
                 android:textColor="@color/word_bar"
+                android:fontFamily="@font/montserrat_bold"
                 android:textSize="30sp" />
 
             <LinearLayout
@@ -78,6 +80,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/frame1"
                     android:text="Name I."
+                    android:fontFamily="@font/overpass"
                     android:textColor="@color/word_Prifile"
                     android:textSize="20sp" />
             </LinearLayout>
