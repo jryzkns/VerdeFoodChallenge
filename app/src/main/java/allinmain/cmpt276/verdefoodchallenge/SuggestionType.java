@@ -4,13 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 //import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class SuggestionType extends Activity implements View.OnClickListener {
 
 
-    Button Carnivore,Lessmeat,Vegetarian,Vegan,Back;
+    ImageView Carnivore,Lessmeat,Vegetarian,Vegan;
+    Button Back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,75 @@ public class SuggestionType extends Activity implements View.OnClickListener {
         Vegetarian.setOnClickListener(this);
         Vegan.setOnClickListener(this);
         Back.setOnClickListener(this);
+
+        /*Carnivore.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View arg0, MotionEvent arg1) {
+                switch (arg1.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Carnivore.setBackgroundColor(getResources().getColor(R.color.button_change));
+                        break;
+                    }
+                    case MotionEvent.ACTION_CANCEL:{
+                        Carnivore.setBackgroundColor(getResources().getColor(R.color.page_background));
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+        Lessmeat.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View arg0, MotionEvent arg1) {
+                switch (arg1.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Lessmeat.setBackgroundColor(getResources().getColor(R.color.button_change));
+                        break;
+                    }
+                    case MotionEvent.ACTION_CANCEL:{
+                        Lessmeat.setBackgroundColor(getResources().getColor(R.color.page_background));
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+        Vegan.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View arg0, MotionEvent arg1) {
+                switch (arg1.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Vegan.setBackgroundColor(getResources().getColor(R.color.button_change));
+                        break;
+                    }
+                    case MotionEvent.ACTION_CANCEL:{
+                        Vegan.setBackgroundColor(getResources().getColor(R.color.page_background));
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
+
+        Vegetarian.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View arg0, MotionEvent arg1) {
+                switch (arg1.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        Vegetarian.setBackgroundColor(getResources().getColor(R.color.button_change));
+                        break;
+                    }
+                    case MotionEvent.ACTION_CANCEL:{
+                        Vegetarian.setBackgroundColor(getResources().getColor(R.color.page_background));
+                        break;
+                    }
+                }
+                return true;
+            }
+        });*/
+
     }
 
     //Suggestion types
