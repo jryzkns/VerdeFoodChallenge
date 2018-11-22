@@ -78,6 +78,15 @@
     <string name="Upload">Upload</string>
     <string name="Uploading">Uploading</string>
     <string name="appbar_scrolling_view_behavior">appbar_scrolling_view_behavior</string>
+    <string name="meal_name">Meal Name</string>
+    <string name="meal_protein">Main Protein…</string>
+    <string name="meal_loc">Location of Restaurant…</string>
+    <string name="mealrest_name">Restaurant Name…</string>
+    <string name="meal_desc">Meal Description…</string>
+    <string name="submit_meal">submit!</string>
+    <string name="meal_img_upload_hint">Choose a picture</string>
+    <string name="meal_img_camera_hint">Take a picture!</string>
+
 
 
 </resources>
