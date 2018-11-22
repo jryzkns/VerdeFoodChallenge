@@ -34,9 +34,6 @@ public class login extends Activity implements View.OnClickListener {
     private Button signupView;
     private FirebaseAuth firebaseAuth;
 
-
-
-
     /*@Override
     public void onStart() {
         super.onStart();
@@ -66,6 +63,7 @@ public class login extends Activity implements View.OnClickListener {
             Intent intent =new Intent(login.this,GreenFoodActivity.class);
             login.this.startActivity(intent);
         }
+
         // connect to layout objects
         progressDialog=new ProgressDialog(this);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
@@ -77,7 +75,7 @@ public class login extends Activity implements View.OnClickListener {
 
         // initialize onClick Listener
         signupView.setOnClickListener(this);
-       // signupView.setOnClickListener(new view.onClick);
+        // signupView.setOnClickListener(new view.onClick);
         buttonRegister.setOnClickListener(this);
         emailView.setOnClickListener(this);
         passwordView.setOnClickListener(this);
@@ -118,7 +116,6 @@ public class login extends Activity implements View.OnClickListener {
                 });
 
     }
-
 
     //Onclick event for button register and sign up view
     @Override

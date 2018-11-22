@@ -127,7 +127,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:background="@drawable/arraw2"
-            android:onClick="privious" />
+            android:onClick="previous" />
 
         <Space
             android:layout_width="100dp"
