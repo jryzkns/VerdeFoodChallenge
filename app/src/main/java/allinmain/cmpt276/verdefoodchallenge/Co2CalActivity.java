@@ -16,7 +16,9 @@ import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +71,10 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
                 poeEntries.add(new PieEntry(dc.getDietItem(i),dc.mFoodLst.get(i).getName()));
         }
         PieDataSet dataSet=new PieDataSet(poeEntries, "Deit Item pie chart" ) ;
+        //make the pie chart colorful
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        //set the pie chart show up the percentage in the graph
+        dataSet.setValueFormatter(new PercentFormatter());
         PieData data = new PieData (dataSet);
 
         PieChart chart = (PieChart) findViewById(R.id.chart);
