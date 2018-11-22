@@ -43,12 +43,10 @@ public class ActivityAboutUs extends Activity implements OnClickListener {
     }
     private void init()
     {
-        iknow=(Button)this.findViewById(R.id.iknow);
-        iknow.setOnClickListener(this);
+
 
 
         // As per Requirement 3.2.5
-        share=(Button)this.findViewById(R.id.share);
  //       share.setOnClickListener(this);
         share.setOnClickListener(new View.OnClickListener() {
             @Override

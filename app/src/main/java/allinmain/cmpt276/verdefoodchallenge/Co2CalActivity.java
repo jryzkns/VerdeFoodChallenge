@@ -2,6 +2,7 @@ package allinmain.cmpt276.verdefoodchallenge;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,10 +10,24 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Co2CalActivity extends Activity implements View.OnClickListener{
     private Button recal, suggest;
     private TextView calinfo;
     private DataCenter dc=DataCenter.getInstance();
+    private PieChart mChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +47,7 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
         suggest.setOnClickListener(this);
         ImageView about = findViewById(R.id.about_result);
 
-
-
-
-
+        SetUpPieChart();
         //navigation
         ImageView toGreenfood = findViewById(R.id.toGreenfood_result);
         ImageView toResult = findViewById(R.id.toResult_result);
@@ -47,6 +59,26 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
         toProfile.setOnClickListener(this);
 
         about.setOnClickListener(this);
+
+    }
+
+    private void SetUpPieChart() {
+        List<PieEntry> poeEntries = new ArrayList<>();
+
+        for (int i = 0 ; i < dc.getFoodsSize();i++){
+            float temp=dc.getDietItem(i);
+            if (temp!=-1f)
+                poeEntries.add(new PieEntry(dc.getDietItem(i),dc.mFoodLst.get(i).getName()));
+        }
+        PieDataSet dataSet=new PieDataSet(poeEntries, "Deit Item pie chart" ) ;
+        //make the pie chart colorful
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        //set the pie chart show up the percentage in the graph
+        dataSet.setValueFormatter(new PercentFormatter());
+        PieData data = new PieData (dataSet);
+
+        PieChart chart = (PieChart) findViewById(R.id.chart);
+        chart.setData(data);
 
     }
 
