@@ -1,100 +1,44 @@
-package allinmain.cmpt276.verdefoodchallenge;
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    >
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_us"
+        android:textColor="#000"
+        android:textSize="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
+    <View
+        android:id="@+id/headline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/title"></View>
 
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-
-public class ActivityAboutUs extends Activity implements OnClickListener {
-
-    private Button iknow,share;
-
-    private Intent shareIntent;
-
-    private String shareBody = "I am making **positive** change on the world with this app," +
-            " and I have pledged to reduce " +
-            "<VALUE>" +
-            " of CO2e! Come join me!";
-
-    private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseReference;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aboutus);
-
-        init();
-    }
-    private void init()
-    {
-        iknow=(Button)this.findViewById(R.id.iknow);
-        iknow.setOnClickListener(this);
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="475dp"
+        android:layout_margin="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:scrollbars="vertical"
+        android:text="@string/about_info"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headline" />
 
 
-        // As per Requirement 3.2.5
-        share=(Button)this.findViewById(R.id.share);
- //       share.setOnClickListener(this);
-        share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-
-                firebaseAuth =FirebaseAuth.getInstance();
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                DatabaseReference sharerefDB = FirebaseDatabase.getInstance().getReference("USERINFO").child(user.getUid()).child("pledgeamount");
-//                DatabaseReference sharerefDB = FirebaseDatabase.getInstance().getReference("USERINFO").child(user.getUid()).child("PLEDGEAMOUNT");
-
-                sharerefDB.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                        Log.d("jek","hit");
-
-                        shareBody = "I am making **positive** change on the world with this app," +
-                                " and I have pledged to reduce " +
-                                dataSnapshot.getValue(String.class) +
-                                "Tonnes of CO2e! Come join me!";
-
-                        shareIntent = new Intent(Intent.ACTION_SEND);
-                        shareIntent.setType("test/pain");
-                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Verde Food Challenge!");
-                        shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
-                        startActivity(Intent.createChooser(shareIntent, "Share to: "));
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
-                shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("test/pain");
-                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Verde Food Challenge!");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
-                startActivity(Intent.createChooser(shareIntent, "Share to: "));
-            }
-        });
-
-    }
-
-        @Override
-    public void onClick(View view) {
-        this.finish();
-    }
-}
+</android.support.constraint.ConstraintLayout>
