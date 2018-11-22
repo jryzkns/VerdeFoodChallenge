@@ -64,46 +64,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/foodgrdv"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="@color/bar"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/toGreenfood_greenfood"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/food_icon" />
-
-        <ImageView
-            android:id="@+id/toResult_greenfood"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/paper" />
-
-        <ImageView
-            android:id="@+id/toCommunity_greenfood"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/earth" />
-
-        <ImageView
-            android:id="@+id/toProfile_greenfood"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/uesr" />
-
-    </LinearLayout>
+    <include layout="@layout/bottom_bar"/>
 
 </android.support.constraint.ConstraintLayout>

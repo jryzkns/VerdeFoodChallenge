@@ -59,10 +59,10 @@ public class Profile extends Activity implements View.OnClickListener{
         shareMethod();
 
         //navigation
-        ImageView toGreenfood = findViewById(R.id.toGreenfood_profile);
-        ImageView toResult = findViewById(R.id.toResult_profile);
-        ImageView toCommunity = findViewById(R.id.toCommunity_profile);
-        ImageView toProfile = findViewById(R.id.toProfile_profile);
+        ImageView toGreenfood = findViewById(R.id.toGreenfood);
+        ImageView toResult = findViewById(R.id.toResult);
+        ImageView toCommunity = findViewById(R.id.toCommunity);
+        ImageView toProfile = findViewById(R.id.toProfile);
         toGreenfood.setOnClickListener(this);
         toResult.setOnClickListener(this);
         toCommunity.setOnClickListener(this);
@@ -141,17 +141,17 @@ public class Profile extends Activity implements View.OnClickListener{
                 break;
 
             //navigation bar
-            case R.id.toResult_profile:
+            case R.id.toResult:
                 intent = new Intent(Profile.this, Co2CalActivity.class);
                 Profile.this.startActivity(intent);
                 this.finish();
                 break;
-            case R.id.toCommunity_profile:
+            case R.id.toCommunity:
                 intent = new Intent(Profile.this, community.class);
                 Profile.this.startActivity(intent);
                 this.finish();
                 break;
-            case R.id.toGreenfood_profile:
+            case R.id.toGreenfood:
                 intent = new Intent(Profile.this, GreenFoodActivity.class);
                 Profile.this.startActivity(intent);
                 this.finish();

@@ -4,7 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera"
+    android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -62,7 +63,8 @@
         <activity android:name=".community" />
         <activity android:name=".login" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".ProfileInfor"></activity>
+        <activity android:name=".ProfileInfor" />
+        <activity android:name=".uploadMealActivity"></activity>
     </application>
 
 </manifest>

@@ -77,10 +77,10 @@ public class community extends Activity implements View.OnClickListener {
         set_all_mapbutton_black();
 
         //navigation
-        ImageView toGreenfood = findViewById(R.id.toGreenfood_community);
-        ImageView toResult = findViewById(R.id.toResult_community);
-        ImageView toCommunity = findViewById(R.id.toCommunity_community);
-        ImageView toProfile = findViewById(R.id.toProfile_community);
+        ImageView toGreenfood = findViewById(R.id.toGreenfood);
+        ImageView toResult = findViewById(R.id.toResult);
+        ImageView toCommunity = findViewById(R.id.toCommunity);
+        ImageView toProfile = findViewById(R.id.toProfile);
         toGreenfood.setOnClickListener(this);
         toResult.setOnClickListener(this);
         toCommunity.setOnClickListener(this);
@@ -138,17 +138,17 @@ public class community extends Activity implements View.OnClickListener {
 
 
             //navigation bar
-            case R.id.toGreenfood_community:
+            case R.id.toGreenfood:
                 intent = new Intent(community.this, GreenFoodActivity.class);
                 community.this.startActivity(intent);
                 this.finish();
                 break;
-            case R.id.toResult_community:
+            case R.id.toResult:
                 intent = new Intent(community.this, Co2CalActivity.class);
                 community.this.startActivity(intent);
                 this.finish();
                 break;
-            case R.id.toProfile_community:
+            case R.id.toProfile:
                 intent = new Intent(community.this, Profile.class);
                 community.this.startActivity(intent);
                 this.finish();

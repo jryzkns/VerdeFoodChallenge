@@ -139,7 +139,7 @@
             <ListView
                 android:id="@+id/listviewPledges"
                 android:layout_width="130dp"
-                android:layout_height="fill_parent"></ListView>
+                android:layout_height="fill_parent" />
 
             <ImageView
                 android:layout_width="5dp"
@@ -150,7 +150,7 @@
             <LinearLayout
                 android:id="@+id/text_community"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -172,47 +172,12 @@
             </LinearLayout>
         </LinearLayout>
 
-
-
-
         <LinearLayout
-            android:id="@+id/navigation_community"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/bar"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="4"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true">
 
-            <ImageView
-                android:id="@+id/toGreenfood_community"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/food_icon"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:id="@+id/toResult_community"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/paper"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:id="@+id/toCommunity_community"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/earth"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:id="@+id/toProfile_community"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/uesr"
-                android:layout_weight="1"/>
-
+            <include layout="@layout/bottom_bar" />
         </LinearLayout>
 
     </RelativeLayout>

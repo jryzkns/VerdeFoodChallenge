@@ -37,10 +37,10 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
 
 
         //navigation
-        ImageView toGreenfood = findViewById(R.id.toGreenfood_result);
-        ImageView toResult = findViewById(R.id.toResult_result);
-        ImageView toCommunity = findViewById(R.id.toCommunity_result);
-        ImageView toProfile = findViewById(R.id.toProfile_result);
+        ImageView toGreenfood = findViewById(R.id.toGreenfood);
+        ImageView toResult = findViewById(R.id.toResult);
+        ImageView toCommunity = findViewById(R.id.toCommunity);
+        ImageView toProfile = findViewById(R.id.toProfile);
         toGreenfood.setOnClickListener(this);
         toResult.setOnClickListener(this);
         toCommunity.setOnClickListener(this);
@@ -65,17 +65,17 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
 
 
             //navigation bar
-            case R.id.toGreenfood_result:
+            case R.id.toGreenfood:
                 intent = new Intent(Co2CalActivity.this, GreenFoodActivity.class);
                 Co2CalActivity.this.startActivity(intent);
                 this.finish();
                 break;
-            case R.id.toCommunity_result:
+            case R.id.toCommunity:
                 intent = new Intent(Co2CalActivity.this, community.class);
                 Co2CalActivity.this.startActivity(intent);
                 this.finish();
                 break;
-            case R.id.toProfile_result:
+            case R.id.toProfile:
                 intent = new Intent(Co2CalActivity.this, Profile.class);
                 Co2CalActivity.this.startActivity(intent);
                 this.finish();
