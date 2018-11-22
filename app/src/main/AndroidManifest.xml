@@ -46,12 +46,6 @@
             android:name=".SuggestionType"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".InputActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".SuggestionType"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Profile"
             android:label="@string/title_activity_profile"
             android:screenOrientation="portrait" />
@@ -61,9 +55,11 @@
         <activity android:name=".login" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".community" />
-        <activity android:name=".login" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".ProfileInfor"></activity>
+        <activity android:name=".ProfileInfor" />
+        <activity android:name=".MainPage" />
+        <activity android:name=".Meal_Search" />
+        <activity android:name=".Meal_My" />
+        <activity android:name=".Meal_Add"></activity>
     </application>
 
 </manifest>

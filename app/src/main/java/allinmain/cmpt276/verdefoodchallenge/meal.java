@@ -39,4 +39,5 @@ public class meal {
     public String getmDesc() {
         return mDesc;
     }
+
 }

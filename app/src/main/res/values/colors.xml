@@ -30,4 +30,6 @@
     <color name="window_background">#FFF5F5F5</color>
     <color name="red">#f2100c</color>
     <color name="dark_red">#40000c</color>
+    <color name="button_selected">#525252</color>
+    <color name="link">#0022ff</color>
 </resources>

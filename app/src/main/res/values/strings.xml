@@ -60,13 +60,27 @@
     <string name="share">Share</string>
     <string-array name="Locations">
 
-        <item>Selet Location</item>
+        <item>All</item>
         <item>Vancouver</item>
         <item>Burnaby</item>
         <item>Coquitlam</item>
         <item>Surrey</item>
         <item>Richmond</item>
         <item>New Westminster</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="Proteins">
+
+        <item>All</item>
+        <item>Meat</item>
+        <item>Cheese</item>
+        <item>Fish</item>
+        <item>Eggs</item>
+        <item>Vegetables</item>
+        <item>Fruits</item>
+        <item>Nuts</item>
+        <item>Tofu</item>
+        <item>Other</item>
     </string-array>
     <string-array name="Proteins">
 
@@ -98,6 +112,16 @@
     <string name="meal_name">Meal Name</string>
     <string name="meal_protein">Main Protein…</string>
     <string name="meal_loc">Location of Restaurant…</string>
+    <string name="mealrest_name">Restaurant Name…</string>
+    <string name="meal_desc">Meal Description…</string>
+    <string name="submit_meal">submit!</string>
+    <string name="meal_img_upload_hint">Choose a picture</string>
+    <string name="meal_img_camera_hint">Take a picture!</string>
+
+
+    <string name="meal_name">Meal Name</string>
+    <string name="meal_protein">Main Protein</string>
+    <string name="meal_loc">Location of Restaurant</string>
     <string name="mealrest_name">Restaurant Name…</string>
     <string name="meal_desc">Meal Description…</string>
     <string name="submit_meal">submit!</string>

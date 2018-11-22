@@ -125,7 +125,10 @@ public class InputActivity extends Activity {
         }
 
         update();
-
+        if(sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f)>0)
+        {
+            dc.addDietItem(FoodStringIndex, sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f));
+        }
     }
 
     public void back(View view) {
