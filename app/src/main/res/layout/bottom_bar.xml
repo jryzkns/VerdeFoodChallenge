@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="40dp"
-    android:layout_marginStart="0dp"
     android:layout_marginBottom="0dp"
+    android:layout_marginStart="0dp"
     android:background="@color/bar"
-    android:gravity="center"
+    android:gravity="bottom|center"
     android:orientation="horizontal"
-    android:weightSum="5"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:weightSum="5">
 
         <ImageView
             android:id="@+id/toGreenfood"
@@ -25,6 +24,13 @@
             android:src="@drawable/paper" />
 
         <ImageView
+            android:id="@+id/toProfile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/user" />
+
+        <ImageView
             android:id="@+id/toCommunity"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -32,17 +38,10 @@
             android:src="@drawable/earth" />
 
         <ImageView
-            android:id="@+id/toProfile"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/uesr" />
-
-        <ImageView
             android:id="@+id/toMeals"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_weight="1"
-            android:src="@drawable/uesr" />
+            android:src="@drawable/restaurant" />
 
 </LinearLayout>
