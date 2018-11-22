@@ -7,7 +7,7 @@
     android:background="@color/bar"
     android:gravity="center"
     android:orientation="horizontal"
-    android:weightSum="4"
+    android:weightSum="5"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
         <ImageView
@@ -33,6 +33,13 @@
 
         <ImageView
             android:id="@+id/toProfile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/uesr" />
+
+        <ImageView
+            android:id="@+id/toMeals"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_weight="1"

@@ -49,11 +49,13 @@ public class bottom_bar extends Fragment implements View.OnClickListener {
         ImageView calculate = v.findViewById(R.id.toResult);
         ImageView community = v.findViewById(R.id.toCommunity);
         ImageView profile = v.findViewById(R.id.toProfile);
+        ImageView meals = v.findViewById(R.id.toMeals);
 
         foods.setOnClickListener(this);
         calculate.setOnClickListener(this);
         community.setOnClickListener(this);
         profile.setOnClickListener(this);
+        meals.setOnClickListener(this);
 
         return v;
 
@@ -105,10 +107,14 @@ public class bottom_bar extends Fragment implements View.OnClickListener {
             case R.id.toProfile:
                 move = new Intent(current_activity,Profile.class);
                 break;
+            case R.id.toMeals:
+                move = new Intent(current_activity,Meal_Search.class);
+                break;
+
         }
 
-//        current_activity.finish();
         current_activity.startActivity(move);
+//        current_activity.finish();
 
     }
 
