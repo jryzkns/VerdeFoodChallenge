@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,34 +17,69 @@
         android:layout_height="wrap_content"
         android:text="E-mail"
         android:textColor="@color/word_Prifile"
+        android:fontFamily="@font/overpass"
         android:textSize="25dp" />
     <EditText
-        android:layout_margin="15dp"
-        android:inputType="textEmailAddress"
-        android:id="@+id/editTextEmail"
-        android:hint="Enter your email"
+        android:layout_gravity="center"
+        android:layout_marginLeft="41dp"
+        android:layout_marginRight="41dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="Email or Username"
+        android:inputType="text"
+
+        android:paddingLeft="20dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:textColorHint="#ffffff"
+        android:textSize="11.5sp"
+        android:background="@drawable/black"
+        />
     <TextView
         android:id="@+id/passwordView"
         android:textAlignment="center"
+        android:fontFamily="@font/overpass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Password"
         android:textColor="@color/word_Prifile"
         android:textSize="25dp"/>
-    <EditText
-        android:layout_margin="15dp"
-        android:inputType="textPassword"
-        android:id="@+id/editTextPassword"
-        android:hint="Enter your password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/buttonRegister"
-        android:layout_width="100dp"
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_gravity="center"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginRight="41dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Password"
+        android:paddingLeft="20dp"
+        android:paddingRight="13dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:textColorHint="#ffffff"
+        android:textSize="11.5sp"
+        android:drawableRight="@drawable/ic_eye"
+        android:background="@drawable/black"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <com.dd.processbutton.iml.ActionProcessButton
+        android:id="@+id/buttonRegister"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
         android:text="Sign Up"
-        android:textSize="20dp"/>
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        custom:pb_colorComplete="@color/blue_normal"
+        custom:pb_colorNormal="@color/green_complete"
+        custom:pb_colorPressed="@color/colorPrimary"
+        custom:pb_colorProgress="@color/purple_progress"
+        custom:pb_textComplete="@string/Success"
+        custom:pb_textProgress="@string/Loading" />
 </LinearLayout>

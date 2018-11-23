@@ -9,9 +9,12 @@ import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,10 +34,12 @@ public class ProfileInfor extends Activity implements View.OnClickListener {
     private Button Buttonsave;
     private Button ButtonDelete;
     private EditText editTextName;
-    private EditText editTextLocation;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
     private Button logout;
+    private Spinner location_spinner;
+    ArrayAdapter<CharSequence> location_adapter;
+    int location_selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +58,6 @@ public class ProfileInfor extends Activity implements View.OnClickListener {
         databaseReference= FirebaseDatabase.getInstance().getReference();
 
         // connect to layout objects
-        editTextLocation = (EditText) findViewById(R.id.editLocation);
         editTextName = (EditText) findViewById(R.id.editTextName);
         Buttonsave = (Button) findViewById(R.id.Buttonsave);
         ButtonDelete = (Button)findViewById(R.id.delete_Profile);
@@ -83,7 +87,6 @@ public class ProfileInfor extends Activity implements View.OnClickListener {
         databaseReferenceLocation.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                editTextLocation.setText(dataSnapshot.getValue(String.class));
             }
 
             @Override
@@ -93,12 +96,27 @@ public class ProfileInfor extends Activity implements View.OnClickListener {
         });
 
 
+        //set up spinner
+        location_spinner = findViewById(R.id.SPlogin_location);
+        location_adapter=ArrayAdapter.createFromResource(this,R.array.Locations,android.R.layout.simple_spinner_item);
+        location_adapter.setDropDownViewResource(android.R.layout.simple_expandable_list_item_1);
+        location_spinner.setAdapter(location_adapter);
+        location_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                location_selected = i;
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {}
+        });
+
     }
 
     //save user information
     private void saveUserInformation(){
         String FullName= editTextName.getText().toString().trim();
-        String Location=editTextLocation.getText().toString().trim();
+        String Location= getResources().getStringArray(R.array.Locations)[location_selected];
+        ;
         UserInformation userInformation = new UserInformation(FullName,Location,"0","0");
         FirebaseUser user = firebaseAuth.getCurrentUser();
         //databaseReference.child(user.getUid()).setValue(userInformation);
@@ -128,7 +146,6 @@ public class ProfileInfor extends Activity implements View.OnClickListener {
 
                 databaseReference.removeValue();
                 editTextName.setText("");
-                editTextLocation.setText("");
                 Toast.makeText(this,"INFOR delete",Toast.LENGTH_LONG).show();
                 break;
         }
