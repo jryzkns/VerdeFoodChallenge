@@ -20,6 +20,7 @@
         android:fontFamily="@font/overpass"
         android:textSize="25dp" />
     <EditText
+        android:id="@+id/editTextEmail"
         android:layout_gravity="center"
         android:layout_marginLeft="41dp"
         android:layout_marginRight="41dp"

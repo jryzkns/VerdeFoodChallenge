@@ -64,9 +64,17 @@ public class SignUpActivity extends Activity implements View.OnClickListener {
         String email= editTextEmail.getText().toString();
         String password= editTextPassword.getText().toString();
 
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
+
+        if (TextUtils.isEmpty(email)){
             Toast.makeText(this,"Enter email",Toast.LENGTH_SHORT).show();
-        } else {
+            return;
+        }
+        if (TextUtils.isEmpty(password)){
+            Toast.makeText(this,"Enter password",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
             progressDialog.setMessage("Registing User...");
             progressDialog.show();
             firebaseAuth.createUserWithEmailAndPassword(email,password)
@@ -92,7 +100,7 @@ public class SignUpActivity extends Activity implements View.OnClickListener {
 
 
 
-    }
+
     //onclick listener events for buttonRegister
     @Override
     public void onClick(View view) {
