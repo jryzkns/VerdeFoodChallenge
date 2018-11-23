@@ -98,7 +98,7 @@ public class ActivityAboutUs extends Activity implements OnClickListener {
     public void onClick(View view) {
             Intent intent=new Intent(ActivityAboutUs.this,AdviceActivity.class);
             switch (view.getId()){
-                case R.id.toSuggestion_Back:        //Button "Back"
+                case R.id.AdvicetoSuggestion_Back:        //Button "Back"
                     overridePendingTransition(R.anim.move_left_in_activity, R.anim.move_right_out_activity);
                     return;
             }

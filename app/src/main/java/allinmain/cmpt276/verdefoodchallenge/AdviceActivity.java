@@ -42,6 +42,7 @@ public class AdviceActivity extends Activity implements View.OnClickListener{
     private String PolicyType;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
+    private PieChart chart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +59,13 @@ public class AdviceActivity extends Activity implements View.OnClickListener{
     {
         pledge=(Button)this.findViewById(R.id.pledge);
         calinfo=(TextView)this.findViewById(R.id.calinfo);
+
         pledge.setOnClickListener(this);
         Intent intent= this.getIntent();
         PolicyType=intent.getStringExtra("Strategy");
+        calinfo.setText(dc.getSuggestionInfo(PolicyType));
 
+        chart = (PieChart)this.findViewById(R.id.chart_advice);
 
         SetUpPieChart();
 
@@ -72,11 +76,12 @@ public class AdviceActivity extends Activity implements View.OnClickListener{
         List<PieEntry> poeEntries = new ArrayList<>();
         HashMap<Integer,Float> suggustion=dc.makeDietChangeTable("LESSMENT");
         // error here, I don't understand the calling value in the set of for loop
-        for (Map.Entry<Integer,Float> item = null; suggustion.entrySet())
+        for (Map.Entry<Integer,Float> item : suggustion.entrySet())
         {
             float temp=item.getValue();
             if (temp!=-1f)
-                poeEntries.add(new PieEntry(dc.getDietItem(item.getKey())+item.getValue()),dc.mFoodLst.get(item.getKey()).getName();
+
+                poeEntries.add(new PieEntry(dc.getDietItem(item.getKey())+item.getValue(),dc.mFoodLst.get(item.getKey()).getName()));
 
         }
         PieDataSet dataSet=new PieDataSet(poeEntries, "Deit Item pie chart" ) ;
@@ -86,7 +91,7 @@ public class AdviceActivity extends Activity implements View.OnClickListener{
         dataSet.setValueFormatter(new PercentFormatter());
         PieData data = new PieData (dataSet);
 
-        PieChart chart = (PieChart) findViewById(R.id.chart);
+        PieChart chart = (PieChart) findViewById(R.id.chart_advice);
         chart.setData(data);
     }
 

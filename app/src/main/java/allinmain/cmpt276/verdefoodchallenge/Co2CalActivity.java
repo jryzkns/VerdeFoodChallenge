@@ -82,7 +82,7 @@ public class Co2CalActivity extends Activity implements View.OnClickListener{
         dataSet.setValueFormatter(new PercentFormatter());
         PieData data = new PieData (dataSet);
 
-        PieChart chart = (PieChart) findViewById(R.id.chart);
+        PieChart chart = (PieChart) findViewById(R.id.chart_co2cal);
         chart.setData(data);
 
     }

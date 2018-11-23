@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headline" />
     <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/toSuggestion_Back"
+        android:id="@+id/AdvicetoSuggestion_Back"
         android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

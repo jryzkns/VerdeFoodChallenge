@@ -37,7 +37,6 @@ public class ProfileInfor extends Activity implements View.OnClickListener {
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
     private Button logout;
-
     private Spinner location_spinner;
     ArrayAdapter<CharSequence> location_adapter;
     int location_selected;

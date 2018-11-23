@@ -16,7 +16,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="  Selet your food"
+            android:text=" Selet your food"
+            android:fontFamily="@font/montserrat_bold"
             android:textColor="@color/word_bar"
             android:textSize="30sp" />
 
@@ -45,6 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginStart="0dp"
+
         android:columnWidth="80dp"
         android:gravity="top"
         android:numColumns="3"
