@@ -24,6 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="  Add your meal"
                 android:textColor="@color/word_bar"
                 android:textSize="30sp" />
@@ -41,6 +42,7 @@
                 android:id="@+id/ETmeal_name"
                 android:singleLine="true"
                 android:hint="@string/meal_name"
+                android:fontFamily="@font/helvetica_neue_bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
@@ -48,6 +50,7 @@
                 android:id="@+id/ETmealrest_name"
                 android:singleLine="true"
                 android:hint="@string/mealrest_name"
+                android:fontFamily="@font/helvetica_neue_bold"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content" />
@@ -70,11 +73,13 @@
                 android:text="@string/meal_loc"
                 android:textColor="#000"
                 android:gravity="center"
+                android:fontFamily="@font/overpass"
                 android:textSize="18dp"/>
 
             <Spinner
                 android:id="@+id/SPmeal_protein"
                 android:layout_width="0dp"
+                android:fontFamily="@font/overpass"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"></Spinner>
 
@@ -98,12 +103,14 @@
                 android:text="@string/meal_protein"
                 android:textColor="#000"
                 android:gravity="center"
+                android:fontFamily="@font/overpass"
                 android:textSize="18dp"/>
 
             <Spinner
                 android:id="@+id/SPmeal_loc"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/overpass"
                 android:layout_height="wrap_content"></Spinner>
 
         </LinearLayout>
@@ -133,6 +140,7 @@
                     android:id="@+id/image_upload"
                     android:text="@string/meal_img_upload_hint"
                     android:layout_width="150dp"
+                    android:fontFamily="@font/overpass"
                     android:layout_height="50dp"
                     android:layout_marginBottom="20dp"/>
 
@@ -140,6 +148,7 @@
                     android:id="@+id/image_camera"
                     android:text="@string/meal_img_camera_hint"
                     android:layout_width="150dp"
+                    android:fontFamily="@font/overpass"
                     android:layout_height="50dp" />
             </LinearLayout>
 
@@ -151,6 +160,7 @@
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:hint="@string/meal_desc"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:maxLines="3"
             android:singleLine="false" />
         <Button
@@ -158,6 +168,7 @@
             android:id="@+id/submit_meal"
             android:text="@string/submit_meal"
             android:layout_width="200dp"
+            android:fontFamily="@font/overpass"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
