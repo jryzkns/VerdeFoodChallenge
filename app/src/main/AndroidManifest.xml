@@ -68,7 +68,8 @@
         <activity android:name=".ProfileInfor" />
         <activity android:name=".uploadMealActivity" />
         <activity android:name=".Meal_Search" />
-        <activity android:name=".Meal_My"></activity>
+        <activity android:name=".Meal_My" />
+        <activity android:name=".Meal_View"></activity>
     </application>
 
 </manifest>

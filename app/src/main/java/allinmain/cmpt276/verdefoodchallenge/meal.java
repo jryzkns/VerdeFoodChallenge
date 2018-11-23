@@ -1,9 +1,9 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
 public class meal {
-    String mName,mProtein,mrName,mrLoc,mDesc;
+    String mName,mProtein,mrName,mrLoc,mDesc,mImg;
 
-    String mImg;
+    String mID, muID;
 
     public meal(String mName, String mProtein, String mrName, String mrLoc, String mDesc, String mImg) {
         this.mName = mName;
@@ -12,6 +12,17 @@ public class meal {
         this.mrLoc = mrLoc;
         this.mDesc = mDesc;
         this.mImg = mImg;
+    }
+
+    public meal(String mName, String mProtein, String mrName, String mrLoc, String mDesc, String mImg, String mID, String muID) {
+        this.mName = mName;
+        this.mProtein = mProtein;
+        this.mrName = mrName;
+        this.mrLoc = mrLoc;
+        this.mDesc = mDesc;
+        this.mImg = mImg;
+        this.mID = mID;
+        this.muID = muID;
     }
 
     public String getmImg() {

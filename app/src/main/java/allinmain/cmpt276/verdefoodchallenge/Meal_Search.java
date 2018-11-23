@@ -98,6 +98,18 @@ public class Meal_Search extends Activity implements View.OnClickListener, botto
         listViewMeals = findViewById(R.id.listviewMeal);
         Meallist adapter = new Meallist(Meal_Search.this,mealList);
         listViewMeals.setAdapter(adapter);
+        listViewMeals.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id)
+            {
+                Intent intent=new Intent(Meal_Search.this,Meal_View.class);
+                intent.putExtra("mealName",mealList.get(position).mName);
+                intent.putExtra("mealPic",mealList.get(position).mImg);
+                intent.putExtra("mealrName",mealList.get(position).mrName);
+                intent.putExtra("mealrLoc",mealList.get(position).mrLoc);
+                intent.putExtra("mealDesc",mealList.get(position).mDesc);
+                Meal_Search.this.startActivity(intent);
+            }
+        });
 
     }
 
