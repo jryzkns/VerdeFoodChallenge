@@ -10,10 +10,23 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class Co2CalActivity extends Activity implements View.OnClickListener, bottom_bar.OnFragmentInteractionListener {
     private Button recal, suggest;
     private TextView calinfo;
     private DataCenter dc=DataCenter.getInstance();
+    private PieChart mChart;
+    HashMap<Integer,Float> suggestion = dc.makeDietChangeTable("LESSMEANT");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +52,26 @@ public class Co2CalActivity extends Activity implements View.OnClickListener, bo
         ImageView about = findViewById(R.id.about_result);
 
         about.setOnClickListener(this);
+        SetUpPieChart();
+    }
+
+    private void SetUpPieChart() {
+        List<PieEntry> poeEntries = new ArrayList<>();
+
+        for (int i = 0 ; i < dc.getFoodsSize();i++){
+            float temp=dc.getDietItem(i);
+            if (temp!=-1f)
+                poeEntries.add(new PieEntry(dc.getDietItem(i),dc.mFoodLst.get(i).getName()));
+        }
+        PieDataSet dataSet=new PieDataSet(poeEntries, "Deit Item pie chart" ) ;
+        //make the pie chart colorful
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        //set the pie chart show up the percentage in the graph
+        dataSet.setValueFormatter(new PercentFormatter());
+        PieData data = new PieData (dataSet);
+
+        PieChart chart = (PieChart) findViewById(R.id.chart_co2cal);
+        chart.setData(data);
 
     }
 
