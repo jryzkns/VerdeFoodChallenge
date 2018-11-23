@@ -48,99 +48,6 @@
 
     </ImageView>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/info_community"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/navigation_community"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="0dp"
-            android:orientation="horizontal">
-
-            <ListView
-                android:id="@+id/listviewPledges"
-                android:layout_width="130dp"
-                android:layout_height="fill_parent"></ListView>
-
-            <ImageView
-                android:layout_width="5dp"
-                android:layout_height="match_parent"
-                android:background="@color/frame1"
-                android:src="@color/space2" />
-
-            <LinearLayout
-                android:id="@+id/text_community"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/num_pledges"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/ttl_pledges"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/comparison"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/navigation_community"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/bar"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="4">
-
-            <ImageView
-                android:id="@+id/toGreenfood_community"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/food_icon" />
-
-            <ImageView
-                android:id="@+id/toResult_community"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/paper" />
-
-            <ImageView
-                android:id="@+id/toCommunity_community"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/earth" />
-
-            <ImageView
-                android:id="@+id/toProfile_community"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/uesr" />
-
-        </LinearLayout>
-
-    </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
@@ -213,6 +120,71 @@
             android:textColor="#fff"/>
 
     </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/info_community"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/navigation_community"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="0dp"
+            android:orientation="horizontal">
+
+            <ListView
+                android:id="@+id/listviewPledges"
+                android:layout_width="130dp"
+                android:layout_height="fill_parent" />
+
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="@color/frame1"
+                android:src="@color/space2" />
+
+            <LinearLayout
+                android:id="@+id/text_community"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/num_pledges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/ttl_pledges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/comparison"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <FrameLayout
+                android:id="@+id/bottom_bar_frame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </LinearLayout>
+
+    </RelativeLayout>
 
 
 </LinearLayout>

@@ -105,10 +105,4 @@ public class SignUpActivity extends Activity implements View.OnClickListener {
                 break;
         }
     }
-    // when you click back and will slip back
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(R.anim.move_left_in_activity, R.anim.move_right_out_activity);
-    }
 }

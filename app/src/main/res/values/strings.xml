@@ -60,7 +60,6 @@
     <string name="share">Share</string>
     <string-array name="Locations">
 
-        <item>All</item>
         <item>Vancouver</item>
         <item>Burnaby</item>
         <item>Coquitlam</item>
@@ -69,10 +68,8 @@
         <item>New Westminster</item>
         <item>Other</item>
     </string-array>
-
     <string-array name="Proteins">
 
-        <item>All</item>
         <item>Meat</item>
         <item>Cheese</item>
         <item>Fish</item>
@@ -83,7 +80,6 @@
         <item>Tofu</item>
         <item>Other</item>
     </string-array>
-
 
     <string name="cancel">Cancel</string>
     <string name="about_us">About</string>
@@ -96,23 +92,14 @@
     <string name="Uploading">Uploading</string>
     <string name="appbar_scrolling_view_behavior">appbar_scrolling_view_behavior</string>
 
-
-
-
-
-
     <string name="meal_name">Meal Name</string>
-    <string name="meal_protein">Main Protein</string>
-    <string name="meal_loc">Location of Restaurant</string>
+    <string name="meal_protein">Main Protein…</string>
+    <string name="meal_loc">Location of Restaurant…</string>
     <string name="mealrest_name">Restaurant Name…</string>
     <string name="meal_desc">Meal Description…</string>
     <string name="submit_meal">submit!</string>
     <string name="meal_img_upload_hint">Choose a picture</string>
     <string name="meal_img_camera_hint">Take a picture!</string>
-
-
-
-
-
+    <string name="gf_caption">Select your food</string>
 
 </resources>

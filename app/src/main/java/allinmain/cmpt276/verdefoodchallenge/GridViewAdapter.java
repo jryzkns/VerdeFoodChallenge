@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 public class GridViewAdapter extends BaseAdapter {
     private DataCenter dc=DataCenter.getInstance();
     private Context mContext;

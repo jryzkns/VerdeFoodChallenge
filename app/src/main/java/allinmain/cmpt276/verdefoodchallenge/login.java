@@ -8,11 +8,7 @@ import android.support.annotation.NonNull;
 //import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.transition.Scene;
-import android.transition.TransitionInflater;
-import android.transition.TransitionManager;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -37,11 +33,6 @@ public class login extends Activity implements View.OnClickListener {
     private ProgressDialog progressDialog;
     private Button signupView;
     private FirebaseAuth firebaseAuth;
-
-    private TransitionManager manager;
-    private Scene scene1;
-
-
 
     /*@Override
     public void onStart() {
@@ -72,6 +63,7 @@ public class login extends Activity implements View.OnClickListener {
             Intent intent =new Intent(login.this,GreenFoodActivity.class);
             login.this.startActivity(intent);
         }
+
         // connect to layout objects
         progressDialog=new ProgressDialog(this);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
@@ -83,22 +75,12 @@ public class login extends Activity implements View.OnClickListener {
 
         // initialize onClick Listener
         signupView.setOnClickListener(this);
-       // signupView.setOnClickListener(new view.onClick);
+        // signupView.setOnClickListener(new view.onClick);
         buttonRegister.setOnClickListener(this);
         emailView.setOnClickListener(this);
         passwordView.setOnClickListener(this);
-//      淡出淡入的
-//        ViewGroup container = (ViewGroup) findViewById(R.id.Main_view);
-//        TransitionInflater transitionInflater = TransitionInflater.from(this);
-//        manager = transitionInflater.inflateTransitionManager(
-//                R.transition.transitionmanager, container);
-//        scene1 = Scene.getSceneForLayout(container, R.layout.activity_main, this);
+
     }
-
-
-
-
-
 
     //methods for registering user
     private void registerUser(){
@@ -135,7 +117,6 @@ public class login extends Activity implements View.OnClickListener {
 
     }
 
-
     //Onclick event for button register and sign up view
     @Override
     public void onClick(View view) {
@@ -147,10 +128,9 @@ public class login extends Activity implements View.OnClickListener {
         }
         if (view==signupView){
             Intent intent1 =new Intent(login.this,SignUpActivity.class);
-
             login.this.startActivity(intent1);
         }
-        overridePendingTransition(R.anim.move_right_in_activity, R.anim.move_left_out_activity);
+
         /*switch (view.getId()){
             case R.id.buttonRegister:
                 registerUser();
@@ -162,12 +142,5 @@ public class login extends Activity implements View.OnClickListener {
                 login.this.startActivity(intent1);
                 break;
         }*/
-    }
-    // when you click back and will slip back
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-//        manager.transitionTo(scene1);
-        overridePendingTransition(R.anim.move_left_in_activity, R.anim.move_right_out_activity);
     }
 }

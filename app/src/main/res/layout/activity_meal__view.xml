@@ -25,6 +25,7 @@
             android:textSize="30sp" />
     </LinearLayout>
 
+
     <TextView
         android:id="@+id/mealName_viewMeal"
         android:layout_width="wrap_content"

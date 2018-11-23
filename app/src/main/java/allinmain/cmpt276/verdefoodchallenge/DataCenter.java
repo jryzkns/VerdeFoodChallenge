@@ -20,7 +20,7 @@ import java.util.Random;
 
 public class DataCenter {
     private static DataCenter mDataCenter=null;
-    public ArrayList<Food> mFoodLst;
+    private ArrayList<Food> mFoodLst;
     private HashMap<Integer,Float> dietInfo;
 
     private HashMap<Integer,Float> suggestion;

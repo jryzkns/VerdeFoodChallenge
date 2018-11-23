@@ -30,7 +30,24 @@ public class Meal_View extends Activity implements View.OnClickListener {
         TextView restLoc = findViewById(R.id.restLoc_viewMeal);
         TextView restDesc = findViewById(R.id.restDesc_viewMeal);
 
+
+        String mName = getIntent().getStringExtra("mealName");
+        String mPic = getIntent().getStringExtra("mealPic");
+        String mrName = getIntent().getStringExtra("mealrName");
+        String mrLoc = getIntent().getStringExtra("mealrLoc");
+        String mDesc = getIntent().getStringExtra("mealDesc");
+
+
         //set them
+
+        mealName.setText(mName);
+
+        restName.setText(mrName);
+        restLoc.setText(mrLoc);
+        restDesc.setText(mDesc);
+
+
+        delete_able();
     }
 
 
@@ -50,10 +67,10 @@ public class Meal_View extends Activity implements View.OnClickListener {
                 this.finish();
                 break;
             case R.id.delete_viewMeal:
-                //
+                //db.collection("users").document(ID).delete()
+                this.finish();
                 break;
         }
 
     }
 }
-

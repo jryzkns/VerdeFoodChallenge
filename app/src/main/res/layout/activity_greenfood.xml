@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="  Selet your food"
+            android:text="@string/gf_caption"
             android:textColor="@color/word_bar"
             android:textSize="30sp" />
 
@@ -64,46 +64,10 @@
         app:layout_constraintBottom_toBottomOf="@+id/foodgrdv"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/bottom_bar_frame"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="@color/bar"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/toGreenfood_greenfood"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/food_icon" />
-
-        <ImageView
-            android:id="@+id/toResult_greenfood"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/paper" />
-
-        <ImageView
-            android:id="@+id/toCommunity_greenfood"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/earth" />
-
-        <ImageView
-            android:id="@+id/toProfile_greenfood"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/uesr" />
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

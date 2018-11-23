@@ -90,6 +90,14 @@ public class InputActivity extends Activity {
     private void update() {
 
         if (FoodStringIndex > 19) {
+            Intent back = new Intent(this,GreenFoodActivity.class);
+            this.startActivity(back);
+
+            //as suggested from Angelica during sprint 1 tech demo
+            Toast.makeText(this,
+                    "Now that you have set your eating habits, " +
+                            "now check out what impact your diet has on the planet " +
+                            "by pressing the result section!",Toast.LENGTH_LONG).show();
             InputActivity.this.finish();
         }else{
             TextView foodName = findViewById(R.id.foodName);
@@ -125,10 +133,6 @@ public class InputActivity extends Activity {
         }
 
         update();
-        if(sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f)>0)
-        {
-            dc.addDietItem(FoodStringIndex, sp.getFloat(dc.getFood(FoodStringIndex).getName(),-1f));
-        }
     }
 
     public void back(View view) {
@@ -182,4 +186,3 @@ public class InputActivity extends Activity {
     }
 
 }
-

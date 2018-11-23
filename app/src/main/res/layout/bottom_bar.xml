@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_marginBottom="0dp"
+    android:layout_marginStart="0dp"
+    android:background="@color/bar"
+    android:orientation="horizontal"
+    android:weightSum="5">
+
+
+        <ImageView
+            android:id="@+id/toGreenfood"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/food_icon" />
+
+        <ImageView
+            android:id="@+id/toResult"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/paper" />
+
+
+        <ImageView
+            android:id="@+id/toCommunity"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/earth" />
+
+        <ImageView
+            android:id="@+id/toMeals"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/restaurant" />
+
+        <ImageView
+            android:id="@+id/toProfile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/user" />
+
+</LinearLayout>

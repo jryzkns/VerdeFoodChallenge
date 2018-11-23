@@ -1,6 +1,7 @@
 package allinmain.cmpt276.verdefoodchallenge;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.firebase.auth.UserInfo;
+//import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +25,7 @@ import java.util.List;
 
 import static allinmain.cmpt276.verdefoodchallenge.R.color.bar;
 
-public class community extends Activity implements View.OnClickListener {
+public class community extends Activity implements View.OnClickListener, bottom_bar.OnFragmentInteractionListener  {
 
     private ListView listViewPledges;
 
@@ -41,6 +42,11 @@ public class community extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community);
+
+        FragmentManager fm = getFragmentManager();
+        bottom_bar fragment = new bottom_bar();
+        fm.beginTransaction().add(R.id.bottom_bar_frame,fragment).commit();
+
         init();
     }
 
@@ -76,16 +82,6 @@ public class community extends Activity implements View.OnClickListener {
         map_all.performClick(); //automatically shows all
         set_all_mapbutton_black();
 
-        //navigation
-        ImageView toGreenfood = findViewById(R.id.toGreenfood_community);
-        ImageView toResult = findViewById(R.id.toResult_community);
-        ImageView toCommunity = findViewById(R.id.toCommunity_community);
-        ImageView toProfile = findViewById(R.id.toProfile_community);
-        toGreenfood.setOnClickListener(this);
-        toResult.setOnClickListener(this);
-        toCommunity.setOnClickListener(this);
-        toProfile.setOnClickListener(this);
-
 
     }
 
@@ -98,21 +94,10 @@ public class community extends Activity implements View.OnClickListener {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 pledgeList.clear();
-//                ttl_pledge_val = 0d;
                 for(DataSnapshot pledgeSnapshot: dataSnapshot.getChildren()){
                     UserInformation user = pledgeSnapshot.getValue(UserInformation.class);
-//                    ttl_pledge_val += new Double(user.getPLEDGEAMOUNT());
                     pledgeList.add(user);
                 }
-//
-//                Pledgelist adapter = new Pledgelist(community.this, pledgeList);
-//                listViewPledges.setAdapter(adapter);
-//
-////                // As per: req 3.2.4a
-//                num_pledges.setText("Total Amount of Pledges: " + String.valueOf(pledgeList.size()));
-//
-////                // As per: req 3.2.4b
-//                ttl_pledges.setText("Total Pledge Amounts to: " + String.valueOf(ttl_pledge_val));
 
             }
 
@@ -134,29 +119,6 @@ public class community extends Activity implements View.OnClickListener {
         ImageView map = findViewById(R.id.map_community);
 
         switch(view.getId()){
-
-
-
-            //navigation bar
-            case R.id.toGreenfood_community:
-                intent = new Intent(community.this, GreenFoodActivity.class);
-                community.this.startActivity(intent);
-                this.finish();
-                break;
-            case R.id.toResult_community:
-                intent = new Intent(community.this, Co2CalActivity.class);
-                community.this.startActivity(intent);
-                this.finish();
-                break;
-            case R.id.toProfile_community:
-                intent = new Intent(community.this, Profile.class);
-                community.this.startActivity(intent);
-                this.finish();
-                break;
-
-
-
-
 
             case R.id.all_map_community:
                 map.setBackgroundResource(R.drawable.gvancouver);
@@ -293,4 +255,8 @@ public class community extends Activity implements View.OnClickListener {
         map_V.setBackgroundColor(getResources().getColor(R.color.bar));
     }
 
+    @Override
+    public void onFragmentInteraction() {
+
+    }
 }

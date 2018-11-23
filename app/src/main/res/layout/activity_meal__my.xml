@@ -66,4 +66,24 @@
         android:gravity="center"
         android:textSize="40dp"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+    <ListView
+        android:id="@+id/listviewMyMeal"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+    </ListView>
+
+        <FrameLayout
+            android:id="@+id/bottom_bar_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
 </LinearLayout>
+

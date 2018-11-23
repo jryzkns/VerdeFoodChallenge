@@ -25,14 +25,12 @@
 
     </LinearLayout>
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
         android:background="@color/buttonbar"
         android:gravity="center"
+        android:orientation="horizontal"
         android:weightSum="2">
 
         <TextView
@@ -49,11 +47,11 @@
             android:id="@+id/My_meal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="My Meals"
-            android:textSize="30dp"
+            android:layout_weight="1"
             android:gravity="center"
+            android:text="My Meals"
             android:textColor="#fff"
-            android:layout_weight="1"/>
+            android:textSize="30dp" />
 
     </LinearLayout>
 
@@ -145,7 +143,27 @@
             android:textColor="@color/save_word"
             android:layout_marginRight="20dp"/>
 
-
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+    <ListView
+        android:id="@+id/listviewMeal"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+
+
+    </ListView>
+
+    <FrameLayout
+        android:id="@+id/bottom_bar_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
 </LinearLayout>

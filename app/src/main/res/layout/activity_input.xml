@@ -159,7 +159,8 @@
             android:layout_height="40dp"
             android:background="@drawable/grey_rectangular_button"
             android:onClick="back"
-            android:text="@string/back" />
+            android:text="Back" />
+
 
     </LinearLayout>
 
