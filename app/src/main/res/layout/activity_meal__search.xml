@@ -25,7 +25,6 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -144,14 +143,27 @@
             android:textColor="@color/save_word"
             android:layout_marginRight="20dp"/>
 
-
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+    <ListView
+        android:id="@+id/listviewMeal"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent">
+
+
+    </ListView>
 
     <FrameLayout
         android:id="@+id/bottom_bar_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_alignParentBottom="true"/>
 
+    </RelativeLayout>
 </LinearLayout>

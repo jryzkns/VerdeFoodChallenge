@@ -60,7 +60,6 @@
     <string name="share">Share</string>
     <string-array name="Locations">
 
-        <item>All</item>
         <item>Vancouver</item>
         <item>Burnaby</item>
         <item>Coquitlam</item>
@@ -71,7 +70,6 @@
     </string-array>
     <string-array name="Proteins">
 
-        <item>All</item>
         <item>Meat</item>
         <item>Cheese</item>
         <item>Fish</item>

@@ -39,7 +39,7 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
 
     /*  firebase related declarations   */
     //String representation of uri linked to default image
-    private String defaultimg = "gs://greenfood-challenge.appspot.com/images/default.jpg";
+    private String defaultimg = "gs://greenfood-challenge.appspot.com/images/default.png";
     private FirebaseStorage storage;
     private FirebaseFirestore db;
     private StorageReference storageReference;
@@ -138,7 +138,7 @@ public class uploadMealActivity extends Activity implements View.OnClickListener
                     ref.putBytes(mImageArray);
 
                     String constructed_uri = "gs://greenfood-challenge.appspot.com/images/"
-                            + identifier + ".jpg";
+                            + identifier + ".png";
 
                     upload_meal(meal_name, meal_protein, meal_Restaurant_Name,
                             meal_Restaurant_Location, meal_Description, constructed_uri);

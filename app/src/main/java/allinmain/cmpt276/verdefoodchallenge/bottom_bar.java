@@ -87,8 +87,6 @@ public class bottom_bar extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        Log.d("jek","touch event caught");
-
         Intent move=null;
 
         Activity current_activity = getActivity();

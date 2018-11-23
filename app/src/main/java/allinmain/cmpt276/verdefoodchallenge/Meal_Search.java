@@ -5,11 +5,24 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Spinner;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Meal_Search extends Activity implements View.OnClickListener, bottom_bar.OnFragmentInteractionListener {
 
@@ -22,6 +35,14 @@ public class Meal_Search extends Activity implements View.OnClickListener, botto
 
     private boolean advance_expand;
 
+    private List<meal> mealList;
+
+
+    private ListView listViewMeals;
+    DatabaseReference DBMeals;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +53,55 @@ public class Meal_Search extends Activity implements View.OnClickListener, botto
         fm.beginTransaction().add(R.id.bottom_bar_frame,fragment).commit();
         
         init();
+        spinner_init();
     }
 
     private void init(){
 
+        //set listeners
+        View advance_expand_button = findViewById(R.id.advance_expand_meal);
+        advance_expand_button.setOnClickListener(this);
+        View search_basic = findViewById(R.id.searchbar_meal);
+        search_basic.setOnClickListener(this);
+        View search_advance = findViewById(R.id.searchButton_advance_meal);
+        search_advance.setOnClickListener(this);
+        View MyMeal = findViewById(R.id.My_meal);
+        MyMeal.setOnClickListener(this);
+
+        //advance bar not expanded
+        advance_expand = false;
+
+        mealList = new ArrayList<>();
+
+        // PULLING FROM DB; merge into ui and don't just use in init
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("meals").get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot documentSnapshots) {
+                        if(!documentSnapshots.isEmpty()){
+                            mealList.clear();
+                            for (DocumentSnapshot d: documentSnapshots.getDocuments()){
+                                meal dlMeal = untablulate(d.getData());
+//                                Log.d("jek",dlMeal.getmName());
+                                mealList.add(dlMeal);
+                            }
+                        }
+                    }
+                });
+
+        Log.d("jek",String.valueOf(mealList.size()));
+
+
+        listViewMeals = findViewById(R.id.listviewMeal);
+        Meallist adapter = new Meallist(Meal_Search.this,mealList);
+        listViewMeals.setAdapter(adapter);
+
+    }
+
+    private void spinner_init() {
         //set up 2 spinners
         location_spinner = findViewById(R.id.location_advanceSearch_meal);
         location_adapter=ArrayAdapter.createFromResource(this,R.array.Locations,android.R.layout.simple_spinner_item);
@@ -58,23 +124,8 @@ public class Meal_Search extends Activity implements View.OnClickListener, botto
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {}
         });
-
-
-        //set listeners
-        View advance_expand_button = findViewById(R.id.advance_expand_meal);
-        advance_expand_button.setOnClickListener(this);
-        View search_basic = findViewById(R.id.searchbar_meal);
-        search_basic.setOnClickListener(this);
-        View search_advance = findViewById(R.id.searchButton_advance_meal);
-        search_advance.setOnClickListener(this);
-        View MyMeal = findViewById(R.id.My_meal);
-        MyMeal.setOnClickListener(this);
-
-
-        //advance bar not expanded
-        advance_expand = false;
-
     }
+
 
     @Override
     public void onClick(View view) {
@@ -107,6 +158,7 @@ public class Meal_Search extends Activity implements View.OnClickListener, botto
         advance_expand = true;
 
     }
+
     private void advance_close(){
         LinearLayout layout = findViewById(R.id.advanceLayout_meal);
         layout.requestLayout();
@@ -115,10 +167,20 @@ public class Meal_Search extends Activity implements View.OnClickListener, botto
 
     }
 
-
     @Override
     public void onFragmentInteraction() {
 
+    }
+
+    private meal untablulate(Map<String, Object> in ){
+        return new meal(
+                (String)in.get("mName"),
+                (String)in.get("mProtein"),
+                (String)in.get("mrName"),
+                (String)in.get("mrLoc"),
+                (String)in.get("mDesc"),
+                (String)in.get("mImg")
+        );
     }
 }
 
