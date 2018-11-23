@@ -17,6 +17,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:fontFamily="@font/montserrat_bold"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="  Meals"
@@ -36,6 +37,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:fontFamily="@font/overpass"
             android:layout_weight="1"
             android:background="@color/button_selected"
             android:gravity="center"
@@ -49,6 +51,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:fontFamily="@font/overpass"
             android:text="My Meals"
             android:textColor="#fff"
             android:textSize="30dp" />
@@ -66,6 +69,7 @@
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:hint="Meal Name"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:layout_marginRight="10dp"/>
 
         <TextView
@@ -74,6 +78,7 @@
             android:layout_height="30dp"
             android:text="Search"
             android:gravity="center"
+            android:fontFamily="@font/overpass"
             android:background="@color/save_bar"
             android:textColor="@color/save_word"
             android:layout_marginRight="20dp"/>
@@ -83,6 +88,7 @@
             android:layout_width="65dp"
             android:layout_height="30dp"
             android:gravity="center"
+            android:fontFamily="@font/overpass"
             android:text="advanced"
             android:textColor="@color/link"
             android:textStyle="italic" />

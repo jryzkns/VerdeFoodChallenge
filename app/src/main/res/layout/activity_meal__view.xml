@@ -18,6 +18,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:fontFamily="@font/montserrat_bold"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="  Meal"
@@ -31,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:text="Meal Name"
+        android:fontFamily="@font/overpass"
         android:gravity="center"
         android:textColor="#000"
         android:textSize="40dp"
@@ -53,11 +55,13 @@
             android:text="Restaurant is: "
             android:textSize="20dp"
             android:textColor="#000"
+            android:fontFamily="@font/overpass"
             android:layout_marginRight="20dp"/>
 
         <TextView
             android:id="@+id/restName_viewMeal"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:layout_height="match_parent"
             android:text="Restaurant Name "
             android:textSize="20dp"
@@ -77,13 +81,16 @@
             android:text="at: "
             android:textSize="20dp"
             android:textColor="#000"
+            android:fontFamily="@font/overpass"
             android:layout_marginRight="20dp"/>
+
 
         <TextView
             android:id="@+id/restLoc_viewMeal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Restaurant Location "
+            android:fontFamily="@font/helvetica_neue_bold"
             android:textSize="20dp"
             android:textColor="#000"/>
     </LinearLayout>
@@ -100,6 +107,7 @@
             android:gravity="end"
             android:text="commit: "
             android:textSize="20dp"
+            android:fontFamily="@font/overpass"
             android:textColor="#000"
             android:layout_marginRight="20dp"/>
 
@@ -109,6 +117,7 @@
             android:layout_height="match_parent"
             android:text="Meal Descrption"
             android:textSize="20dp"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:textColor="#000"/>
     </LinearLayout>
 

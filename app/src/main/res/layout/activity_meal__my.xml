@@ -18,6 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:fontFamily="@font/montserrat_bold"
             android:text="  Meals"
             android:textColor="@color/word_bar"
             android:textSize="30sp" />
@@ -38,6 +39,7 @@
             android:id="@+id/Search_meal"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:fontFamily="@font/overpass"
             android:layout_weight="1"
             android:gravity="center"
             android:text="Search Meal"
@@ -50,6 +52,7 @@
             android:text="My Meals"
             android:textSize="30dp"
             android:gravity="center"
+            android:fontFamily="@font/overpass"
             android:textColor="#fff"
             android:layout_weight="1"
             android:background="@color/button_selected"/>
@@ -62,6 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/bbutton2"
+        android:fontFamily="@font/helvetica_neue_bold"
         android:text="++ADD NEW MEAL++"
         android:gravity="center"
         android:textSize="40dp"/>

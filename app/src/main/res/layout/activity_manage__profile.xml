@@ -24,6 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Manage My Pledge"
+                android:fontFamily="@font/montserrat_bold"
                 android:textColor="@color/word_bar"
                 android:textSize="30sp" />
 
@@ -38,6 +39,7 @@
         <TextView
             android:id="@+id/change_icon"
             android:layout_width="match_parent"
+            android:fontFamily="@font/overpass"
             android:layout_height="50dp"
             android:background="@color/bbutton2"
             android:text="My icon"
@@ -77,6 +79,7 @@
                     android:id="@+id/upload_icon_button_manage"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:fontFamily="@font/overpass"
                     android:text="upload"
                     android:textSize="18sp" />
 
@@ -87,6 +90,7 @@
                 <Button
                     android:id="@+id/save_icon_button_manage"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/overpass"
                     android:layout_height="40dp"
                     android:background="@color/save_bar"
                     android:text="save"
@@ -104,6 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/bbutton2"
+            android:fontFamily="@font/overpass"
             android:text="My name"
             android:textColor="@color/word_Prifile"
             android:textSize="30sp" />
@@ -131,11 +136,13 @@
                     android:layout_height="30dp"
                     android:text="enter your name"
                     android:textColor="#000"
+                    android:fontFamily="@font/overpass"
                     android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/firstname_change_name_manage"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/helvetica_neue_bold"
                     android:layout_height="40dp"
                     android:hint="Name I." />
 
@@ -184,6 +191,7 @@
             android:layout_height="50dp"
             android:background="@color/bbutton2"
             android:text="My location"
+            android:fontFamily="@font/overpass"
             android:textColor="@color/word_Prifile"
             android:textSize="30sp" />
 
@@ -240,6 +248,7 @@
             android:layout_height="50dp"
             android:background="@color/bbutton2"
             android:text="Delete My Pledge"
+            android:fontFamily="@font/overpass"
             android:textColor="@color/word_Prifile"
             android:textSize="30sp" />
 
