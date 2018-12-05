@@ -1,5 +1,15 @@
 # Green Food Challenge
 
+# IMPORTANT: Why is this app in public domain?
+
+I hope this serves a monument for future CMPT 276 students working on android, not because of how good it looks (it doesn't look good), but because of it's existence and the road we took to get here.
+- I managed to lead this project off of zero experience in both Java and Android; be fearless when you face a new platform that you have never used before
+- Perhaps checking out how we implemented a few things helps with future students knowing how to make a feature working. We went through endless pits trying to get things working that no one should ever go through
+
+this is also by no means good design, it's just one way to get something working. Feel free to get in touch with me if you have any questions, but until then, be happy~
+
+## anyways...
+
 This app is one of the many Green Food Challenge applications created for CMPT 276 Fall 2018.
 Brought to you by the following development team:
 -Jack Zhou (Scrum Master)
